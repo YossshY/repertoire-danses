@@ -1,0 +1,18 @@
+{
+  "name": "repertoire-danses",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "node --disable-warning=ExperimentalWarning --test --test-timeout=180000 scripts/test-migration.mjs",
+    "import": "node --disable-warning=ExperimentalWarning scripts/import-excel.mjs",
+    "compare": "node --disable-warning=ExperimentalWarning scripts/compare-excel-db.mjs",
+    "demo": "node --disable-warning=ExperimentalWarning scripts/demo-server.mjs",
+    "pages": "node --disable-warning=ExperimentalWarning scripts/export-pages.mjs"
+  },
+  "keywords": [],
+  "type": "commonjs",
+  "dependencies": {
+    "exceljs": "^4.4.0"
+  }
+}

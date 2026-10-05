@@ -1,0 +1,7517 @@
+{
+  "mainSheet": "6.079 au 05-04-2026",
+  "merges": [],
+  "mergeCount": 0,
+  "row2546": [
+    {
+      "col": 2,
+      "address": "B2546",
+      "value": "a"
+    },
+    {
+      "col": 7,
+      "address": "G2546",
+      "value": "."
+    },
+    {
+      "col": 9,
+      "address": "I2546",
+      "value": "?"
+    },
+    {
+      "col": 10,
+      "address": "J2546",
+      "value": "."
+    },
+    {
+      "col": 11,
+      "address": "K2546",
+      "value": "IDJ"
+    },
+    {
+      "col": 12,
+      "address": "L2546",
+      "value": "https://youtu.be/6OAaQXh60WE?si=mGgwCMnykX2FbF9V"
+    },
+    {
+      "col": 13,
+      "address": "M2546",
+      "value": "."
+    },
+    {
+      "col": 14,
+      "address": "N2546",
+      "value": "Fr"
+    },
+    {
+      "col": 16,
+      "address": "P2546",
+      "value": "S"
+    },
+    {
+      "col": 23,
+      "address": "W2546",
+      "value": "Have I Told You"
+    },
+    {
+      "col": 26,
+      "address": "Z2546",
+      "value": "Have I Told You Lately That I Love You"
+    },
+    {
+      "col": 27,
+      "address": "AA2546",
+      "value": "Elizma Theron"
+    },
+    {
+      "col": 33,
+      "address": "AG2546",
+      "value": "JOJO Team (NL) Joke Mozes & John Warnars"
+    },
+    {
+      "col": 34,
+      "address": "AH2546",
+      "value": "2018-08-01"
+    },
+    {
+      "col": 35,
+      "address": "AI2546",
+      "value": "Novice"
+    },
+    {
+      "col": 48,
+      "address": "AV2546",
+      "value": "A.D.C.D."
+    },
+    {
+      "col": 61,
+      "address": "BI2546",
+      "value": "Rebelle's"
+    },
+    {
+      "col": 74,
+      "address": "BV2546",
+      "value": "DS"
+    },
+    {
+      "col": 76,
+      "address": "BX2546",
+      "value": "JUMPERKE"
+    },
+    {
+      "col": 95,
+      "address": "CQ2546",
+      "value": "a"
+    },
+    {
+      "col": 98,
+      "address": "CT2546",
+      "value": "Carin Care"
+    },
+    {
+      "col": 100,
+      "address": "CV2546",
+      "value": "Texas Twixy"
+    },
+    {
+      "col": 102,
+      "address": "CX2546",
+      "value": "CDH"
+    },
+    {
+      "col": 106,
+      "address": "DB2546",
+      "value": "ELKE"
+    },
+    {
+      "col": 112,
+      "address": "DH2546",
+      "value": "1900-06-24"
+    },
+    {
+      "col": 114,
+      "address": "DJ2546",
+      "value": "DRP"
+    },
+    {
+      "col": 120,
+      "address": "DP2546",
+      "value": "ConnyLee"
+    },
+    {
+      "col": 130,
+      "address": "DZ2546",
+      "value": "McBright"
+    },
+    {
+      "col": 138,
+      "address": "EH2546",
+      "value": "BCB"
+    },
+    {
+      "col": 140,
+      "address": "EJ2546",
+      "value": "TRB"
+    },
+    {
+      "col": 145,
+      "address": "EO2546",
+      "value": "BBC"
+    },
+    {
+      "col": 166,
+      "address": "FJ2546",
+      "value": "Miss Lana"
+    }
+  ],
+  "mainColumns": [
+    {
+      "col": 1,
+      "letter": "A",
+      "header": "DATE\n +/- 1ère x\nVue",
+      "filled": 6427,
+      "distinct": 1433,
+      "formulas": 0,
+      "kinds": {
+        "text": 1,
+        "date": 6426
+      },
+      "top": [
+        {
+          "value": "2020-07-14",
+          "count": 260
+        },
+        {
+          "value": "2010-04-02",
+          "count": 189
+        },
+        {
+          "value": "2000-01-01",
+          "count": 125
+        },
+        {
+          "value": "2025-07-13",
+          "count": 111
+        },
+        {
+          "value": "2026-03-09",
+          "count": 109
+        },
+        {
+          "value": "2025-11-04",
+          "count": 69
+        },
+        {
+          "value": "2025-12-11",
+          "count": 69
+        },
+        {
+          "value": "2025-09-04",
+          "count": 67
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 2,
+      "letter": "B",
+      "header": null,
+      "filled": 5538,
+      "distinct": 2,
+      "formulas": 0,
+      "kinds": {
+        "text": 5538
+      },
+      "top": [
+        {
+          "value": "a",
+          "count": 5537
+        },
+        {
+          "value": "Colonne2",
+          "count": 1
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 3,
+      "letter": "C",
+      "header": null,
+      "filled": 886,
+      "distinct": 12,
+      "formulas": 0,
+      "kinds": {
+        "text": 886
+      },
+      "top": [
+        {
+          "value": "Faur",
+          "count": 688
+        },
+        {
+          "value": "T.H.",
+          "count": 135
+        },
+        {
+          "value": "Ghys",
+          "count": 31
+        },
+        {
+          "value": "?",
+          "count": 9
+        },
+        {
+          "value": "Joëlle",
+          "count": 7
+        },
+        {
+          "value": "Marco",
+          "count": 6
+        },
+        {
+          "value": "Marion",
+          "count": 3
+        },
+        {
+          "value": "Chalon",
+          "count": 2
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 4,
+      "letter": "D",
+      "header": null,
+      "filled": 886,
+      "distinct": 544,
+      "formulas": 0,
+      "kinds": {
+        "text": 7,
+        "date": 879
+      },
+      "top": [
+        {
+          "value": "2017-04-17",
+          "count": 7
+        },
+        {
+          "value": "2014-02-19",
+          "count": 6
+        },
+        {
+          "value": "?",
+          "count": 6
+        },
+        {
+          "value": "2018-05-27",
+          "count": 5
+        },
+        {
+          "value": "2014-11-21",
+          "count": 5
+        },
+        {
+          "value": "2012-09-19",
+          "count": 4
+        },
+        {
+          "value": "2017-11-30",
+          "count": 4
+        },
+        {
+          "value": "2014-11-29",
+          "count": 4
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 5,
+      "letter": "E",
+      "header": null,
+      "filled": 878,
+      "distinct": 15,
+      "formulas": 0,
+      "kinds": {
+        "text": 5,
+        "number": 873
+      },
+      "top": [
+        {
+          "value": "8",
+          "count": 652
+        },
+        {
+          "value": "7",
+          "count": 106
+        },
+        {
+          "value": "2",
+          "count": 58
+        },
+        {
+          "value": "13",
+          "count": 31
+        },
+        {
+          "value": "3",
+          "count": 6
+        },
+        {
+          "value": "5",
+          "count": 6
+        },
+        {
+          "value": "P",
+          "count": 4
+        },
+        {
+          "value": "10",
+          "count": 3
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 6,
+      "letter": "F",
+      "header": "Lien Lonestar",
+      "filled": 889,
+      "distinct": 822,
+      "formulas": 0,
+      "kinds": {
+        "text": 68,
+        "hyperlink": 821
+      },
+      "top": [
+        {
+          "value": "en mp4",
+          "count": 58
+        },
+        {
+          "value": "?",
+          "count": 6
+        },
+        {
+          "value": "Supprimé",
+          "count": 2
+        },
+        {
+          "value": "{\"text\":\"Bop The B\",\"hyperlink\":\"https://youtu.be/CMVTuccXz4c\"}",
+          "count": 2
+        },
+        {
+          "value": "{\"text\":\"Cuz You!\",\"hyperlink\":\"https://youtu.be/0AoJQ7fyF08\"}",
+          "count": 2
+        },
+        {
+          "value": "{\"text\":\"Jambalaya\",\"hyperlink\":\"https://youtu.be/gL2n7jiDYdw\"}",
+          "count": 2
+        },
+        {
+          "value": "{\"text\":\"My Special Prayer\",\"hyperlink\":\"http://youtu.be/WTN3kxa-46w\"}",
+          "count": 2
+        },
+        {
+          "value": "Colonne6",
+          "count": 1
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 7,
+      "letter": "G",
+      "header": null,
+      "filled": 6394,
+      "distinct": 3,
+      "formulas": 0,
+      "kinds": {
+        "text": 6393,
+        "hyperlink": 1
+      },
+      "top": [
+        {
+          "value": ".",
+          "count": 6392
+        },
+        {
+          "value": "Colonne7",
+          "count": 1
+        },
+        {
+          "value": "{\"text\":\"https://youtu.be/SRYojMlO1Jk\",\"hyperlink\":\"https://youtu.be/SRYojMlO...",
+          "count": 1
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 8,
+      "letter": "H",
+      "header": null,
+      "filled": 1188,
+      "distinct": 3,
+      "formulas": 0,
+      "kinds": {
+        "text": 1188
+      },
+      "top": [
+        {
+          "value": "Fr",
+          "count": 803
+        },
+        {
+          "value": "x",
+          "count": 384
+        },
+        {
+          "value": "Colonne8",
+          "count": 1
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 9,
+      "letter": "I",
+      "header": "CopperKnob Lien",
+      "filled": 6035,
+      "distinct": 3514,
+      "formulas": 0,
+      "kinds": {
+        "text": 1149,
+        "hyperlink": 4792,
+        "url": 94
+      },
+      "top": [
+        {
+          "value": "?",
+          "count": 1146
+        },
+        {
+          "value": "https://www.copperknob.co.uk/fr/stepsheets/44234/tush-push-fr",
+          "count": 24
+        },
+        {
+          "value": "{\"text\":\"https://www.copperknob.co.uk/stepsheets/59086/cruisin\",\"hyperlink\":\"...",
+          "count": 22
+        },
+        {
+          "value": "{\"text\":\"https://www.copperknob.co.uk/stepsheets/159579/16-step-aka-rebel-str...",
+          "count": 20
+        },
+        {
+          "value": "{\"text\":\"https://www.copperknob.co.uk/fr/stepsheets/103567/bucket-seats-p\",\"h...",
+          "count": 19
+        },
+        {
+          "value": "{\"text\":\"https://www.copperknob.co.uk/stepsheets/spring-swing-ID40259.aspx\",\"...",
+          "count": 18
+        },
+        {
+          "value": "{\"text\":\"http://www.copperknob.co.uk/stepsheets/dick-and-genevas-western-barn...",
+          "count": 18
+        },
+        {
+          "value": "{\"text\":\"https://www.copperknob.co.uk/fr/stepsheets/161476/hey-baby-p\",\"hyper...",
+          "count": 17
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 10,
+      "letter": "J",
+      "header": null,
+      "filled": 6410,
+      "distinct": 3,
+      "formulas": 0,
+      "kinds": {
+        "text": 6409,
+        "hyperlink": 1
+      },
+      "top": [
+        {
+          "value": ".",
+          "count": 6408
+        },
+        {
+          "value": "Colonne10",
+          "count": 1
+        },
+        {
+          "value": "{\"text\":\"https://youtu.be/SRYojMlO1Jk\",\"hyperlink\":\"https://youtu.be/SRYojMlO...",
+          "count": 1
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 11,
+      "letter": "K",
+      "header": null,
+      "filled": 6396,
+      "distinct": 74,
+      "formulas": 0,
+      "kinds": {
+        "text": 6396
+      },
+      "top": [
+        {
+          "value": "Ok",
+          "count": 3769
+        },
+        {
+          "value": "Chin.",
+          "count": 855
+        },
+        {
+          "value": "A.G.",
+          "count": 381
+        },
+        {
+          "value": "A & S",
+          "count": 258
+        },
+        {
+          "value": "D.S.",
+          "count": 125
+        },
+        {
+          "value": "Faur",
+          "count": 106
+        },
+        {
+          "value": "frederab",
+          "count": 100
+        },
+        {
+          "value": "IDJ",
+          "count": 95
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 12,
+      "letter": "L",
+      "header": "Lien YouTube",
+      "filled": 6020,
+      "distinct": 4525,
+      "formulas": 0,
+      "kinds": {
+        "text": 108,
+        "hyperlink": 5737,
+        "url": 175
+      },
+      "top": [
+        {
+          "value": "?",
+          "count": 96
+        },
+        {
+          "value": "{\"text\":\"https://youtu.be/gTiUMuZz_kE\",\"hyperlink\":\"https://youtu.be/gTiUMuZz...",
+          "count": 55
+        },
+        {
+          "value": "https://youtu.be/XRYOqjtfXkc?si=oDFGnAjZDDCdsOjA",
+          "count": 46
+        },
+        {
+          "value": "{\"text\":\"https://youtu.be/J1WYDnSccP4\",\"hyperlink\":\"https://youtu.be/J1WYDnSc...",
+          "count": 21
+        },
+        {
+          "value": "https://youtu.be/K5Uu3RvPBG4?si=or1--pSP172Lmzt2",
+          "count": 20
+        },
+        {
+          "value": "{\"text\":\"https://youtu.be/Bv_lCiVaJzE\",\"hyperlink\":\"https://youtu.be/Bv_lCiVa...",
+          "count": 19
+        },
+        {
+          "value": "{\"text\":\"https://youtu.be/Lsyy2SlAYMU?si=39jS8w1XNlzaa1Gl\",\"hyperlink\":\"https...",
+          "count": 16
+        },
+        {
+          "value": "{\"text\":\"https://youtu.be/-Fz7DRZG7U4\",\"hyperlink\":\"https://youtu.be/-Fz7DRZG...",
+          "count": 14
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 13,
+      "letter": "M",
+      "header": null,
+      "filled": 6413,
+      "distinct": 4,
+      "formulas": 0,
+      "kinds": {
+        "text": 6412,
+        "hyperlink": 1
+      },
+      "top": [
+        {
+          "value": ".",
+          "count": 6410
+        },
+        {
+          "value": "Colonne13",
+          "count": 1
+        },
+        {
+          "value": "{\"text\":\"https://youtu.be/SRYojMlO1Jk\",\"hyperlink\":\"https://youtu.be/SRYojMlO...",
+          "count": 1
+        },
+        {
+          "value": ";",
+          "count": 1
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 14,
+      "letter": "N",
+      "header": "PDF en FR",
+      "filled": 6410,
+      "distinct": 9,
+      "formulas": 0,
+      "kinds": {
+        "text": 6410
+      },
+      "top": [
+        {
+          "value": "Fr",
+          "count": 3601
+        },
+        {
+          "value": "x",
+          "count": 2662
+        },
+        {
+          "value": "a",
+          "count": 110
+        },
+        {
+          "value": "pp",
+          "count": 23
+        },
+        {
+          "value": "xa",
+          "count": 5
+        },
+        {
+          "value": "rebel",
+          "count": 3
+        },
+        {
+          "value": "xx",
+          "count": 3
+        },
+        {
+          "value": "v",
+          "count": 2
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 15,
+      "letter": "O",
+      "header": "?",
+      "filled": 85,
+      "distinct": 8,
+      "formulas": 0,
+      "kinds": {
+        "text": 85
+      },
+      "top": [
+        {
+          "value": "?",
+          "count": 38
+        },
+        {
+          "value": "I",
+          "count": 26
+        },
+        {
+          "value": "z",
+          "count": 9
+        },
+        {
+          "value": "w",
+          "count": 6
+        },
+        {
+          "value": "A",
+          "count": 2
+        },
+        {
+          "value": "a",
+          "count": 2
+        },
+        {
+          "value": "Colonne15",
+          "count": 1
+        },
+        {
+          "value": "cdcm",
+          "count": 1
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 16,
+      "letter": "P",
+      "header": null,
+      "filled": 6418,
+      "distinct": 6,
+      "formulas": 0,
+      "kinds": {
+        "text": 6418
+      },
+      "top": [
+        {
+          "value": "R",
+          "count": 3863
+        },
+        {
+          "value": "O",
+          "count": 886
+        },
+        {
+          "value": "V",
+          "count": 877
+        },
+        {
+          "value": "X",
+          "count": 716
+        },
+        {
+          "value": "S",
+          "count": 75
+        },
+        {
+          "value": "Colonne16",
+          "count": 1
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 17,
+      "letter": "Q",
+      "header": "P",
+      "filled": 1521,
+      "distinct": 2,
+      "formulas": 0,
+      "kinds": {
+        "text": 1521
+      },
+      "top": [
+        {
+          "value": "P",
+          "count": 1520
+        },
+        {
+          "value": "Colonne17",
+          "count": 1
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 18,
+      "letter": "R",
+      "header": "PP",
+      "filled": 1523,
+      "distinct": 4,
+      "formulas": 0,
+      "kinds": {
+        "text": 1523
+      },
+      "top": [
+        {
+          "value": "P",
+          "count": 804
+        },
+        {
+          "value": "PP",
+          "count": 716
+        },
+        {
+          "value": "PPP",
+          "count": 2
+        },
+        {
+          "value": "Colonne18",
+          "count": 1
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 19,
+      "letter": "S",
+      "header": "Gr2",
+      "filled": 91,
+      "distinct": 4,
+      "formulas": 0,
+      "kinds": {
+        "text": 91
+      },
+      "top": [
+        {
+          "value": "E",
+          "count": 77
+        },
+        {
+          "value": "nl",
+          "count": 10
+        },
+        {
+          "value": "A",
+          "count": 3
+        },
+        {
+          "value": "Colonne19",
+          "count": 1
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 20,
+      "letter": "T",
+      "header": "Gr1",
+      "filled": 753,
+      "distinct": 4,
+      "formulas": 0,
+      "kinds": {
+        "text": 753
+      },
+      "top": [
+        {
+          "value": "B",
+          "count": 749
+        },
+        {
+          "value": "C",
+          "count": 2
+        },
+        {
+          "value": "Colonne20",
+          "count": 1
+        },
+        {
+          "value": "E",
+          "count": 1
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 21,
+      "letter": "U",
+      "header": "Gro1",
+      "filled": 48,
+      "distinct": 2,
+      "formulas": 0,
+      "kinds": {
+        "text": 48
+      },
+      "top": [
+        {
+          "value": "a",
+          "count": 47
+        },
+        {
+          "value": "Colonne21",
+          "count": 1
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 22,
+      "letter": "V",
+      "header": "Type\nde\ndanse",
+      "filled": 1868,
+      "distinct": 13,
+      "formulas": 0,
+      "kinds": {
+        "text": 1868
+      },
+      "top": [
+        {
+          "value": "Partner",
+          "count": 1520
+        },
+        {
+          "value": "NC",
+          "count": 120
+        },
+        {
+          "value": "Catalan",
+          "count": 100
+        },
+        {
+          "value": "Joker",
+          "count": 57
+        },
+        {
+          "value": "Contra",
+          "count": 44
+        },
+        {
+          "value": "Cercle",
+          "count": 12
+        },
+        {
+          "value": "Celtic",
+          "count": 8
+        },
+        {
+          "value": "Polka",
+          "count": 2
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 23,
+      "letter": "W",
+      "header": "DANSES (Suggérées)",
+      "filled": 6428,
+      "distinct": 4224,
+      "formulas": 0,
+      "kinds": {
+        "text": 6425,
+        "number": 3
+      },
+      "top": [
+        {
+          "value": "?",
+          "count": 301
+        },
+        {
+          "value": "The Sway (P) PG",
+          "count": 55
+        },
+        {
+          "value": "Two-Step (P) PG-M FF",
+          "count": 48
+        },
+        {
+          "value": "Tush Push",
+          "count": 25
+        },
+        {
+          "value": "Crusin' For Two (P) PG",
+          "count": 22
+        },
+        {
+          "value": "Wings Of Love (P) PG",
+          "count": 22
+        },
+        {
+          "value": "Reminisce (P) PG",
+          "count": 20
+        },
+        {
+          "value": "Single Waltz Partner (P) PG",
+          "count": 20
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 24,
+      "letter": "X",
+      "header": null,
+      "filled": 114,
+      "distinct": 2,
+      "formulas": 0,
+      "kinds": {
+        "text": 114
+      },
+      "top": [
+        {
+          "value": "a",
+          "count": 113
+        },
+        {
+          "value": "Colonne28",
+          "count": 1
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 25,
+      "letter": "Y",
+      "header": null,
+      "filled": 1,
+      "distinct": 1,
+      "formulas": 0,
+      "kinds": {
+        "text": 1
+      },
+      "top": [
+        {
+          "value": "Colonne29",
+          "count": 1
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 26,
+      "letter": "Z",
+      "header": "CHANSONS",
+      "filled": 6428,
+      "distinct": 4156,
+      "formulas": 0,
+      "kinds": {
+        "text": 6423,
+        "number": 5
+      },
+      "top": [
+        {
+          "value": "Good Hearted Woman",
+          "count": 16
+        },
+        {
+          "value": "Somewhere Between",
+          "count": 16
+        },
+        {
+          "value": "Boot Scootin' Boogie",
+          "count": 14
+        },
+        {
+          "value": "Don't Be Cruel",
+          "count": 14
+        },
+        {
+          "value": "Heaven In My Woman's Eyes",
+          "count": 14
+        },
+        {
+          "value": "Have You Ever Seen The Rain?",
+          "count": 13
+        },
+        {
+          "value": "Today I Started Loving You Again",
+          "count": 12
+        },
+        {
+          "value": "You're My Best Friend",
+          "count": 12
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 27,
+      "letter": "AA",
+      "header": "INTERPRÈTES",
+      "filled": 6422,
+      "distinct": 2191,
+      "formulas": 0,
+      "kinds": {
+        "text": 6422
+      },
+      "top": [
+        {
+          "value": "Lucky Jordan",
+          "count": 119
+        },
+        {
+          "value": "Elvis Presley",
+          "count": 111
+        },
+        {
+          "value": "Alan Jackson",
+          "count": 105
+        },
+        {
+          "value": "The Mavericks",
+          "count": 75
+        },
+        {
+          "value": "Derek Ryan",
+          "count": 56
+        },
+        {
+          "value": "George Strait",
+          "count": 54
+        },
+        {
+          "value": "Dave Sheriff",
+          "count": 52
+        },
+        {
+          "value": "Shania Twain",
+          "count": 51
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 28,
+      "letter": "AB",
+      "header": null,
+      "filled": 242,
+      "distinct": 10,
+      "formulas": 0,
+      "kinds": {
+        "text": 242
+      },
+      "top": [
+        {
+          "value": "a",
+          "count": 114
+        },
+        {
+          "value": "Q",
+          "count": 40
+        },
+        {
+          "value": "x",
+          "count": 36
+        },
+        {
+          "value": "w",
+          "count": 13
+        },
+        {
+          "value": "y",
+          "count": 12
+        },
+        {
+          "value": "b",
+          "count": 10
+        },
+        {
+          "value": "W",
+          "count": 7
+        },
+        {
+          "value": "Y",
+          "count": 6
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 29,
+      "letter": "AC",
+      "header": "PAS",
+      "filled": 5907,
+      "distinct": 69,
+      "formulas": 0,
+      "kinds": {
+        "text": 32,
+        "number": 5875
+      },
+      "top": [
+        {
+          "value": "32",
+          "count": 2933
+        },
+        {
+          "value": "64",
+          "count": 1139
+        },
+        {
+          "value": "48",
+          "count": 663
+        },
+        {
+          "value": "40",
+          "count": 176
+        },
+        {
+          "value": "16",
+          "count": 138
+        },
+        {
+          "value": "24",
+          "count": 133
+        },
+        {
+          "value": "36",
+          "count": 79
+        },
+        {
+          "value": "56",
+          "count": 64
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 30,
+      "letter": "AD",
+      "header": "MUR",
+      "filled": 5889,
+      "distinct": 8,
+      "formulas": 0,
+      "kinds": {
+        "text": 31,
+        "number": 5858
+      },
+      "top": [
+        {
+          "value": "4",
+          "count": 2921
+        },
+        {
+          "value": "0",
+          "count": 1401
+        },
+        {
+          "value": "2",
+          "count": 1313
+        },
+        {
+          "value": "1",
+          "count": 210
+        },
+        {
+          "value": "?",
+          "count": 28
+        },
+        {
+          "value": "3",
+          "count": 14
+        },
+        {
+          "value": "Colonne35",
+          "count": 1
+        },
+        {
+          "value": "2n",
+          "count": 1
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 31,
+      "letter": "AE",
+      "header": "TAG",
+      "filled": 1403,
+      "distinct": 567,
+      "formulas": 0,
+      "kinds": {
+        "text": 1399,
+        "number": 4
+      },
+      "top": [
+        {
+          "value": "Phrasé",
+          "count": 177
+        },
+        {
+          "value": "M 4-12h",
+          "count": 33
+        },
+        {
+          "value": "M 2-6h",
+          "count": 32
+        },
+        {
+          "value": "?",
+          "count": 22
+        },
+        {
+          "value": "M 3-9h",
+          "count": 20
+        },
+        {
+          "value": "M 3-3h",
+          "count": 20
+        },
+        {
+          "value": "1",
+          "count": 19
+        },
+        {
+          "value": "M 2-12h",
+          "count": 19
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 32,
+      "letter": "AF",
+      "header": "RESTART",
+      "filled": 1467,
+      "distinct": 492,
+      "formulas": 0,
+      "kinds": {
+        "text": 1467
+      },
+      "top": [
+        {
+          "value": "M 3-6h",
+          "count": 53
+        },
+        {
+          "value": "M 3-12h",
+          "count": 52
+        },
+        {
+          "value": "M 3",
+          "count": 45
+        },
+        {
+          "value": "M 5-12h",
+          "count": 43
+        },
+        {
+          "value": "M 4-12h",
+          "count": 38
+        },
+        {
+          "value": "M 5",
+          "count": 33
+        },
+        {
+          "value": "M 4-6h",
+          "count": 33
+        },
+        {
+          "value": "M 5-3h",
+          "count": 29
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 33,
+      "letter": "AG",
+      "header": "CHORÉGRAPHES",
+      "filled": 5894,
+      "distinct": 1750,
+      "formulas": 0,
+      "kinds": {
+        "text": 5894
+      },
+      "top": [
+        {
+          "value": "Inconnu",
+          "count": 224
+        },
+        {
+          "value": "Daisy Simons (BEL)",
+          "count": 119
+        },
+        {
+          "value": "Dan Albro (USA)",
+          "count": 107
+        },
+        {
+          "value": "Maggie Gallagher (UK)",
+          "count": 98
+        },
+        {
+          "value": "Laurent Chalon (BEL)",
+          "count": 96
+        },
+        {
+          "value": "Rob Fowler (UK.ESP)",
+          "count": 77
+        },
+        {
+          "value": "Séverine Fillion (FR)",
+          "count": 63
+        },
+        {
+          "value": "Robbie McGowan Hickie (UK)",
+          "count": 56
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 34,
+      "letter": "AH",
+      "header": "DATE\n+/-\nChorée",
+      "filled": 5875,
+      "distinct": 392,
+      "formulas": 0,
+      "kinds": {
+        "text": 96,
+        "date": 5779
+      },
+      "top": [
+        {
+          "value": "2006-12-01",
+          "count": 85
+        },
+        {
+          "value": "?",
+          "count": 75
+        },
+        {
+          "value": "1993-12-01",
+          "count": 63
+        },
+        {
+          "value": "2014-11-01",
+          "count": 58
+        },
+        {
+          "value": "2014-07-01",
+          "count": 52
+        },
+        {
+          "value": "2016-03-01",
+          "count": 47
+        },
+        {
+          "value": "2017-03-01",
+          "count": 45
+        },
+        {
+          "value": "2009-12-01",
+          "count": 43
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 35,
+      "letter": "AI",
+      "header": "NIVEAU",
+      "filled": 5899,
+      "distinct": 7,
+      "formulas": 0,
+      "kinds": {
+        "text": 5899
+      },
+      "top": [
+        {
+          "value": "Novice",
+          "count": 2110
+        },
+        {
+          "value": "Intermédiaire",
+          "count": 1969
+        },
+        {
+          "value": "Débutant",
+          "count": 1720
+        },
+        {
+          "value": "Confirmé",
+          "count": 69
+        },
+        {
+          "value": "?",
+          "count": 24
+        },
+        {
+          "value": "Avancé",
+          "count": 6
+        },
+        {
+          "value": "Colonne40",
+          "count": 1
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 36,
+      "letter": "AJ",
+      "header": "Type\nde\ndanse",
+      "filled": 1868,
+      "distinct": 13,
+      "formulas": 0,
+      "kinds": {
+        "text": 1868
+      },
+      "top": [
+        {
+          "value": "Partner",
+          "count": 1520
+        },
+        {
+          "value": "NC",
+          "count": 120
+        },
+        {
+          "value": "Catalan",
+          "count": 100
+        },
+        {
+          "value": "Joker",
+          "count": 57
+        },
+        {
+          "value": "Contra",
+          "count": 44
+        },
+        {
+          "value": "Cercle",
+          "count": 12
+        },
+        {
+          "value": "Celtic",
+          "count": 8
+        },
+        {
+          "value": "Polka",
+          "count": 2
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 37,
+      "letter": "AK",
+      "header": "GENRE\nde\ndanse",
+      "filled": 425,
+      "distinct": 18,
+      "formulas": 0,
+      "kinds": {
+        "text": 425
+      },
+      "top": [
+        {
+          "value": "Valse",
+          "count": 165
+        },
+        {
+          "value": "NC",
+          "count": 139
+        },
+        {
+          "value": "Joker",
+          "count": 57
+        },
+        {
+          "value": "Polka",
+          "count": 15
+        },
+        {
+          "value": "Valse L",
+          "count": 15
+        },
+        {
+          "value": "Rumba",
+          "count": 13
+        },
+        {
+          "value": "Tango",
+          "count": 6
+        },
+        {
+          "value": "Slow",
+          "count": 4
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 38,
+      "letter": "AL",
+      "header": "VALSE",
+      "filled": 99,
+      "distinct": 2,
+      "formulas": 0,
+      "kinds": {
+        "text": 99
+      },
+      "top": [
+        {
+          "value": "A",
+          "count": 98
+        },
+        {
+          "value": "Colonne43",
+          "count": 1
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 39,
+      "letter": "AM",
+      "header": "N°",
+      "filled": 1430,
+      "distinct": 1429,
+      "formulas": 0,
+      "kinds": {
+        "text": 1,
+        "number": 1429
+      },
+      "top": [
+        {
+          "value": "986",
+          "count": 2
+        },
+        {
+          "value": "Colonne44",
+          "count": 1
+        },
+        {
+          "value": "1",
+          "count": 1
+        },
+        {
+          "value": "2",
+          "count": 1
+        },
+        {
+          "value": "4",
+          "count": 1
+        },
+        {
+          "value": "3",
+          "count": 1
+        },
+        {
+          "value": "5",
+          "count": 1
+        },
+        {
+          "value": "6",
+          "count": 1
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 40,
+      "letter": "AN",
+      "header": "à Voir\nA",
+      "filled": 10,
+      "distinct": 3,
+      "formulas": 0,
+      "kinds": {
+        "text": 10
+      },
+      "top": [
+        {
+          "value": "A",
+          "count": 8
+        },
+        {
+          "value": "Colonne45",
+          "count": 1
+        },
+        {
+          "value": "a",
+          "count": 1
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 41,
+      "letter": "AO",
+      "header": "DernièreRévision     \nDates",
+      "filled": 170,
+      "distinct": 30,
+      "formulas": 0,
+      "kinds": {
+        "text": 1,
+        "date": 169
+      },
+      "top": [
+        {
+          "value": "2026-09-02",
+          "count": 27
+        },
+        {
+          "value": "2026-05-28",
+          "count": 20
+        },
+        {
+          "value": "2026-09-03",
+          "count": 15
+        },
+        {
+          "value": "2026-03-19",
+          "count": 11
+        },
+        {
+          "value": "2026-04-15",
+          "count": 9
+        },
+        {
+          "value": "2026-06-04",
+          "count": 9
+        },
+        {
+          "value": "2025-08-27",
+          "count": 7
+        },
+        {
+          "value": "2026-02-19",
+          "count": 7
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 42,
+      "letter": "AP",
+      "header": null,
+      "filled": 18,
+      "distinct": 3,
+      "formulas": 0,
+      "kinds": {
+        "text": 18
+      },
+      "top": [
+        {
+          "value": "b",
+          "count": 10
+        },
+        {
+          "value": "a",
+          "count": 7
+        },
+        {
+          "value": "Colonne47",
+          "count": 1
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 43,
+      "letter": "AQ",
+      "header": "VIDEO",
+      "filled": 143,
+      "distinct": 2,
+      "formulas": 0,
+      "kinds": {
+        "text": 143
+      },
+      "top": [
+        {
+          "value": "V",
+          "count": 142
+        },
+        {
+          "value": "Colonne48",
+          "count": 1
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 44,
+      "letter": "AR",
+      "header": "Vu ou Non Vu",
+      "filled": 16,
+      "distinct": 2,
+      "formulas": 0,
+      "kinds": {
+        "text": 16
+      },
+      "top": [
+        {
+          "value": "a",
+          "count": 15
+        },
+        {
+          "value": "Colonne49",
+          "count": 1
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 45,
+      "letter": "AS",
+      "header": "Fléron\nEzia Date\n1x",
+      "filled": 112,
+      "distinct": 42,
+      "formulas": 0,
+      "kinds": {
+        "text": 4,
+        "date": 108
+      },
+      "top": [
+        {
+          "value": "2025-01-03",
+          "count": 35
+        },
+        {
+          "value": "2025-01-29",
+          "count": 12
+        },
+        {
+          "value": "2023-10-11",
+          "count": 4
+        },
+        {
+          "value": "2023-11-15",
+          "count": 4
+        },
+        {
+          "value": "2025-03-12",
+          "count": 4
+        },
+        {
+          "value": "2024-02-14",
+          "count": 3
+        },
+        {
+          "value": "A",
+          "count": 3
+        },
+        {
+          "value": "2023-09-14",
+          "count": 3
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 46,
+      "letter": "AT",
+      "header": "Fléron\nEzia Date\nDernière x",
+      "filled": 541,
+      "distinct": 102,
+      "formulas": 0,
+      "kinds": {
+        "text": 2,
+        "date": 539
+      },
+      "top": [
+        {
+          "value": "2024-11-27",
+          "count": 44
+        },
+        {
+          "value": "2025-01-03",
+          "count": 35
+        },
+        {
+          "value": "2025-03-26",
+          "count": 23
+        },
+        {
+          "value": "2024-04-24",
+          "count": 19
+        },
+        {
+          "value": "2024-05-29",
+          "count": 15
+        },
+        {
+          "value": "2025-03-12",
+          "count": 14
+        },
+        {
+          "value": "2024-06-05",
+          "count": 14
+        },
+        {
+          "value": "2024-08-21",
+          "count": 12
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 47,
+      "letter": "AU",
+      "header": "Fléron Ezia",
+      "filled": 860,
+      "distinct": 3,
+      "formulas": 0,
+      "kinds": {
+        "text": 860
+      },
+      "top": [
+        {
+          "value": "Fléron",
+          "count": 858
+        },
+        {
+          "value": "Colonne52",
+          "count": 1
+        },
+        {
+          "value": "x",
+          "count": 1
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 48,
+      "letter": "AV",
+      "header": "The American Dream Country Dancers",
+      "filled": 4746,
+      "distinct": 3,
+      "formulas": 0,
+      "kinds": {
+        "text": 4746
+      },
+      "top": [
+        {
+          "value": "x",
+          "count": 3511
+        },
+        {
+          "value": "A.D.C.D.",
+          "count": 1234
+        },
+        {
+          "value": "Colonne53",
+          "count": 1
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 49,
+      "letter": "AW",
+      "header": "Lonestar",
+      "filled": 4526,
+      "distinct": 3,
+      "formulas": 0,
+      "kinds": {
+        "text": 4526
+      },
+      "top": [
+        {
+          "value": "x",
+          "count": 3522
+        },
+        {
+          "value": "Lonestar",
+          "count": 1003
+        },
+        {
+          "value": "Colonne54",
+          "count": 1
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 50,
+      "letter": "AX",
+      "header": "Riverside DATE dernière fois VUE",
+      "filled": 233,
+      "distinct": 76,
+      "formulas": 0,
+      "kinds": {
+        "text": 1,
+        "date": 232
+      },
+      "top": [
+        {
+          "value": "2023-03-13",
+          "count": 12
+        },
+        {
+          "value": "2022-11-07",
+          "count": 12
+        },
+        {
+          "value": "2023-03-09",
+          "count": 11
+        },
+        {
+          "value": "2021-07-12",
+          "count": 9
+        },
+        {
+          "value": "2024-02-05",
+          "count": 9
+        },
+        {
+          "value": "2023-02-20",
+          "count": 9
+        },
+        {
+          "value": "2023-02-13",
+          "count": 7
+        },
+        {
+          "value": "2023-01-16",
+          "count": 7
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 51,
+      "letter": "AY",
+      "header": "Riverside Country Club",
+      "filled": 4130,
+      "distinct": 3,
+      "formulas": 0,
+      "kinds": {
+        "text": 4130
+      },
+      "top": [
+        {
+          "value": "x",
+          "count": 3524
+        },
+        {
+          "value": "Riverside",
+          "count": 605
+        },
+        {
+          "value": "Colonne56",
+          "count": 1
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 52,
+      "letter": "AZ",
+      "header": "Hotton CSA",
+      "filled": 10,
+      "distinct": 2,
+      "formulas": 0,
+      "kinds": {
+        "text": 10
+      },
+      "top": [
+        {
+          "value": "a",
+          "count": 9
+        },
+        {
+          "value": "Colonne562",
+          "count": 1
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 53,
+      "letter": "BA",
+      "header": "NEW HERVE date",
+      "filled": 83,
+      "distinct": 21,
+      "formulas": 0,
+      "kinds": {
+        "text": 1,
+        "date": 82
+      },
+      "top": [
+        {
+          "value": "2023-04-05",
+          "count": 22
+        },
+        {
+          "value": "2023-05-17",
+          "count": 8
+        },
+        {
+          "value": "2023-02-15",
+          "count": 6
+        },
+        {
+          "value": "2023-02-08",
+          "count": 5
+        },
+        {
+          "value": "2023-01-18",
+          "count": 5
+        },
+        {
+          "value": "2022-11-16",
+          "count": 5
+        },
+        {
+          "value": "2022-12-14",
+          "count": 5
+        },
+        {
+          "value": "2023-03-22",
+          "count": 4
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 54,
+      "letter": "BB",
+      "header": "NEW HERVE",
+      "filled": 3656,
+      "distinct": 3,
+      "formulas": 0,
+      "kinds": {
+        "text": 3656
+      },
+      "top": [
+        {
+          "value": "x",
+          "count": 3521
+        },
+        {
+          "value": "HERVE",
+          "count": 134
+        },
+        {
+          "value": "Colonne58",
+          "count": 1
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 55,
+      "letter": "BC",
+      "header": "Démo Ezia 01-10-23",
+      "filled": 16,
+      "distinct": 15,
+      "formulas": 0,
+      "kinds": {
+        "text": 1,
+        "number": 15
+      },
+      "top": [
+        {
+          "value": "5",
+          "count": 2
+        },
+        {
+          "value": "Colonne59",
+          "count": 1
+        },
+        {
+          "value": "3",
+          "count": 1
+        },
+        {
+          "value": "1",
+          "count": 1
+        },
+        {
+          "value": "4",
+          "count": 1
+        },
+        {
+          "value": "2",
+          "count": 1
+        },
+        {
+          "value": "10",
+          "count": 1
+        },
+        {
+          "value": "14",
+          "count": 1
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 56,
+      "letter": "BD",
+      "header": "DISON Vu le",
+      "filled": 119,
+      "distinct": 24,
+      "formulas": 0,
+      "kinds": {
+        "text": 1,
+        "date": 118
+      },
+      "top": [
+        {
+          "value": "2022-12-01",
+          "count": 17
+        },
+        {
+          "value": "2022-11-17",
+          "count": 12
+        },
+        {
+          "value": "2022-11-24",
+          "count": 11
+        },
+        {
+          "value": "2022-11-10",
+          "count": 10
+        },
+        {
+          "value": "2022-12-15",
+          "count": 10
+        },
+        {
+          "value": "2022-09-29",
+          "count": 8
+        },
+        {
+          "value": "2023-01-26",
+          "count": 6
+        },
+        {
+          "value": "2022-12-08",
+          "count": 6
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 57,
+      "letter": "BE",
+      "header": "DISON Fenil",
+      "filled": 324,
+      "distinct": 3,
+      "formulas": 0,
+      "kinds": {
+        "text": 324
+      },
+      "top": [
+        {
+          "value": "DISON",
+          "count": 322
+        },
+        {
+          "value": "Colonne61",
+          "count": 1
+        },
+        {
+          "value": "x",
+          "count": 1
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 58,
+      "letter": "BF",
+      "header": "Simply Dancers DATE",
+      "filled": 348,
+      "distinct": 106,
+      "formulas": 0,
+      "kinds": {
+        "text": 2,
+        "date": 346
+      },
+      "top": [
+        {
+          "value": "2023-05-12",
+          "count": 27
+        },
+        {
+          "value": "2019-12-27",
+          "count": 18
+        },
+        {
+          "value": "2023-04-28",
+          "count": 12
+        },
+        {
+          "value": "2023-02-17",
+          "count": 11
+        },
+        {
+          "value": "2020-07-03",
+          "count": 9
+        },
+        {
+          "value": "2023-03-03",
+          "count": 9
+        },
+        {
+          "value": "2023-03-10",
+          "count": 9
+        },
+        {
+          "value": "2019-09-20",
+          "count": 8
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 59,
+      "letter": "BG",
+      "header": "Simply Dancers",
+      "filled": 4135,
+      "distinct": 4,
+      "formulas": 0,
+      "kinds": {
+        "text": 4135
+      },
+      "top": [
+        {
+          "value": "x",
+          "count": 3515
+        },
+        {
+          "value": "Simply Dancers",
+          "count": 359
+        },
+        {
+          "value": "White Buffalo",
+          "count": 260
+        },
+        {
+          "value": "Colonne63",
+          "count": 1
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 60,
+      "letter": "BH",
+      "header": "Amical' Danse",
+      "filled": 3821,
+      "distinct": 3,
+      "formulas": 0,
+      "kinds": {
+        "text": 3821
+      },
+      "top": [
+        {
+          "value": "x",
+          "count": 3530
+        },
+        {
+          "value": "Amical' Danse",
+          "count": 290
+        },
+        {
+          "value": "Colonne64",
+          "count": 1
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 61,
+      "letter": "BI",
+      "header": "Les Rebelle's",
+      "filled": 3820,
+      "distinct": 3,
+      "formulas": 0,
+      "kinds": {
+        "text": 3820
+      },
+      "top": [
+        {
+          "value": "x",
+          "count": 3530
+        },
+        {
+          "value": "Rebelle's",
+          "count": 289
+        },
+        {
+          "value": "Colonne65",
+          "count": 1
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 62,
+      "letter": "BJ",
+      "header": "Will Bill",
+      "filled": 80,
+      "distinct": 74,
+      "formulas": 0,
+      "kinds": {
+        "text": 1,
+        "number": 79
+      },
+      "top": [
+        {
+          "value": "51",
+          "count": 3
+        },
+        {
+          "value": "17",
+          "count": 2
+        },
+        {
+          "value": "15",
+          "count": 2
+        },
+        {
+          "value": "28",
+          "count": 2
+        },
+        {
+          "value": "55",
+          "count": 2
+        },
+        {
+          "value": "Colonne66",
+          "count": 1
+        },
+        {
+          "value": "12",
+          "count": 1
+        },
+        {
+          "value": "26",
+          "count": 1
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 63,
+      "letter": "BK",
+      "header": "Arizona",
+      "filled": 3888,
+      "distinct": 3,
+      "formulas": 0,
+      "kinds": {
+        "text": 3888
+      },
+      "top": [
+        {
+          "value": "x",
+          "count": 3530
+        },
+        {
+          "value": "Arizona",
+          "count": 357
+        },
+        {
+          "value": "Colonne67",
+          "count": 1
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 64,
+      "letter": "BL",
+      "header": "Memphis Country Dancers",
+      "filled": 191,
+      "distinct": 3,
+      "formulas": 0,
+      "kinds": {
+        "text": 191
+      },
+      "top": [
+        {
+          "value": "Memphis",
+          "count": 188
+        },
+        {
+          "value": "x",
+          "count": 2
+        },
+        {
+          "value": "Colonne68",
+          "count": 1
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 65,
+      "letter": "BM",
+      "header": "Le Saloon",
+      "filled": 3653,
+      "distinct": 3,
+      "formulas": 0,
+      "kinds": {
+        "text": 3653
+      },
+      "top": [
+        {
+          "value": "x",
+          "count": 3532
+        },
+        {
+          "value": "Le Saloon",
+          "count": 120
+        },
+        {
+          "value": "Colonne69",
+          "count": 1
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 66,
+      "letter": "BN",
+      "header": "Rochefort",
+      "filled": 3782,
+      "distinct": 3,
+      "formulas": 0,
+      "kinds": {
+        "text": 3782
+      },
+      "top": [
+        {
+          "value": "x",
+          "count": 3532
+        },
+        {
+          "value": "Rochefort",
+          "count": 249
+        },
+        {
+          "value": "Colonne70",
+          "count": 1
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 67,
+      "letter": "BO",
+      "header": "WHITE WOLF",
+      "filled": 3843,
+      "distinct": 3,
+      "formulas": 0,
+      "kinds": {
+        "text": 3843
+      },
+      "top": [
+        {
+          "value": "x",
+          "count": 3532
+        },
+        {
+          "value": "White Wolf",
+          "count": 310
+        },
+        {
+          "value": "Colonne71",
+          "count": 1
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 68,
+      "letter": "BP",
+      "header": "Black Stallion",
+      "filled": 3687,
+      "distinct": 3,
+      "formulas": 0,
+      "kinds": {
+        "text": 3687
+      },
+      "top": [
+        {
+          "value": "x",
+          "count": 3532
+        },
+        {
+          "value": "Black Stallion",
+          "count": 154
+        },
+        {
+          "value": "Colonne72",
+          "count": 1
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 69,
+      "letter": "BQ",
+      "header": "Les Vîs Bokets",
+      "filled": 3762,
+      "distinct": 3,
+      "formulas": 0,
+      "kinds": {
+        "text": 3762
+      },
+      "top": [
+        {
+          "value": "x",
+          "count": 3530
+        },
+        {
+          "value": "Vîs Bokets",
+          "count": 231
+        },
+        {
+          "value": "Colonne73",
+          "count": 1
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 70,
+      "letter": "BR",
+      "header": "White Buffalo",
+      "filled": 3950,
+      "distinct": 3,
+      "formulas": 0,
+      "kinds": {
+        "text": 3950
+      },
+      "top": [
+        {
+          "value": "x",
+          "count": 3532
+        },
+        {
+          "value": "White Buffalo",
+          "count": 417
+        },
+        {
+          "value": "Colonne74",
+          "count": 1
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 71,
+      "letter": "BS",
+      "header": "Addicted Country Dancers DATE",
+      "filled": 262,
+      "distinct": 121,
+      "formulas": 0,
+      "kinds": {
+        "text": 2,
+        "date": 260
+      },
+      "top": [
+        {
+          "value": "2012-01-01",
+          "count": 64
+        },
+        {
+          "value": "2012-09-24",
+          "count": 4
+        },
+        {
+          "value": "2012-09-03",
+          "count": 4
+        },
+        {
+          "value": "2013-09-23",
+          "count": 3
+        },
+        {
+          "value": "2012-09-05",
+          "count": 3
+        },
+        {
+          "value": "2014-08-18",
+          "count": 3
+        },
+        {
+          "value": "2014-04-28",
+          "count": 3
+        },
+        {
+          "value": "2012-09-12",
+          "count": 3
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 72,
+      "letter": "BT",
+      "header": "Addicted Country Dancers",
+      "filled": 3940,
+      "distinct": 3,
+      "formulas": 0,
+      "kinds": {
+        "text": 3940
+      },
+      "top": [
+        {
+          "value": "x",
+          "count": 3532
+        },
+        {
+          "value": "A.C.D.",
+          "count": 407
+        },
+        {
+          "value": "Colonne76",
+          "count": 1
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 73,
+      "letter": "BU",
+      "header": "The Addicted Country",
+      "filled": 3603,
+      "distinct": 3,
+      "formulas": 0,
+      "kinds": {
+        "text": 3603
+      },
+      "top": [
+        {
+          "value": "x",
+          "count": 3532
+        },
+        {
+          "value": "The A.C.",
+          "count": 70
+        },
+        {
+          "value": "Colonne77",
+          "count": 1
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 74,
+      "letter": "BV",
+      "header": "Daisy Simons",
+      "filled": 4197,
+      "distinct": 7,
+      "formulas": 0,
+      "kinds": {
+        "text": 4197
+      },
+      "top": [
+        {
+          "value": "x",
+          "count": 3511
+        },
+        {
+          "value": "DS",
+          "count": 666
+        },
+        {
+          "value": "JC-DS",
+          "count": 16
+        },
+        {
+          "value": "Colonne78",
+          "count": 1
+        },
+        {
+          "value": "DS-JC",
+          "count": 1
+        },
+        {
+          "value": "AM-DS",
+          "count": 1
+        },
+        {
+          "value": "DS-AM",
+          "count": 1
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 75,
+      "letter": "BW",
+      "header": "JLD",
+      "filled": 17,
+      "distinct": 2,
+      "formulas": 0,
+      "kinds": {
+        "text": 17
+      },
+      "top": [
+        {
+          "value": "P",
+          "count": 16
+        },
+        {
+          "value": "Colonne79",
+          "count": 1
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 76,
+      "letter": "BX",
+      "header": "JUMPERKE Line Dancers",
+      "filled": 4218,
+      "distinct": 3,
+      "formulas": 0,
+      "kinds": {
+        "text": 4218
+      },
+      "top": [
+        {
+          "value": "x",
+          "count": 3362
+        },
+        {
+          "value": "JUMPERKE",
+          "count": 855
+        },
+        {
+          "value": "Colonne80",
+          "count": 1
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 77,
+      "letter": "BY",
+      "header": "NCD date apprise",
+      "filled": 397,
+      "distinct": 327,
+      "formulas": 0,
+      "kinds": {
+        "text": 17,
+        "date": 380
+      },
+      "top": [
+        {
+          "value": "?",
+          "count": 16
+        },
+        {
+          "value": "2015-04-06",
+          "count": 5
+        },
+        {
+          "value": "2015-12-06",
+          "count": 5
+        },
+        {
+          "value": "2014-11-27",
+          "count": 4
+        },
+        {
+          "value": "2026-04-24",
+          "count": 4
+        },
+        {
+          "value": "2014-09-23",
+          "count": 4
+        },
+        {
+          "value": "2015-05-15",
+          "count": 4
+        },
+        {
+          "value": "2015-01-09",
+          "count": 4
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 78,
+      "letter": "BZ",
+      "header": "NCD",
+      "filled": 156,
+      "distinct": 3,
+      "formulas": 0,
+      "kinds": {
+        "text": 156
+      },
+      "top": [
+        {
+          "value": "P",
+          "count": 80
+        },
+        {
+          "value": "PP",
+          "count": 75
+        },
+        {
+          "value": "Colonne253",
+          "count": 1
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 79,
+      "letter": "CA",
+      "header": "NCD nl",
+      "filled": 602,
+      "distinct": 2,
+      "formulas": 0,
+      "kinds": {
+        "text": 602
+      },
+      "top": [
+        {
+          "value": "NCD nl",
+          "count": 601
+        },
+        {
+          "value": "Colonne264",
+          "count": 1
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 80,
+      "letter": "CB",
+      "header": "24-04",
+      "filled": 60,
+      "distinct": 2,
+      "formulas": 0,
+      "kinds": {
+        "text": 60
+      },
+      "top": [
+        {
+          "value": "v",
+          "count": 59
+        },
+        {
+          "value": "Colonne275",
+          "count": 1
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 81,
+      "letter": "CC",
+      "header": "13-06",
+      "filled": 63,
+      "distinct": 2,
+      "formulas": 0,
+      "kinds": {
+        "text": 63
+      },
+      "top": [
+        {
+          "value": "v",
+          "count": 62
+        },
+        {
+          "value": "Colonne286",
+          "count": 1
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 82,
+      "letter": "CD",
+      "header": "11-07",
+      "filled": 66,
+      "distinct": 2,
+      "formulas": 0,
+      "kinds": {
+        "text": 66
+      },
+      "top": [
+        {
+          "value": "v",
+          "count": 65
+        },
+        {
+          "value": "Colonne297",
+          "count": 1
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 83,
+      "letter": "CE",
+      "header": "12-09",
+      "filled": 33,
+      "distinct": 3,
+      "formulas": 0,
+      "kinds": {
+        "text": 33
+      },
+      "top": [
+        {
+          "value": "a",
+          "count": 26
+        },
+        {
+          "value": "w",
+          "count": 6
+        },
+        {
+          "value": "Colonne308",
+          "count": 1
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 84,
+      "letter": "CF",
+      "header": null,
+      "filled": 1,
+      "distinct": 1,
+      "formulas": 0,
+      "kinds": {
+        "text": 1
+      },
+      "top": [
+        {
+          "value": "Colonne88",
+          "count": 1
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 85,
+      "letter": "CG",
+      "header": "CW\nHampteau\n8.9.2025",
+      "filled": 89,
+      "distinct": 53,
+      "formulas": 0,
+      "kinds": {
+        "text": 1,
+        "number": 88
+      },
+      "top": [
+        {
+          "value": "38",
+          "count": 4
+        },
+        {
+          "value": "24",
+          "count": 4
+        },
+        {
+          "value": "2",
+          "count": 3
+        },
+        {
+          "value": "34",
+          "count": 3
+        },
+        {
+          "value": "48",
+          "count": 3
+        },
+        {
+          "value": "1",
+          "count": 3
+        },
+        {
+          "value": "5",
+          "count": 3
+        },
+        {
+          "value": "28",
+          "count": 3
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 86,
+      "letter": "CH",
+      "header": "CW",
+      "filled": 109,
+      "distinct": 3,
+      "formulas": 0,
+      "kinds": {
+        "text": 109
+      },
+      "top": [
+        {
+          "value": "P",
+          "count": 101
+        },
+        {
+          "value": "PP",
+          "count": 7
+        },
+        {
+          "value": "Colonne90",
+          "count": 1
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 87,
+      "letter": "CI",
+      "header": "Country Wind",
+      "filled": 4574,
+      "distinct": 4,
+      "formulas": 0,
+      "kinds": {
+        "text": 4574
+      },
+      "top": [
+        {
+          "value": "x",
+          "count": 4202
+        },
+        {
+          "value": "Country Wind",
+          "count": 370
+        },
+        {
+          "value": "Colonne91",
+          "count": 1
+        },
+        {
+          "value": "Jordan",
+          "count": 1
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 88,
+      "letter": "CJ",
+      "header": "Lucky Jordan playlist",
+      "filled": 194,
+      "distinct": 2,
+      "formulas": 0,
+      "kinds": {
+        "text": 194
+      },
+      "top": [
+        {
+          "value": "a",
+          "count": 193
+        },
+        {
+          "value": "Colonne922",
+          "count": 1
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 89,
+      "letter": "CK",
+      "header": "LJ",
+      "filled": 164,
+      "distinct": 5,
+      "formulas": 0,
+      "kinds": {
+        "text": 164
+      },
+      "top": [
+        {
+          "value": "P",
+          "count": 100
+        },
+        {
+          "value": "PP",
+          "count": 61
+        },
+        {
+          "value": "Colonne933",
+          "count": 1
+        },
+        {
+          "value": "PPP",
+          "count": 1
+        },
+        {
+          "value": "x",
+          "count": 1
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 90,
+      "letter": "CL",
+      "header": "Lucky\nJordan\nRépertoire",
+      "filled": 4462,
+      "distinct": 3,
+      "formulas": 0,
+      "kinds": {
+        "text": 4462
+      },
+      "top": [
+        {
+          "value": "x",
+          "count": 3833
+        },
+        {
+          "value": "Lucky Jordan",
+          "count": 628
+        },
+        {
+          "value": "Colonne944",
+          "count": 1
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 91,
+      "letter": "CM",
+      "header": "LJ",
+      "filled": 382,
+      "distinct": 2,
+      "formulas": 0,
+      "kinds": {
+        "text": 382
+      },
+      "top": [
+        {
+          "value": "A",
+          "count": 381
+        },
+        {
+          "value": "Colonne955",
+          "count": 1
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 92,
+      "letter": "CN",
+      "header": "Matt Carson CD",
+      "filled": 4337,
+      "distinct": 55,
+      "formulas": 0,
+      "kinds": {
+        "text": 4282,
+        "number": 55
+      },
+      "top": [
+        {
+          "value": "x",
+          "count": 4281
+        },
+        {
+          "value": "46",
+          "count": 2
+        },
+        {
+          "value": "40",
+          "count": 2
+        },
+        {
+          "value": "Colonne96",
+          "count": 1
+        },
+        {
+          "value": "42",
+          "count": 1
+        },
+        {
+          "value": "23",
+          "count": 1
+        },
+        {
+          "value": "17",
+          "count": 1
+        },
+        {
+          "value": "18",
+          "count": 1
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 93,
+      "letter": "CO",
+      "header": "CARSON",
+      "filled": 62,
+      "distinct": 3,
+      "formulas": 0,
+      "kinds": {
+        "text": 62
+      },
+      "top": [
+        {
+          "value": "P",
+          "count": 40
+        },
+        {
+          "value": "PP",
+          "count": 21
+        },
+        {
+          "value": "Colonne97",
+          "count": 1
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 94,
+      "letter": "CP",
+      "header": "Matt Carson",
+      "filled": 175,
+      "distinct": 2,
+      "formulas": 0,
+      "kinds": {
+        "text": 175
+      },
+      "top": [
+        {
+          "value": "Matt Carson",
+          "count": 174
+        },
+        {
+          "value": "Colonne98",
+          "count": 1
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 95,
+      "letter": "CQ",
+      "header": "Carin\nCare\nPlaylist",
+      "filled": 248,
+      "distinct": 2,
+      "formulas": 0,
+      "kinds": {
+        "text": 248
+      },
+      "top": [
+        {
+          "value": "a",
+          "count": 247
+        },
+        {
+          "value": "Colonne99",
+          "count": 1
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 96,
+      "letter": "CR",
+      "header": "NUM",
+      "filled": 34,
+      "distinct": 31,
+      "formulas": 0,
+      "kinds": {
+        "text": 1,
+        "number": 33
+      },
+      "top": [
+        {
+          "value": "9",
+          "count": 2
+        },
+        {
+          "value": "16",
+          "count": 2
+        },
+        {
+          "value": "4",
+          "count": 2
+        },
+        {
+          "value": "Colonne100",
+          "count": 1
+        },
+        {
+          "value": "23",
+          "count": 1
+        },
+        {
+          "value": "13",
+          "count": 1
+        },
+        {
+          "value": "21",
+          "count": 1
+        },
+        {
+          "value": "5",
+          "count": 1
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 97,
+      "letter": "CS",
+      "header": "CCare",
+      "filled": 130,
+      "distinct": 3,
+      "formulas": 0,
+      "kinds": {
+        "text": 130
+      },
+      "top": [
+        {
+          "value": "P",
+          "count": 85
+        },
+        {
+          "value": "PP",
+          "count": 44
+        },
+        {
+          "value": "Colonne101",
+          "count": 1
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 98,
+      "letter": "CT",
+      "header": "Carin\nCare",
+      "filled": 508,
+      "distinct": 2,
+      "formulas": 0,
+      "kinds": {
+        "text": 508
+      },
+      "top": [
+        {
+          "value": "Carin Care",
+          "count": 507
+        },
+        {
+          "value": "Colonne102",
+          "count": 1
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 99,
+      "letter": "CU",
+      "header": "TexasT",
+      "filled": 86,
+      "distinct": 4,
+      "formulas": 0,
+      "kinds": {
+        "text": 86
+      },
+      "top": [
+        {
+          "value": "P",
+          "count": 58
+        },
+        {
+          "value": "PP",
+          "count": 25
+        },
+        {
+          "value": "x",
+          "count": 2
+        },
+        {
+          "value": "Colonne103",
+          "count": 1
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 100,
+      "letter": "CV",
+      "header": "Texas Twixy",
+      "filled": 2599,
+      "distinct": 3,
+      "formulas": 0,
+      "kinds": {
+        "text": 2599
+      },
+      "top": [
+        {
+          "value": "x",
+          "count": 2296
+        },
+        {
+          "value": "Texas Twixy",
+          "count": 302
+        },
+        {
+          "value": "Colonne104",
+          "count": 1
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 101,
+      "letter": "CW",
+      "header": "CDH",
+      "filled": 45,
+      "distinct": 3,
+      "formulas": 0,
+      "kinds": {
+        "text": 45
+      },
+      "top": [
+        {
+          "value": "P",
+          "count": 31
+        },
+        {
+          "value": "PP",
+          "count": 13
+        },
+        {
+          "value": "Colonne105",
+          "count": 1
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 102,
+      "letter": "CX",
+      "header": "Country Duo Highway",
+      "filled": 4485,
+      "distinct": 3,
+      "formulas": 0,
+      "kinds": {
+        "text": 4485
+      },
+      "top": [
+        {
+          "value": "x",
+          "count": 4261
+        },
+        {
+          "value": "CDH",
+          "count": 223
+        },
+        {
+          "value": "Colonne106",
+          "count": 1
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 103,
+      "letter": "CY",
+      "header": "WILMA",
+      "filled": 22,
+      "distinct": 4,
+      "formulas": 0,
+      "kinds": {
+        "text": 22
+      },
+      "top": [
+        {
+          "value": "P",
+          "count": 11
+        },
+        {
+          "value": "PP",
+          "count": 8
+        },
+        {
+          "value": "x",
+          "count": 2
+        },
+        {
+          "value": "Colonne107",
+          "count": 1
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 104,
+      "letter": "CZ",
+      "header": "WILMA",
+      "filled": 2342,
+      "distinct": 3,
+      "formulas": 0,
+      "kinds": {
+        "text": 2342
+      },
+      "top": [
+        {
+          "value": "x",
+          "count": 2288
+        },
+        {
+          "value": "WILMA",
+          "count": 53
+        },
+        {
+          "value": "Colonne108",
+          "count": 1
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 105,
+      "letter": "DA",
+      "header": "ELKE",
+      "filled": 196,
+      "distinct": 4,
+      "formulas": 0,
+      "kinds": {
+        "text": 196
+      },
+      "top": [
+        {
+          "value": "P",
+          "count": 120
+        },
+        {
+          "value": "PP",
+          "count": 74
+        },
+        {
+          "value": "Colonne109",
+          "count": 1
+        },
+        {
+          "value": "PPP",
+          "count": 1
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 106,
+      "letter": "DB",
+      "header": "ELKE      The Jillaroo",
+      "filled": 783,
+      "distinct": 2,
+      "formulas": 0,
+      "kinds": {
+        "text": 783
+      },
+      "top": [
+        {
+          "value": "ELKE",
+          "count": 782
+        },
+        {
+          "value": "Colonne110",
+          "count": 1
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 107,
+      "letter": "DC",
+      "header": "16.8",
+      "filled": 67,
+      "distinct": 40,
+      "formulas": 0,
+      "kinds": {
+        "text": 1,
+        "number": 66
+      },
+      "top": [
+        {
+          "value": "5",
+          "count": 5
+        },
+        {
+          "value": "10",
+          "count": 4
+        },
+        {
+          "value": "23",
+          "count": 4
+        },
+        {
+          "value": "6",
+          "count": 3
+        },
+        {
+          "value": "9",
+          "count": 2
+        },
+        {
+          "value": "38",
+          "count": 2
+        },
+        {
+          "value": "4",
+          "count": 2
+        },
+        {
+          "value": "18",
+          "count": 2
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 108,
+      "letter": "DD",
+      "header": "REGY",
+      "filled": 192,
+      "distinct": 4,
+      "formulas": 0,
+      "kinds": {
+        "text": 192
+      },
+      "top": [
+        {
+          "value": "P",
+          "count": 110
+        },
+        {
+          "value": "PP",
+          "count": 79
+        },
+        {
+          "value": "PPP",
+          "count": 2
+        },
+        {
+          "value": "Colonne112",
+          "count": 1
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 109,
+      "letter": "DE",
+      "header": "REGY",
+      "filled": 710,
+      "distinct": 2,
+      "formulas": 0,
+      "kinds": {
+        "text": 710
+      },
+      "top": [
+        {
+          "value": "REGY",
+          "count": 709
+        },
+        {
+          "value": "Colonne113",
+          "count": 1
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 110,
+      "letter": "DF",
+      "header": "DTOAK",
+      "filled": 110,
+      "distinct": 3,
+      "formulas": 0,
+      "kinds": {
+        "text": 110
+      },
+      "top": [
+        {
+          "value": "P",
+          "count": 73
+        },
+        {
+          "value": "PP",
+          "count": 36
+        },
+        {
+          "value": "Colonne114",
+          "count": 1
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 111,
+      "letter": "DG",
+      "header": "DUO Two Of A Kind",
+      "filled": 346,
+      "distinct": 2,
+      "formulas": 0,
+      "kinds": {
+        "text": 346
+      },
+      "top": [
+        {
+          "value": "DTOAK",
+          "count": 345
+        },
+        {
+          "value": "Colonne115",
+          "count": 1
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 112,
+      "letter": "DH",
+      "header": "DRP\nN°\n2025",
+      "filled": 683,
+      "distinct": 414,
+      "formulas": 0,
+      "kinds": {
+        "text": 1,
+        "number": 681,
+        "date": 1
+      },
+      "top": [
+        {
+          "value": "243",
+          "count": 5
+        },
+        {
+          "value": "379",
+          "count": 5
+        },
+        {
+          "value": "290",
+          "count": 4
+        },
+        {
+          "value": "155",
+          "count": 4
+        },
+        {
+          "value": "99",
+          "count": 4
+        },
+        {
+          "value": "30",
+          "count": 4
+        },
+        {
+          "value": "346",
+          "count": 4
+        },
+        {
+          "value": "49",
+          "count": 4
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 113,
+      "letter": "DI",
+      "header": "DRP",
+      "filled": 212,
+      "distinct": 3,
+      "formulas": 0,
+      "kinds": {
+        "text": 212
+      },
+      "top": [
+        {
+          "value": "P",
+          "count": 145
+        },
+        {
+          "value": "PP",
+          "count": 66
+        },
+        {
+          "value": "Colonne117",
+          "count": 1
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 114,
+      "letter": "DJ",
+      "header": "DUO RICKY PETRA",
+      "filled": 3902,
+      "distinct": 3,
+      "formulas": 0,
+      "kinds": {
+        "text": 3902
+      },
+      "top": [
+        {
+          "value": "x",
+          "count": 3137
+        },
+        {
+          "value": "DRP",
+          "count": 764
+        },
+        {
+          "value": "Colonne118",
+          "count": 1
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 115,
+      "letter": "DK",
+      "header": "DEX",
+      "filled": 108,
+      "distinct": 4,
+      "formulas": 0,
+      "kinds": {
+        "text": 108
+      },
+      "top": [
+        {
+          "value": "P",
+          "count": 70
+        },
+        {
+          "value": "PP",
+          "count": 36
+        },
+        {
+          "value": "Colonne119",
+          "count": 1
+        },
+        {
+          "value": "PPP",
+          "count": 1
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 116,
+      "letter": "DL",
+      "header": "DEX DYLAN",
+      "filled": 317,
+      "distinct": 2,
+      "formulas": 0,
+      "kinds": {
+        "text": 317
+      },
+      "top": [
+        {
+          "value": "Dex Dylan",
+          "count": 316
+        },
+        {
+          "value": "Colonne120",
+          "count": 1
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 117,
+      "letter": "DM",
+      "header": "Daddy",
+      "filled": 67,
+      "distinct": 3,
+      "formulas": 0,
+      "kinds": {
+        "text": 67
+      },
+      "top": [
+        {
+          "value": "P",
+          "count": 47
+        },
+        {
+          "value": "PP",
+          "count": 19
+        },
+        {
+          "value": "Colonne121",
+          "count": 1
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 118,
+      "letter": "DN",
+      "header": "Daddy Redneck",
+      "filled": 182,
+      "distinct": 2,
+      "formulas": 0,
+      "kinds": {
+        "text": 182
+      },
+      "top": [
+        {
+          "value": "Daddy Redneck",
+          "count": 181
+        },
+        {
+          "value": "Colonne122",
+          "count": 1
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 119,
+      "letter": "DO",
+      "header": "C L",
+      "filled": 64,
+      "distinct": 3,
+      "formulas": 0,
+      "kinds": {
+        "text": 64
+      },
+      "top": [
+        {
+          "value": "P",
+          "count": 43
+        },
+        {
+          "value": "PP",
+          "count": 20
+        },
+        {
+          "value": "Colonne123",
+          "count": 1
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 120,
+      "letter": "DP",
+      "header": "CONNY LEE",
+      "filled": 241,
+      "distinct": 3,
+      "formulas": 0,
+      "kinds": {
+        "text": 241
+      },
+      "top": [
+        {
+          "value": "ConnyLee",
+          "count": 238
+        },
+        {
+          "value": "x",
+          "count": 2
+        },
+        {
+          "value": "Colonne124",
+          "count": 1
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 121,
+      "letter": "DQ",
+      "header": "TWCB",
+      "filled": 68,
+      "distinct": 4,
+      "formulas": 0,
+      "kinds": {
+        "text": 68
+      },
+      "top": [
+        {
+          "value": "P",
+          "count": 45
+        },
+        {
+          "value": "PP",
+          "count": 21
+        },
+        {
+          "value": "Colonne125",
+          "count": 1
+        },
+        {
+          "value": "PPP",
+          "count": 1
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 122,
+      "letter": "DR",
+      "header": "TIN WHEEL COUNTRY BAND 13.11.2019",
+      "filled": 4518,
+      "distinct": 3,
+      "formulas": 0,
+      "kinds": {
+        "text": 4518
+      },
+      "top": [
+        {
+          "value": "x",
+          "count": 4339
+        },
+        {
+          "value": "T W",
+          "count": 178
+        },
+        {
+          "value": "Colonne126",
+          "count": 1
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 123,
+      "letter": "DS",
+      "header": "2.8",
+      "filled": 87,
+      "distinct": 43,
+      "formulas": 0,
+      "kinds": {
+        "text": 1,
+        "number": 86
+      },
+      "top": [
+        {
+          "value": "29",
+          "count": 5
+        },
+        {
+          "value": "1",
+          "count": 4
+        },
+        {
+          "value": "18",
+          "count": 4
+        },
+        {
+          "value": "42",
+          "count": 3
+        },
+        {
+          "value": "30",
+          "count": 3
+        },
+        {
+          "value": "32",
+          "count": 3
+        },
+        {
+          "value": "11",
+          "count": 3
+        },
+        {
+          "value": "34",
+          "count": 3
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 124,
+      "letter": "DT",
+      "header": "M  P\n2025\nN°",
+      "filled": 198,
+      "distinct": 133,
+      "formulas": 0,
+      "kinds": {
+        "text": 1,
+        "number": 197
+      },
+      "top": [
+        {
+          "value": "82",
+          "count": 4
+        },
+        {
+          "value": "79",
+          "count": 3
+        },
+        {
+          "value": "28",
+          "count": 3
+        },
+        {
+          "value": "72",
+          "count": 3
+        },
+        {
+          "value": "95",
+          "count": 3
+        },
+        {
+          "value": "97",
+          "count": 3
+        },
+        {
+          "value": "56",
+          "count": 3
+        },
+        {
+          "value": "87",
+          "count": 3
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 125,
+      "letter": "DU",
+      "header": "MP",
+      "filled": 109,
+      "distinct": 4,
+      "formulas": 0,
+      "kinds": {
+        "text": 109
+      },
+      "top": [
+        {
+          "value": "P",
+          "count": 66
+        },
+        {
+          "value": "PP",
+          "count": 40
+        },
+        {
+          "value": "x",
+          "count": 2
+        },
+        {
+          "value": "Colonne129",
+          "count": 1
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 126,
+      "letter": "DV",
+      "header": "MISTER P.\nrépertoire",
+      "filled": 4514,
+      "distinct": 3,
+      "formulas": 0,
+      "kinds": {
+        "text": 4514
+      },
+      "top": [
+        {
+          "value": "x",
+          "count": 4174
+        },
+        {
+          "value": "Mister P.",
+          "count": 339
+        },
+        {
+          "value": "Colonne130",
+          "count": 1
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 127,
+      "letter": "DW",
+      "header": "KRIS",
+      "filled": 55,
+      "distinct": 3,
+      "formulas": 0,
+      "kinds": {
+        "text": 55
+      },
+      "top": [
+        {
+          "value": "P",
+          "count": 32
+        },
+        {
+          "value": "PP",
+          "count": 22
+        },
+        {
+          "value": "Colonne131",
+          "count": 1
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 128,
+      "letter": "DX",
+      "header": "Kris Robyan",
+      "filled": 4424,
+      "distinct": 3,
+      "formulas": 0,
+      "kinds": {
+        "text": 4424
+      },
+      "top": [
+        {
+          "value": "x",
+          "count": 4201
+        },
+        {
+          "value": "Kris Robyan",
+          "count": 222
+        },
+        {
+          "value": "Colonne132",
+          "count": 1
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 129,
+      "letter": "DY",
+      "header": "McB",
+      "filled": 146,
+      "distinct": 3,
+      "formulas": 0,
+      "kinds": {
+        "text": 146
+      },
+      "top": [
+        {
+          "value": "P",
+          "count": 95
+        },
+        {
+          "value": "PP",
+          "count": 50
+        },
+        {
+          "value": "Colonne133",
+          "count": 1
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 130,
+      "letter": "DZ",
+      "header": "Mrs Mc Bright",
+      "filled": 513,
+      "distinct": 2,
+      "formulas": 0,
+      "kinds": {
+        "text": 513
+      },
+      "top": [
+        {
+          "value": "McBright",
+          "count": 512
+        },
+        {
+          "value": "Colonne134",
+          "count": 1
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 131,
+      "letter": "EA",
+      "header": "16.8",
+      "filled": 63,
+      "distinct": 39,
+      "formulas": 0,
+      "kinds": {
+        "text": 1,
+        "number": 62
+      },
+      "top": [
+        {
+          "value": "14",
+          "count": 3
+        },
+        {
+          "value": "23",
+          "count": 3
+        },
+        {
+          "value": "15",
+          "count": 3
+        },
+        {
+          "value": "3",
+          "count": 3
+        },
+        {
+          "value": "16",
+          "count": 2
+        },
+        {
+          "value": "4",
+          "count": 2
+        },
+        {
+          "value": "20",
+          "count": 2
+        },
+        {
+          "value": "12",
+          "count": 2
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 132,
+      "letter": "EB",
+      "header": "TIM",
+      "filled": 8,
+      "distinct": 4,
+      "formulas": 0,
+      "kinds": {
+        "text": 8
+      },
+      "top": [
+        {
+          "value": "P",
+          "count": 3
+        },
+        {
+          "value": "PP",
+          "count": 2
+        },
+        {
+          "value": "x",
+          "count": 2
+        },
+        {
+          "value": "Colonne136",
+          "count": 1
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 133,
+      "letter": "EC",
+      "header": "Tim Nash",
+      "filled": 61,
+      "distinct": 4,
+      "formulas": 0,
+      "kinds": {
+        "text": 61
+      },
+      "top": [
+        {
+          "value": "Tim Nash",
+          "count": 44
+        },
+        {
+          "value": "Tim Nash x",
+          "count": 14
+        },
+        {
+          "value": "x",
+          "count": 2
+        },
+        {
+          "value": "Colonne137",
+          "count": 1
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 134,
+      "letter": "ED",
+      "header": "CF",
+      "filled": 78,
+      "distinct": 3,
+      "formulas": 0,
+      "kinds": {
+        "text": 78
+      },
+      "top": [
+        {
+          "value": "P",
+          "count": 52
+        },
+        {
+          "value": "PP",
+          "count": 25
+        },
+        {
+          "value": "Colonne138",
+          "count": 1
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 135,
+      "letter": "EE",
+      "header": "COUNTRY FEVER",
+      "filled": 4457,
+      "distinct": 3,
+      "formulas": 0,
+      "kinds": {
+        "text": 4457
+      },
+      "top": [
+        {
+          "value": "x",
+          "count": 4213
+        },
+        {
+          "value": "COUN. FEVER",
+          "count": 243
+        },
+        {
+          "value": "Colonne139",
+          "count": 1
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 136,
+      "letter": "EF",
+      "header": "9.8",
+      "filled": 98,
+      "distinct": 52,
+      "formulas": 0,
+      "kinds": {
+        "text": 1,
+        "number": 97
+      },
+      "top": [
+        {
+          "value": "47",
+          "count": 5
+        },
+        {
+          "value": "21",
+          "count": 4
+        },
+        {
+          "value": "19",
+          "count": 4
+        },
+        {
+          "value": "35",
+          "count": 4
+        },
+        {
+          "value": "8",
+          "count": 3
+        },
+        {
+          "value": "50",
+          "count": 3
+        },
+        {
+          "value": "31",
+          "count": 3
+        },
+        {
+          "value": "32",
+          "count": 3
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 137,
+      "letter": "EG",
+      "header": "BCB",
+      "filled": 95,
+      "distinct": 3,
+      "formulas": 0,
+      "kinds": {
+        "text": 95
+      },
+      "top": [
+        {
+          "value": "P",
+          "count": 82
+        },
+        {
+          "value": "PP",
+          "count": 12
+        },
+        {
+          "value": "Colonne141",
+          "count": 1
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 138,
+      "letter": "EH",
+      "header": "BOB'S Country Band",
+      "filled": 4803,
+      "distinct": 3,
+      "formulas": 0,
+      "kinds": {
+        "text": 4803
+      },
+      "top": [
+        {
+          "value": "x",
+          "count": 4258
+        },
+        {
+          "value": "BCB",
+          "count": 544
+        },
+        {
+          "value": "Colonne142",
+          "count": 1
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 139,
+      "letter": "EI",
+      "header": "TRB",
+      "filled": 111,
+      "distinct": 3,
+      "formulas": 0,
+      "kinds": {
+        "text": 111
+      },
+      "top": [
+        {
+          "value": "P",
+          "count": 69
+        },
+        {
+          "value": "PP",
+          "count": 41
+        },
+        {
+          "value": "Colonne143",
+          "count": 1
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 140,
+      "letter": "EJ",
+      "header": "TRB\nTravelin\nRiver\nBand",
+      "filled": 4509,
+      "distinct": 3,
+      "formulas": 0,
+      "kinds": {
+        "text": 4509
+      },
+      "top": [
+        {
+          "value": "x",
+          "count": 4192
+        },
+        {
+          "value": "TRB",
+          "count": 316
+        },
+        {
+          "value": "Colonne144",
+          "count": 1
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 141,
+      "letter": "EK",
+      "header": null,
+      "filled": 69,
+      "distinct": 46,
+      "formulas": 0,
+      "kinds": {
+        "text": 1,
+        "number": 68
+      },
+      "top": [
+        {
+          "value": "7",
+          "count": 3
+        },
+        {
+          "value": "43",
+          "count": 2
+        },
+        {
+          "value": "18",
+          "count": 2
+        },
+        {
+          "value": "3",
+          "count": 2
+        },
+        {
+          "value": "34",
+          "count": 2
+        },
+        {
+          "value": "14",
+          "count": 2
+        },
+        {
+          "value": "17",
+          "count": 2
+        },
+        {
+          "value": "5",
+          "count": 2
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 142,
+      "letter": "EL",
+      "header": "LINKA",
+      "filled": 35,
+      "distinct": 4,
+      "formulas": 0,
+      "kinds": {
+        "text": 35
+      },
+      "top": [
+        {
+          "value": "P",
+          "count": 31
+        },
+        {
+          "value": "x",
+          "count": 2
+        },
+        {
+          "value": "Colonne146",
+          "count": 1
+        },
+        {
+          "value": "PP",
+          "count": 1
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 143,
+      "letter": "EM",
+      "header": "LINKA\nRépert",
+      "filled": 105,
+      "distinct": 2,
+      "formulas": 0,
+      "kinds": {
+        "text": 105
+      },
+      "top": [
+        {
+          "value": "LINKA",
+          "count": 104
+        },
+        {
+          "value": "Colonne147",
+          "count": 1
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 144,
+      "letter": "EN",
+      "header": "BBC",
+      "filled": 146,
+      "distinct": 3,
+      "formulas": 0,
+      "kinds": {
+        "text": 146
+      },
+      "top": [
+        {
+          "value": "P",
+          "count": 102
+        },
+        {
+          "value": "PP",
+          "count": 43
+        },
+        {
+          "value": "Colonne1482",
+          "count": 1
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 145,
+      "letter": "EO",
+      "header": "BBC",
+      "filled": 4613,
+      "distinct": 3,
+      "formulas": 0,
+      "kinds": {
+        "text": 4613
+      },
+      "top": [
+        {
+          "value": "x",
+          "count": 4119
+        },
+        {
+          "value": "BBC",
+          "count": 493
+        },
+        {
+          "value": "Colonne149",
+          "count": 1
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 146,
+      "letter": "EP",
+      "header": "30.8",
+      "filled": 73,
+      "distinct": 46,
+      "formulas": 0,
+      "kinds": {
+        "text": 1,
+        "number": 72
+      },
+      "top": [
+        {
+          "value": "3",
+          "count": 4
+        },
+        {
+          "value": "30",
+          "count": 3
+        },
+        {
+          "value": "40",
+          "count": 3
+        },
+        {
+          "value": "13",
+          "count": 3
+        },
+        {
+          "value": "5",
+          "count": 2
+        },
+        {
+          "value": "32",
+          "count": 2
+        },
+        {
+          "value": "42",
+          "count": 2
+        },
+        {
+          "value": "11",
+          "count": 2
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 147,
+      "letter": "EQ",
+      "header": "JS",
+      "filled": 45,
+      "distinct": 4,
+      "formulas": 0,
+      "kinds": {
+        "text": 45
+      },
+      "top": [
+        {
+          "value": "P",
+          "count": 40
+        },
+        {
+          "value": "PP",
+          "count": 3
+        },
+        {
+          "value": "Colonne151",
+          "count": 1
+        },
+        {
+          "value": "a",
+          "count": 1
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 148,
+      "letter": "ER",
+      "header": "J&S",
+      "filled": 144,
+      "distinct": 3,
+      "formulas": 0,
+      "kinds": {
+        "text": 144
+      },
+      "top": [
+        {
+          "value": "J&S",
+          "count": 141
+        },
+        {
+          "value": "x",
+          "count": 2
+        },
+        {
+          "value": "Colonne152",
+          "count": 1
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 149,
+      "letter": "ES",
+      "header": "Sun",
+      "filled": 23,
+      "distinct": 3,
+      "formulas": 0,
+      "kinds": {
+        "text": 23
+      },
+      "top": [
+        {
+          "value": "P",
+          "count": 17
+        },
+        {
+          "value": "PP",
+          "count": 5
+        },
+        {
+          "value": "Colonne153",
+          "count": 1
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 150,
+      "letter": "ET",
+      "header": "Sundie",
+      "filled": 4305,
+      "distinct": 3,
+      "formulas": 0,
+      "kinds": {
+        "text": 4305
+      },
+      "top": [
+        {
+          "value": "x",
+          "count": 4237
+        },
+        {
+          "value": "Sundie",
+          "count": 67
+        },
+        {
+          "value": "Colonne154",
+          "count": 1
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 151,
+      "letter": "EU",
+      "header": "15.8",
+      "filled": 62,
+      "distinct": 43,
+      "formulas": 0,
+      "kinds": {
+        "text": 1,
+        "number": 61
+      },
+      "top": [
+        {
+          "value": "12",
+          "count": 3
+        },
+        {
+          "value": "38",
+          "count": 3
+        },
+        {
+          "value": "14",
+          "count": 2
+        },
+        {
+          "value": "4",
+          "count": 2
+        },
+        {
+          "value": "3",
+          "count": 2
+        },
+        {
+          "value": "36",
+          "count": 2
+        },
+        {
+          "value": "19",
+          "count": 2
+        },
+        {
+          "value": "1",
+          "count": 2
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 152,
+      "letter": "EV",
+      "header": "CCK",
+      "filled": 16,
+      "distinct": 4,
+      "formulas": 0,
+      "kinds": {
+        "text": 16
+      },
+      "top": [
+        {
+          "value": "P",
+          "count": 11
+        },
+        {
+          "value": "PP",
+          "count": 2
+        },
+        {
+          "value": "x",
+          "count": 2
+        },
+        {
+          "value": "Colonne156",
+          "count": 1
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 153,
+      "letter": "EW",
+      "header": "The Cockroach Killers",
+      "filled": 4642,
+      "distinct": 3,
+      "formulas": 0,
+      "kinds": {
+        "text": 4642
+      },
+      "top": [
+        {
+          "value": "x",
+          "count": 4305
+        },
+        {
+          "value": "CCK",
+          "count": 336
+        },
+        {
+          "value": "Colonne157",
+          "count": 1
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 154,
+      "letter": "EX",
+      "header": "MIM",
+      "filled": 33,
+      "distinct": 3,
+      "formulas": 0,
+      "kinds": {
+        "text": 33
+      },
+      "top": [
+        {
+          "value": "P",
+          "count": 29
+        },
+        {
+          "value": "PP",
+          "count": 3
+        },
+        {
+          "value": "Colonne158",
+          "count": 1
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 155,
+      "letter": "EY",
+      "header": "Mimuzik\nRépertoire\n2024",
+      "filled": 4535,
+      "distinct": 3,
+      "formulas": 0,
+      "kinds": {
+        "text": 4535
+      },
+      "top": [
+        {
+          "value": "x",
+          "count": 4248
+        },
+        {
+          "value": "Mimuzik",
+          "count": 286
+        },
+        {
+          "value": "Colonne159",
+          "count": 1
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 156,
+      "letter": "EZ",
+      "header": "ASU",
+      "filled": 37,
+      "distinct": 3,
+      "formulas": 0,
+      "kinds": {
+        "text": 37
+      },
+      "top": [
+        {
+          "value": "P",
+          "count": 34
+        },
+        {
+          "value": "PP",
+          "count": 2
+        },
+        {
+          "value": "Colonne160",
+          "count": 1
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 157,
+      "letter": "FA",
+      "header": "ALL SHOOK UP",
+      "filled": 4459,
+      "distinct": 3,
+      "formulas": 0,
+      "kinds": {
+        "text": 4459
+      },
+      "top": [
+        {
+          "value": "x",
+          "count": 4262
+        },
+        {
+          "value": "ASU",
+          "count": 196
+        },
+        {
+          "value": "Colonne161",
+          "count": 1
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 158,
+      "letter": "FB",
+      "header": "Silver",
+      "filled": 166,
+      "distinct": 4,
+      "formulas": 0,
+      "kinds": {
+        "text": 166
+      },
+      "top": [
+        {
+          "value": "P",
+          "count": 88
+        },
+        {
+          "value": "PP",
+          "count": 75
+        },
+        {
+          "value": "x",
+          "count": 2
+        },
+        {
+          "value": "Colonne162",
+          "count": 1
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 159,
+      "letter": "FC",
+      "header": "SILVER",
+      "filled": 3900,
+      "distinct": 3,
+      "formulas": 0,
+      "kinds": {
+        "text": 3900
+      },
+      "top": [
+        {
+          "value": "x",
+          "count": 3113
+        },
+        {
+          "value": "Silver",
+          "count": 786
+        },
+        {
+          "value": "Colonne163",
+          "count": 1
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 160,
+      "letter": "FD",
+      "header": "BACKW",
+      "filled": 1,
+      "distinct": 1,
+      "formulas": 0,
+      "kinds": {
+        "text": 1
+      },
+      "top": [
+        {
+          "value": "Colonne164",
+          "count": 1
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 161,
+      "letter": "FE",
+      "header": "BACK\nWEST\n18.03.2023\nLux.",
+      "filled": 4355,
+      "distinct": 3,
+      "formulas": 0,
+      "kinds": {
+        "text": 4355
+      },
+      "top": [
+        {
+          "value": "x",
+          "count": 4264
+        },
+        {
+          "value": "BACK WEST",
+          "count": 90
+        },
+        {
+          "value": "Colonne165",
+          "count": 1
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 162,
+      "letter": "FF",
+      "header": "KRYSTEN",
+      "filled": 102,
+      "distinct": 3,
+      "formulas": 0,
+      "kinds": {
+        "text": 102
+      },
+      "top": [
+        {
+          "value": "P",
+          "count": 72
+        },
+        {
+          "value": "PP",
+          "count": 29
+        },
+        {
+          "value": "Colonne166",
+          "count": 1
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 163,
+      "letter": "FG",
+      "header": "KRYSTEN HEATHER 28.02.26",
+      "filled": 4517,
+      "distinct": 3,
+      "formulas": 0,
+      "kinds": {
+        "text": 4517
+      },
+      "top": [
+        {
+          "value": "x",
+          "count": 4145
+        },
+        {
+          "value": "Krysten Heather",
+          "count": 371
+        },
+        {
+          "value": "Colonne167",
+          "count": 1
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 164,
+      "letter": "FH",
+      "header": "9.8.26",
+      "filled": 88,
+      "distinct": 52,
+      "formulas": 0,
+      "kinds": {
+        "text": 1,
+        "number": 87
+      },
+      "top": [
+        {
+          "value": "5",
+          "count": 4
+        },
+        {
+          "value": "40",
+          "count": 3
+        },
+        {
+          "value": "1",
+          "count": 3
+        },
+        {
+          "value": "14",
+          "count": 3
+        },
+        {
+          "value": "20",
+          "count": 3
+        },
+        {
+          "value": "46",
+          "count": 3
+        },
+        {
+          "value": "24",
+          "count": 2
+        },
+        {
+          "value": "31",
+          "count": 2
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 165,
+      "letter": "FI",
+      "header": "MISS.LA",
+      "filled": 2,
+      "distinct": 2,
+      "formulas": 0,
+      "kinds": {
+        "text": 2
+      },
+      "top": [
+        {
+          "value": "Colonne169",
+          "count": 1
+        },
+        {
+          "value": "P",
+          "count": 1
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 166,
+      "letter": "FJ",
+      "header": "Miss Lana",
+      "filled": 4548,
+      "distinct": 3,
+      "formulas": 0,
+      "kinds": {
+        "text": 4548
+      },
+      "top": [
+        {
+          "value": "x",
+          "count": 4292
+        },
+        {
+          "value": "Miss Lana",
+          "count": 255
+        },
+        {
+          "value": "Colonne170",
+          "count": 1
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 167,
+      "letter": "FK",
+      "header": "SILVER",
+      "filled": 1,
+      "distinct": 1,
+      "formulas": 0,
+      "kinds": {
+        "text": 1
+      },
+      "top": [
+        {
+          "value": "Colonne171",
+          "count": 1
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 168,
+      "letter": "FL",
+      "header": "SILVER",
+      "filled": 4365,
+      "distinct": 4,
+      "formulas": 0,
+      "kinds": {
+        "text": 4365
+      },
+      "top": [
+        {
+          "value": "x",
+          "count": 4311
+        },
+        {
+          "value": "Silver",
+          "count": 37
+        },
+        {
+          "value": "Silver x",
+          "count": 16
+        },
+        {
+          "value": "Colonne172",
+          "count": 1
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 169,
+      "letter": "FM",
+      "header": "PATC",
+      "filled": 25,
+      "distinct": 3,
+      "formulas": 0,
+      "kinds": {
+        "text": 25
+      },
+      "top": [
+        {
+          "value": "P",
+          "count": 22
+        },
+        {
+          "value": "x",
+          "count": 2
+        },
+        {
+          "value": "Colonne173",
+          "count": 1
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 170,
+      "letter": "FN",
+      "header": "PAT CALAHAN",
+      "filled": 4386,
+      "distinct": 4,
+      "formulas": 0,
+      "kinds": {
+        "text": 4386
+      },
+      "top": [
+        {
+          "value": "x",
+          "count": 4292
+        },
+        {
+          "value": "P. CALAHAN",
+          "count": 68
+        },
+        {
+          "value": "P. CALAHAN x",
+          "count": 25
+        },
+        {
+          "value": "Colonne174",
+          "count": 1
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 171,
+      "letter": "FO",
+      "header": "TOLY",
+      "filled": 1,
+      "distinct": 1,
+      "formulas": 0,
+      "kinds": {
+        "text": 1
+      },
+      "top": [
+        {
+          "value": "Colonne175",
+          "count": 1
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 172,
+      "letter": "FP",
+      "header": "TOLY",
+      "filled": 4747,
+      "distinct": 4,
+      "formulas": 0,
+      "kinds": {
+        "text": 4747
+      },
+      "top": [
+        {
+          "value": "x",
+          "count": 4293
+        },
+        {
+          "value": "TOLY",
+          "count": 362
+        },
+        {
+          "value": "TOLY x",
+          "count": 91
+        },
+        {
+          "value": "Colonne176",
+          "count": 1
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 173,
+      "letter": "FQ",
+      "header": "ROUTE66",
+      "filled": 3,
+      "distinct": 2,
+      "formulas": 0,
+      "kinds": {
+        "text": 3
+      },
+      "top": [
+        {
+          "value": "P",
+          "count": 2
+        },
+        {
+          "value": "Colonne177",
+          "count": 1
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 174,
+      "letter": "FR",
+      "header": "Route 66 Marche 30.7.2022",
+      "filled": 4493,
+      "distinct": 3,
+      "formulas": 0,
+      "kinds": {
+        "text": 4493
+      },
+      "top": [
+        {
+          "value": "x",
+          "count": 4299
+        },
+        {
+          "value": "ROUTE 66",
+          "count": 193
+        },
+        {
+          "value": "Colonne178",
+          "count": 1
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 175,
+      "letter": "FS",
+      "header": "LIES",
+      "filled": 1,
+      "distinct": 1,
+      "formulas": 0,
+      "kinds": {
+        "text": 1
+      },
+      "top": [
+        {
+          "value": "Colonne179",
+          "count": 1
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 176,
+      "letter": "FT",
+      "header": "LIES VAN GOETHEM",
+      "filled": 4394,
+      "distinct": 4,
+      "formulas": 0,
+      "kinds": {
+        "text": 4394
+      },
+      "top": [
+        {
+          "value": "x",
+          "count": 4307
+        },
+        {
+          "value": "Lies",
+          "count": 69
+        },
+        {
+          "value": "Lies x",
+          "count": 17
+        },
+        {
+          "value": "Colonne180",
+          "count": 1
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 177,
+      "letter": "FU",
+      "header": "Enerj",
+      "filled": 56,
+      "distinct": 2,
+      "formulas": 0,
+      "kinds": {
+        "text": 56
+      },
+      "top": [
+        {
+          "value": "P",
+          "count": 55
+        },
+        {
+          "value": "Colonne181",
+          "count": 1
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 178,
+      "letter": "FV",
+      "header": "Enerj'Ane",
+      "filled": 4462,
+      "distinct": 3,
+      "formulas": 0,
+      "kinds": {
+        "text": 4462
+      },
+      "top": [
+        {
+          "value": "x",
+          "count": 4243
+        },
+        {
+          "value": "Enerj'Ane",
+          "count": 218
+        },
+        {
+          "value": "Colonne182",
+          "count": 1
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 179,
+      "letter": "FW",
+      "header": "NVR",
+      "filled": 7,
+      "distinct": 5,
+      "formulas": 0,
+      "kinds": {
+        "text": 7
+      },
+      "top": [
+        {
+          "value": "b",
+          "count": 2
+        },
+        {
+          "value": "x",
+          "count": 2
+        },
+        {
+          "value": "Colonne183",
+          "count": 1
+        },
+        {
+          "value": "a",
+          "count": 1
+        },
+        {
+          "value": "P",
+          "count": 1
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 180,
+      "letter": "FX",
+      "header": "NVR\nWestern\nCity\n21.01.24",
+      "filled": 32,
+      "distinct": 25,
+      "formulas": 0,
+      "kinds": {
+        "text": 10,
+        "number": 22
+      },
+      "top": [
+        {
+          "value": "14",
+          "count": 3
+        },
+        {
+          "value": "25",
+          "count": 2
+        },
+        {
+          "value": "8",
+          "count": 2
+        },
+        {
+          "value": "26",
+          "count": 2
+        },
+        {
+          "value": "6Pause",
+          "count": 2
+        },
+        {
+          "value": "10Pause",
+          "count": 2
+        },
+        {
+          "value": "Colonne184",
+          "count": 1
+        },
+        {
+          "value": "15",
+          "count": 1
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 181,
+      "letter": "FY",
+      "header": "TM",
+      "filled": 92,
+      "distinct": 4,
+      "formulas": 0,
+      "kinds": {
+        "text": 92
+      },
+      "top": [
+        {
+          "value": "P",
+          "count": 85
+        },
+        {
+          "value": "PP",
+          "count": 4
+        },
+        {
+          "value": "x",
+          "count": 2
+        },
+        {
+          "value": "Colonne185",
+          "count": 1
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 182,
+      "letter": "FZ",
+      "header": "Tania & Marcel",
+      "filled": 4674,
+      "distinct": 4,
+      "formulas": 0,
+      "kinds": {
+        "text": 4674
+      },
+      "top": [
+        {
+          "value": "x",
+          "count": 4204
+        },
+        {
+          "value": "Tania & M",
+          "count": 463
+        },
+        {
+          "value": "Tania & M a",
+          "count": 6
+        },
+        {
+          "value": "Colonne186",
+          "count": 1
+        }
+      ],
+      "formulaSamples": []
+    },
+    {
+      "col": 183,
+      "letter": "GA",
+      "header": "x",
+      "filled": 4314,
+      "distinct": 2,
+      "formulas": 0,
+      "kinds": {
+        "text": 4314
+      },
+      "top": [
+        {
+          "value": "x",
+          "count": 4313
+        },
+        {
+          "value": "Colonne187",
+          "count": 1
+        }
+      ],
+      "formulaSamples": []
+    }
+  ],
+  "otherSheets": {
+    "Chorégraphes": [
+      {
+        "col": 1,
+        "letter": "A",
+        "header": "1",
+        "filled": 2764,
+        "distinct": 2105,
+        "formulas": 0,
+        "kinds": {
+          "text": 2764
+        },
+        "top": [
+          {
+            "value": "Jones (UK)",
+            "count": 12
+          },
+          {
+            "value": "Praud (FR)",
+            "count": 10
+          },
+          {
+            "value": "Boomen (MYS)",
+            "count": 7
+          },
+          {
+            "value": "Hodgson (UK)",
+            "count": 7
+          },
+          {
+            "value": "French Cowgirls (FR)",
+            "count": 7
+          },
+          {
+            "value": "The Girls (UK)",
+            "count": 6
+          },
+          {
+            "value": "Martin (CAN)",
+            "count": 6
+          },
+          {
+            "value": "van den Bos (NL)",
+            "count": 6
+          }
+        ],
+        "formulaSamples": []
+      },
+      {
+        "col": 2,
+        "letter": "B",
+        "header": "2",
+        "filled": 2780,
+        "distinct": 2741,
+        "formulas": 0,
+        "kinds": {
+          "text": 2780
+        },
+        "top": [
+          {
+            "value": "Maureen Jones (UK)",
+            "count": 3
+          },
+          {
+            "value": "Michelle Jones (UK)",
+            "count": 3
+          },
+          {
+            "value": "The JOJO Team (BE/NL) ''Joke Mozes (BE) & John Warnars (NL)''",
+            "count": 3
+          },
+          {
+            "value": "Xavier Badielle Noguera (ESP) ''Chatti The Valley''",
+            "count": 3
+          },
+          {
+            "value": "Abelle Castagnet (FR)",
+            "count": 2
+          },
+          {
+            "value": "Alex Garet (FR)",
+            "count": 2
+          },
+          {
+            "value": "Angel & Corona (FR)",
+            "count": 2
+          },
+          {
+            "value": "Chrystel Durand (FR)",
+            "count": 2
+          }
+        ],
+        "formulaSamples": []
+      },
+      {
+        "col": 3,
+        "letter": "C",
+        "header": "3",
+        "filled": 2772,
+        "distinct": 41,
+        "formulas": 0,
+        "kinds": {
+          "text": 2772
+        },
+        "top": [
+          {
+            "value": "États-Unis",
+            "count": 679
+          },
+          {
+            "value": "Royaume-Uni (Grande-Bretagne)",
+            "count": 494
+          },
+          {
+            "value": "France",
+            "count": 401
+          },
+          {
+            "value": "Canada",
+            "count": 201
+          },
+          {
+            "value": "Belgique",
+            "count": 147
+          },
+          {
+            "value": "Pays-Bas",
+            "count": 145
+          },
+          {
+            "value": "Espagne",
+            "count": 111
+          },
+          {
+            "value": "Australie",
+            "count": 108
+          }
+        ],
+        "formulaSamples": []
+      },
+      {
+        "col": 4,
+        "letter": "D",
+        "header": "4",
+        "filled": 2714,
+        "distinct": 38,
+        "formulas": 0,
+        "kinds": {
+          "text": 2714
+        },
+        "top": [
+          {
+            "value": "US",
+            "count": 679
+          },
+          {
+            "value": "UK",
+            "count": 519
+          },
+          {
+            "value": "FR",
+            "count": 402
+          },
+          {
+            "value": "CA",
+            "count": 201
+          },
+          {
+            "value": "BE",
+            "count": 147
+          },
+          {
+            "value": "NL",
+            "count": 145
+          },
+          {
+            "value": "ES",
+            "count": 111
+          },
+          {
+            "value": "AU",
+            "count": 108
+          }
+        ],
+        "formulaSamples": []
+      },
+      {
+        "col": 5,
+        "letter": "E",
+        "header": "5",
+        "filled": 2715,
+        "distinct": 38,
+        "formulas": 0,
+        "kinds": {
+          "text": 2715
+        },
+        "top": [
+          {
+            "value": "USA",
+            "count": 679
+          },
+          {
+            "value": "GBR",
+            "count": 491
+          },
+          {
+            "value": "FRA",
+            "count": 402
+          },
+          {
+            "value": "CAN",
+            "count": 201
+          },
+          {
+            "value": "BEL",
+            "count": 147
+          },
+          {
+            "value": "NLD",
+            "count": 145
+          },
+          {
+            "value": "ESP",
+            "count": 111
+          },
+          {
+            "value": "AUS",
+            "count": 108
+          }
+        ],
+        "formulaSamples": []
+      }
+    ],
+    "Révisions": [
+      {
+        "col": 1,
+        "letter": "A",
+        "header": "2024-03-14",
+        "filled": 16,
+        "distinct": 3,
+        "formulas": 0,
+        "kinds": {
+          "date": 16
+        },
+        "top": [
+          {
+            "value": "2024-04-03",
+            "count": 9
+          },
+          {
+            "value": "2024-03-14",
+            "count": 6
+          },
+          {
+            "value": "2024-03-20",
+            "count": 1
+          }
+        ],
+        "formulaSamples": []
+      },
+      {
+        "col": 2,
+        "letter": "B",
+        "header": null,
+        "filled": 9,
+        "distinct": 9,
+        "formulas": 0,
+        "kinds": {
+          "number": 9
+        },
+        "top": [
+          {
+            "value": "1",
+            "count": 1
+          },
+          {
+            "value": "2",
+            "count": 1
+          },
+          {
+            "value": "3",
+            "count": 1
+          },
+          {
+            "value": "4",
+            "count": 1
+          },
+          {
+            "value": "5",
+            "count": 1
+          },
+          {
+            "value": "6",
+            "count": 1
+          },
+          {
+            "value": "7",
+            "count": 1
+          },
+          {
+            "value": "8",
+            "count": 1
+          }
+        ],
+        "formulaSamples": []
+      },
+      {
+        "col": 3,
+        "letter": "C",
+        "header": "Bucket Seats (P)",
+        "filled": 50,
+        "distinct": 50,
+        "formulas": 0,
+        "kinds": {
+          "text": 50
+        },
+        "top": [
+          {
+            "value": "Bucket Seats (P) I Run To You - Lady Antebellum",
+            "count": 1
+          },
+          {
+            "value": "Bucket Seats (P) Try Not To Cry - Soulsister",
+            "count": 1
+          },
+          {
+            "value": "Dance Tonight (P)",
+            "count": 1
+          },
+          {
+            "value": "Dance Tonight (P) The Kind Of Love We Make - Luke Combs",
+            "count": 1
+          },
+          {
+            "value": "East Hill Twist (P)",
+            "count": 1
+          },
+          {
+            "value": "East Hill Twist (P) Stuck On Me + You - Emily Ann Roberts",
+            "count": 1
+          },
+          {
+            "value": "East Hill Twist (P) Wake Me Up - Billy Currington",
+            "count": 1
+          },
+          {
+            "value": "Eighteen Wheels (P)",
+            "count": 1
+          }
+        ],
+        "formulaSamples": []
+      }
+    ],
+    "Révision Matt & Lucky": [
+      {
+        "col": 1,
+        "letter": "A",
+        "header": null,
+        "filled": 0,
+        "distinct": 0,
+        "formulas": 0,
+        "kinds": {},
+        "top": [],
+        "formulaSamples": []
+      },
+      {
+        "col": 2,
+        "letter": "B",
+        "header": 1,
+        "filled": 53,
+        "distinct": 41,
+        "formulas": 0,
+        "kinds": {
+          "number": 53
+        },
+        "top": [
+          {
+            "value": "5",
+            "count": 3
+          },
+          {
+            "value": "31",
+            "count": 3
+          },
+          {
+            "value": "35",
+            "count": 3
+          },
+          {
+            "value": "9",
+            "count": 2
+          },
+          {
+            "value": "13",
+            "count": 2
+          },
+          {
+            "value": "22",
+            "count": 2
+          },
+          {
+            "value": "26",
+            "count": 2
+          },
+          {
+            "value": "39",
+            "count": 2
+          }
+        ],
+        "formulaSamples": []
+      },
+      {
+        "col": 3,
+        "letter": "C",
+        "header": "All Shook Up (P) PG",
+        "filled": 53,
+        "distinct": 40,
+        "formulas": 0,
+        "kinds": {
+          "text": 53
+        },
+        "top": [
+          {
+            "value": "Sweetheart Schottische (P) PG",
+            "count": 4
+          },
+          {
+            "value": "Caliente (P) PG-M",
+            "count": 3
+          },
+          {
+            "value": "The Shadow (P) PD-M",
+            "count": 3
+          },
+          {
+            "value": "El Paso (P) PD",
+            "count": 2
+          },
+          {
+            "value": "Jambalaya Partner (P) PD",
+            "count": 2
+          },
+          {
+            "value": "Reminisce (P) PG",
+            "count": 2
+          },
+          {
+            "value": "Spring Swing (P) PD-M",
+            "count": 2
+          },
+          {
+            "value": "Traveling (Cowboy) Cha Cha (P) PG",
+            "count": 2
+          }
+        ],
+        "formulaSamples": []
+      },
+      {
+        "col": 4,
+        "letter": "D",
+        "header": "All Shook Up",
+        "filled": 53,
+        "distinct": 45,
+        "formulas": 0,
+        "kinds": {
+          "text": 53
+        },
+        "top": [
+          {
+            "value": "Achy Breaky Heart",
+            "count": 3
+          },
+          {
+            "value": "Heartaches By The Number",
+            "count": 2
+          },
+          {
+            "value": "Still In Love With You",
+            "count": 2
+          },
+          {
+            "value": "Oh Lonesome Me",
+            "count": 2
+          },
+          {
+            "value": "I Just Want To Dance With You",
+            "count": 2
+          },
+          {
+            "value": "Return To Sender",
+            "count": 2
+          },
+          {
+            "value": "Orange Blossom Special",
+            "count": 2
+          },
+          {
+            "value": "Sing Me Back Home (live)",
+            "count": 1
+          }
+        ],
+        "formulaSamples": []
+      },
+      {
+        "col": 5,
+        "letter": "E",
+        "header": "Elvis Presley",
+        "filled": 53,
+        "distinct": 33,
+        "formulas": 0,
+        "kinds": {
+          "text": 53
+        },
+        "top": [
+          {
+            "value": "Elvis Presley",
+            "count": 4
+          },
+          {
+            "value": "Billy Ray Cyrus",
+            "count": 4
+          },
+          {
+            "value": "Alan Jackson",
+            "count": 4
+          },
+          {
+            "value": "George Strait",
+            "count": 3
+          },
+          {
+            "value": "Texas Tornados",
+            "count": 2
+          },
+          {
+            "value": "Creedence Clearwater Revival",
+            "count": 2
+          },
+          {
+            "value": "Chuck Berry",
+            "count": 2
+          },
+          {
+            "value": "The Deans",
+            "count": 2
+          }
+        ],
+        "formulaSamples": []
+      },
+      {
+        "col": 6,
+        "letter": "F",
+        "header": null,
+        "filled": 0,
+        "distinct": 0,
+        "formulas": 0,
+        "kinds": {},
+        "top": [],
+        "formulaSamples": []
+      },
+      {
+        "col": 7,
+        "letter": "G",
+        "header": 1,
+        "filled": 53,
+        "distinct": 53,
+        "formulas": 0,
+        "kinds": {
+          "number": 53
+        },
+        "top": [
+          {
+            "value": "2",
+            "count": 1
+          },
+          {
+            "value": "3",
+            "count": 1
+          },
+          {
+            "value": "4",
+            "count": 1
+          },
+          {
+            "value": "5",
+            "count": 1
+          },
+          {
+            "value": "6",
+            "count": 1
+          },
+          {
+            "value": "7",
+            "count": 1
+          },
+          {
+            "value": "8",
+            "count": 1
+          },
+          {
+            "value": "9",
+            "count": 1
+          }
+        ],
+        "formulaSamples": []
+      }
+    ],
+    "Numéro": [
+      {
+        "col": 1,
+        "letter": "A",
+        "header": "N°",
+        "filled": 3300,
+        "distinct": 3299,
+        "formulas": 0,
+        "kinds": {
+          "number": 3300
+        },
+        "top": [
+          {
+            "value": "986",
+            "count": 2
+          },
+          {
+            "value": "1",
+            "count": 1
+          },
+          {
+            "value": "2",
+            "count": 1
+          },
+          {
+            "value": "3",
+            "count": 1
+          },
+          {
+            "value": "4",
+            "count": 1
+          },
+          {
+            "value": "5",
+            "count": 1
+          },
+          {
+            "value": "6",
+            "count": 1
+          },
+          {
+            "value": "7",
+            "count": 1
+          }
+        ],
+        "formulaSamples": []
+      },
+      {
+        "col": 2,
+        "letter": "B",
+        "header": "X",
+        "filled": 1,
+        "distinct": 1,
+        "formulas": 0,
+        "kinds": {
+          "text": 1
+        },
+        "top": [
+          {
+            "value": "Colonne2",
+            "count": 1
+          }
+        ],
+        "formulaSamples": []
+      },
+      {
+        "col": 3,
+        "letter": "C",
+        "header": "DATE",
+        "filled": 1,
+        "distinct": 1,
+        "formulas": 0,
+        "kinds": {
+          "text": 1
+        },
+        "top": [
+          {
+            "value": "Colonne3",
+            "count": 1
+          }
+        ],
+        "formulaSamples": []
+      },
+      {
+        "col": 4,
+        "letter": "D",
+        "header": "Type de danse",
+        "filled": 1,
+        "distinct": 1,
+        "formulas": 0,
+        "kinds": {
+          "text": 1
+        },
+        "top": [
+          {
+            "value": "Colonne4",
+            "count": 1
+          }
+        ],
+        "formulaSamples": []
+      },
+      {
+        "col": 5,
+        "letter": "E",
+        "header": null,
+        "filled": 1,
+        "distinct": 1,
+        "formulas": 0,
+        "kinds": {
+          "text": 1
+        },
+        "top": [
+          {
+            "value": "Colonne42",
+            "count": 1
+          }
+        ],
+        "formulaSamples": []
+      },
+      {
+        "col": 6,
+        "letter": "F",
+        "header": "Lien VIDEO (Cliquez…)",
+        "filled": 1,
+        "distinct": 1,
+        "formulas": 0,
+        "kinds": {
+          "text": 1
+        },
+        "top": [
+          {
+            "value": "Colonne5",
+            "count": 1
+          }
+        ],
+        "formulaSamples": []
+      },
+      {
+        "col": 7,
+        "letter": "G",
+        "header": "DANSE(Suggérée)",
+        "filled": 1,
+        "distinct": 1,
+        "formulas": 0,
+        "kinds": {
+          "text": 1
+        },
+        "top": [
+          {
+            "value": "Colonne6",
+            "count": 1
+          }
+        ],
+        "formulaSamples": []
+      },
+      {
+        "col": 8,
+        "letter": "H",
+        "header": "MUSIQUE",
+        "filled": 1,
+        "distinct": 1,
+        "formulas": 0,
+        "kinds": {
+          "text": 1
+        },
+        "top": [
+          {
+            "value": "Colonne7",
+            "count": 1
+          }
+        ],
+        "formulaSamples": []
+      },
+      {
+        "col": 9,
+        "letter": "I",
+        "header": "INTERPRETE",
+        "filled": 1,
+        "distinct": 1,
+        "formulas": 0,
+        "kinds": {
+          "text": 1
+        },
+        "top": [
+          {
+            "value": "Colonne8",
+            "count": 1
+          }
+        ],
+        "formulaSamples": []
+      },
+      {
+        "col": 10,
+        "letter": "J",
+        "header": "Pas",
+        "filled": 1,
+        "distinct": 1,
+        "formulas": 0,
+        "kinds": {
+          "text": 1
+        },
+        "top": [
+          {
+            "value": "Colonne9",
+            "count": 1
+          }
+        ],
+        "formulaSamples": []
+      },
+      {
+        "col": 11,
+        "letter": "K",
+        "header": "Mur",
+        "filled": 1,
+        "distinct": 1,
+        "formulas": 0,
+        "kinds": {
+          "text": 1
+        },
+        "top": [
+          {
+            "value": "Colonne10",
+            "count": 1
+          }
+        ],
+        "formulaSamples": []
+      },
+      {
+        "col": 12,
+        "letter": "L",
+        "header": "TAG",
+        "filled": 1,
+        "distinct": 1,
+        "formulas": 0,
+        "kinds": {
+          "text": 1
+        },
+        "top": [
+          {
+            "value": "Colonne11",
+            "count": 1
+          }
+        ],
+        "formulaSamples": []
+      },
+      {
+        "col": 13,
+        "letter": "M",
+        "header": "RESTART",
+        "filled": 1,
+        "distinct": 1,
+        "formulas": 0,
+        "kinds": {
+          "text": 1
+        },
+        "top": [
+          {
+            "value": "Colonne12",
+            "count": 1
+          }
+        ],
+        "formulaSamples": []
+      },
+      {
+        "col": 14,
+        "letter": "N",
+        "header": "CHOREGRAPHE",
+        "filled": 1,
+        "distinct": 1,
+        "formulas": 0,
+        "kinds": {
+          "text": 1
+        },
+        "top": [
+          {
+            "value": "Colonne13",
+            "count": 1
+          }
+        ],
+        "formulaSamples": []
+      },
+      {
+        "col": 15,
+        "letter": "O",
+        "header": "NIVEAU",
+        "filled": 1,
+        "distinct": 1,
+        "formulas": 0,
+        "kinds": {
+          "text": 1
+        },
+        "top": [
+          {
+            "value": "Colonne14",
+            "count": 1
+          }
+        ],
+        "formulaSamples": []
+      }
+    ],
+    "Code ISO": [
+      {
+        "col": 1,
+        "letter": "A",
+        "header": "1",
+        "filled": 248,
+        "distinct": 247,
+        "formulas": 0,
+        "kinds": {
+          "text": 248
+        },
+        "top": [
+          {
+            "value": "Irlande",
+            "count": 2
+          },
+          {
+            "value": "Afghanistan",
+            "count": 1
+          },
+          {
+            "value": "Afrique du Sud",
+            "count": 1
+          },
+          {
+            "value": "Albanie",
+            "count": 1
+          },
+          {
+            "value": "Algérie",
+            "count": 1
+          },
+          {
+            "value": "Allemagne",
+            "count": 1
+          },
+          {
+            "value": "Andorre",
+            "count": 1
+          },
+          {
+            "value": "Angola",
+            "count": 1
+          }
+        ],
+        "formulaSamples": []
+      },
+      {
+        "col": 2,
+        "letter": "B",
+        "header": "2",
+        "filled": 248,
+        "distinct": 247,
+        "formulas": 0,
+        "kinds": {
+          "text": 248
+        },
+        "top": [
+          {
+            "value": "IE",
+            "count": 2
+          },
+          {
+            "value": "AF",
+            "count": 1
+          },
+          {
+            "value": "ZA",
+            "count": 1
+          },
+          {
+            "value": "AL",
+            "count": 1
+          },
+          {
+            "value": "DZ",
+            "count": 1
+          },
+          {
+            "value": "DE",
+            "count": 1
+          },
+          {
+            "value": "AD",
+            "count": 1
+          },
+          {
+            "value": "AO",
+            "count": 1
+          }
+        ],
+        "formulaSamples": []
+      },
+      {
+        "col": 3,
+        "letter": "C",
+        "header": "3",
+        "filled": 248,
+        "distinct": 247,
+        "formulas": 0,
+        "kinds": {
+          "text": 248
+        },
+        "top": [
+          {
+            "value": "IRL",
+            "count": 2
+          },
+          {
+            "value": "AFG",
+            "count": 1
+          },
+          {
+            "value": "ZAF",
+            "count": 1
+          },
+          {
+            "value": "ALB",
+            "count": 1
+          },
+          {
+            "value": "DZA",
+            "count": 1
+          },
+          {
+            "value": "DEU",
+            "count": 1
+          },
+          {
+            "value": "AND",
+            "count": 1
+          },
+          {
+            "value": "AGO",
+            "count": 1
+          }
+        ],
+        "formulaSamples": []
+      }
+    ],
+    "Pays": [
+      {
+        "col": 1,
+        "letter": "A",
+        "header": "Colonne1",
+        "filled": 249,
+        "distinct": 248,
+        "formulas": 0,
+        "kinds": {
+          "text": 249
+        },
+        "top": [
+          {
+            "value": "Saint-Martin",
+            "count": 2
+          },
+          {
+            "value": "Afghanistan",
+            "count": 1
+          },
+          {
+            "value": "Afrique du Sud",
+            "count": 1
+          },
+          {
+            "value": "Albanie",
+            "count": 1
+          },
+          {
+            "value": "Algérie",
+            "count": 1
+          },
+          {
+            "value": "Allemagne",
+            "count": 1
+          },
+          {
+            "value": "Andorre",
+            "count": 1
+          },
+          {
+            "value": "Angola",
+            "count": 1
+          }
+        ],
+        "formulaSamples": []
+      },
+      {
+        "col": 2,
+        "letter": "B",
+        "header": "Colonne2",
+        "filled": 249,
+        "distinct": 249,
+        "formulas": 0,
+        "kinds": {
+          "text": 249
+        },
+        "top": [
+          {
+            "value": "AF",
+            "count": 1
+          },
+          {
+            "value": "ZA",
+            "count": 1
+          },
+          {
+            "value": "AL",
+            "count": 1
+          },
+          {
+            "value": "DZ",
+            "count": 1
+          },
+          {
+            "value": "DE",
+            "count": 1
+          },
+          {
+            "value": "AD",
+            "count": 1
+          },
+          {
+            "value": "AO",
+            "count": 1
+          },
+          {
+            "value": "AI",
+            "count": 1
+          }
+        ],
+        "formulaSamples": []
+      },
+      {
+        "col": 3,
+        "letter": "C",
+        "header": "Colonne3",
+        "filled": 249,
+        "distinct": 249,
+        "formulas": 0,
+        "kinds": {
+          "text": 249
+        },
+        "top": [
+          {
+            "value": "AFG",
+            "count": 1
+          },
+          {
+            "value": "ZAF",
+            "count": 1
+          },
+          {
+            "value": "ALB",
+            "count": 1
+          },
+          {
+            "value": "DZA",
+            "count": 1
+          },
+          {
+            "value": "DEU",
+            "count": 1
+          },
+          {
+            "value": "AND",
+            "count": 1
+          },
+          {
+            "value": "AGO",
+            "count": 1
+          },
+          {
+            "value": "AIA",
+            "count": 1
+          }
+        ],
+        "formulaSamples": []
+      }
+    ],
+    "Resto-Aires d'autoroutes": [
+      {
+        "col": 1,
+        "letter": "A",
+        "header": "Colonne1",
+        "filled": 27,
+        "distinct": 22,
+        "formulas": 0,
+        "kinds": {
+          "text": 27
+        },
+        "top": [
+          {
+            "value": "2024-03-17 (9185) Wachtebeke - LUCKY JORDAN",
+            "count": 3
+          },
+          {
+            "value": "2023-07-21,22,23 BREDENE Festival",
+            "count": 2
+          },
+          {
+            "value": "2023-11-26 Mettet - PAT CALAHAN",
+            "count": 2
+          },
+          {
+            "value": "2024-01-28 Mettet - JYPY",
+            "count": 2
+          },
+          {
+            "value": "2023-06-18 Cornesse - BBC",
+            "count": 1
+          },
+          {
+            "value": "2023-06-25 Lemiers (NL) - BBC",
+            "count": 1
+          },
+          {
+            "value": "2023-07-02 Géromont - CD Magali",
+            "count": 1
+          },
+          {
+            "value": "2023-08-06 Géromont - BBC",
+            "count": 1
+          }
+        ],
+        "formulaSamples": []
+      },
+      {
+        "col": 2,
+        "letter": "B",
+        "header": "Colonne2",
+        "filled": 27,
+        "distinct": 23,
+        "formulas": 0,
+        "kinds": {
+          "hyperlink": 26,
+          "url": 1
+        },
+        "top": [
+          {
+            "value": "{\"text\":\"https://maps.app.goo.gl/hrt1mmow2LzHAQTg6\",\"hyperlink\":\"https://maps...",
+            "count": 3
+          },
+          {
+            "value": "{\"text\":\"https://maps.app.goo.gl/aBgQ4iEgVUQbvDgk8\",\"hyperlink\":\"https://maps...",
+            "count": 2
+          },
+          {
+            "value": "{\"text\":\"https://maps.app.goo.gl/3NWtXA4hFEQ2REoBA\",\"hyperlink\":\"https://maps...",
+            "count": 2
+          },
+          {
+            "value": "{\"text\":\"https://maps.app.goo.gl/9bBw1kdRiH2jSQnH6\",\"hyperlink\":\"https://maps...",
+            "count": 1
+          },
+          {
+            "value": "{\"text\":\"https://maps.app.goo.gl/Wp6N1cDeVCwqG22c6\",\"hyperlink\":\"https://maps...",
+            "count": 1
+          },
+          {
+            "value": "{\"text\":\"https://maps.app.goo.gl/kA28jMb2B1USF5ZKA\",\"hyperlink\":\"https://maps...",
+            "count": 1
+          },
+          {
+            "value": "{\"text\":\"https://maps.app.goo.gl/by4YgGvdvjmDEVJp6\",\"hyperlink\":\"https://maps...",
+            "count": 1
+          },
+          {
+            "value": "{\"text\":\"https://maps.app.goo.gl/sGHuGbniAxUTVo9z8\",\"hyperlink\":\"https://maps...",
+            "count": 1
+          }
+        ],
+        "formulaSamples": []
+      },
+      {
+        "col": 3,
+        "letter": "C",
+        "header": "Colonne3",
+        "filled": 27,
+        "distinct": 24,
+        "formulas": 0,
+        "kinds": {
+          "text": 27
+        },
+        "top": [
+          {
+            "value": "Aire de Verlaine (SUD), 4537, Verlaine",
+            "count": 3
+          },
+          {
+            "value": "Le Bay Bonnet - Centre Commercial du Bay Bonnet 3, 4620 Fléron",
+            "count": 2
+          },
+          {
+            "value": "Façon Grenadine - Route de Soiron 24, 4860 Pepinster",
+            "count": 1
+          },
+          {
+            "value": "Ijssalon Italia Vaals - Maastrichterlaan 26, 6291 ES Vaals, Pays-Bas",
+            "count": 1
+          },
+          {
+            "value": "Au P'ti Schrapou - Clos so l'Fayi 1a, 4141 Sprimont",
+            "count": 1
+          },
+          {
+            "value": "Blankenberge - Zeedijk 175, 8370 Blankenberge",
+            "count": 1
+          },
+          {
+            "value": "Blankenberge - Zeedijk 95, 8370 Blankenberge",
+            "count": 1
+          },
+          {
+            "value": "Le P'tit Givré - Voie de l'Air Pur 161, 4052 Chaudfontaine",
+            "count": 1
+          }
+        ],
+        "formulaSamples": []
+      },
+      {
+        "col": 4,
+        "letter": "D",
+        "header": "Colonne4",
+        "filled": 27,
+        "distinct": 18,
+        "formulas": 0,
+        "kinds": {
+          "number": 26,
+          "text": 1
+        },
+        "top": [
+          {
+            "value": "4537",
+            "count": 4
+          },
+          {
+            "value": "4620",
+            "count": 3
+          },
+          {
+            "value": "4141",
+            "count": 2
+          },
+          {
+            "value": "8370",
+            "count": 2
+          },
+          {
+            "value": "4052",
+            "count": 2
+          },
+          {
+            "value": "4610",
+            "count": 2
+          },
+          {
+            "value": "4860",
+            "count": 1
+          },
+          {
+            "value": "6291 ES",
+            "count": 1
+          }
+        ],
+        "formulaSamples": []
+      },
+      {
+        "col": 5,
+        "letter": "E",
+        "header": "Colonne5",
+        "filled": 27,
+        "distinct": 18,
+        "formulas": 0,
+        "kinds": {
+          "text": 27
+        },
+        "top": [
+          {
+            "value": "Verlaine",
+            "count": 4
+          },
+          {
+            "value": "Fléron",
+            "count": 3
+          },
+          {
+            "value": "Louveigné",
+            "count": 2
+          },
+          {
+            "value": "Blankenberge",
+            "count": 2
+          },
+          {
+            "value": "Chaudfontaine",
+            "count": 2
+          },
+          {
+            "value": "Beyne-Heusay",
+            "count": 2
+          },
+          {
+            "value": "Cornesse",
+            "count": 1
+          },
+          {
+            "value": "Vaals",
+            "count": 1
+          }
+        ],
+        "formulaSamples": []
+      },
+      {
+        "col": 6,
+        "letter": "F",
+        "header": "Colonne6",
+        "filled": 6,
+        "distinct": 5,
+        "formulas": 0,
+        "kinds": {
+          "text": 6
+        },
+        "top": [
+          {
+            "value": "Sprimont",
+            "count": 2
+          },
+          {
+            "value": "Pepinster",
+            "count": 1
+          },
+          {
+            "value": "Jemeppe-sur-Sambre",
+            "count": 1
+          },
+          {
+            "value": "Jalhay",
+            "count": 1
+          },
+          {
+            "value": "Le Ranch du 16/2-24/3",
+            "count": 1
+          }
+        ],
+        "formulaSamples": []
+      },
+      {
+        "col": 7,
+        "letter": "G",
+        "header": "Colonne7",
+        "filled": 15,
+        "distinct": 13,
+        "formulas": 0,
+        "kinds": {
+          "text": 15
+        },
+        "top": [
+          {
+            "value": "04 355 31 21",
+            "count": 2
+          },
+          {
+            "value": "04 358 19 09",
+            "count": 2
+          },
+          {
+            "value": "087 88 39 33",
+            "count": 1
+          },
+          {
+            "value": "06 11318094",
+            "count": 1
+          },
+          {
+            "value": "0496 51 35 61",
+            "count": 1
+          },
+          {
+            "value": "04 368 87 17",
+            "count": 1
+          },
+          {
+            "value": "04 265 58 15",
+            "count": 1
+          },
+          {
+            "value": "04 368 38 11",
+            "count": 1
+          }
+        ],
+        "formulaSamples": []
+      }
+    ],
+    "Feuil1": [
+      {
+        "col": 1,
+        "letter": "A",
+        "header": "Livreur",
+        "filled": 1,
+        "distinct": 1,
+        "formulas": 0,
+        "kinds": {
+          "text": 1
+        },
+        "top": [
+          {
+            "value": "Contact client : 0477 / 746 653",
+            "count": 1
+          }
+        ],
+        "formulaSamples": []
+      }
+    ],
+    "Feuil3": [
+      {
+        "col": 1,
+        "letter": "A",
+        "header": "After The Fire Is Gone",
+        "filled": 128,
+        "distinct": 128,
+        "formulas": 0,
+        "kinds": {
+          "text": 128
+        },
+        "top": [
+          {
+            "value": "Alan Jackson",
+            "count": 1
+          },
+          {
+            "value": "All Heaven Allows",
+            "count": 1
+          },
+          {
+            "value": "All I Ever Need Is You",
+            "count": 1
+          },
+          {
+            "value": "All The King Horses",
+            "count": 1
+          },
+          {
+            "value": "Amarillo By Morning",
+            "count": 1
+          },
+          {
+            "value": "Angelina",
+            "count": 1
+          },
+          {
+            "value": "Best part of the day",
+            "count": 1
+          },
+          {
+            "value": "Big blue tree",
+            "count": 1
+          }
+        ],
+        "formulaSamples": []
+      }
+    ]
+  }
+}
