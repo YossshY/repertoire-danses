@@ -208,11 +208,16 @@ function fiche(danse) {
   const musicCard = el("section", { class: "card" }, [el("h2", {}, ["Musique"])]);
   if (!musiques.length) musicCard.append(el("p", { class: "muted" }, ["Aucune musique renseignée"]));
   for (const music of musiques) {
-    musicCard.append(el("p", { class: "music" }, [
+    const ligne = [
       el("strong", {}, [music.titre || "Titre non précisé"]),
       document.createElement("br"),
       el("span", { class: "muted" }, [music.interprete || ""]),
-    ]));
+    ];
+    const ecoute = urlEcoute(music, danse);
+    if (ecoute) {
+      ligne.push(document.createElement("br"), el("a", { class: "ecouter", href: ecoute, target: "_blank", rel: "noreferrer" }, ["Écouter"]));
+    }
+    musicCard.append(el("p", { class: "music" }, ligne));
   }
   const chore = el("section", { class: "card" }, [
     el("h2", {}, ["Chorégraphe"]),
@@ -476,6 +481,23 @@ async function route() {
   } catch {
     show(el("p", {}, ["Ces données ne s'affichent pas. Relancez l'aperçu."]));
   }
+}
+
+function morceauNomme(value) {
+  const texte = String(value || "").replace(/\s+/g, " ").trim();
+  if (!texte || texte === "?" || texte === "." || texte === "Inconnu") return "";
+  return texte;
+}
+
+function urlEcoute(music, danse) {
+  const liens = danse.liens || [];
+  const direct = liens.find((lien) => lien.type === "youtube" && /^https?:\/\//i.test(lien.url || ""));
+  if (direct) return direct.url;
+  const autre = liens.find((lien) => /youtu\.?be|youtube\.com/i.test(lien.url || ""));
+  if (autre) return autre.url;
+  const morceau = [morceauNomme(music.titre), morceauNomme(music.interprete)].filter(Boolean).join(" ");
+  if (morceau.length < 2) return "";
+  return `https://www.youtube.com/results?search_query=${encodeURIComponent(morceau)}`;
 }
 
 function foldClient(value) {
