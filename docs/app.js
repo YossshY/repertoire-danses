@@ -228,10 +228,11 @@ function fiche(danse) {
   box.append(el("div", { class: "grid" }, [musicCard, chore]));
   if (faits.length) box.append(el("div", { class: "facts" }, faits.map((fait) => el("span", { class: "fact" }, [fait]))));
 
-  if (danse.liens.length) {
+  const visibles = liensVisibles(danse.liens);
+  if (visibles.length) {
     const links = el("div", { class: "links" });
     box.append(el("h2", { class: "section" }, ["Liens"]));
-    for (const lien of danse.liens) {
+    for (const lien of visibles) {
       const label = lienNom[lien.type] || lien.label || "Lien";
       if (lien.url) links.append(el("a", { class: "link", href: lien.url, target: "_blank", rel: "noreferrer" }, [label]));
       else if (lien.valeur && lien.valeur !== "?") links.append(el("span", { class: "link quiet" }, [`${label} · ${lien.valeur}`]));
@@ -481,6 +482,21 @@ async function route() {
   } catch {
     show(el("p", {}, ["Ces données ne s'affichent pas. Relancez l'aperçu."]));
   }
+}
+
+function idVideo(url) {
+  const value = String(url || "");
+  const court = value.match(/youtu\.be\/([\w-]{11})/);
+  if (court) return court[1];
+  const embed = value.match(/youtube\.com\/(?:embed|shorts)\/([\w-]{11})/);
+  if (embed) return embed[1];
+  const long = value.match(/[?&]v=([\w-]{11})/);
+  return long ? long[1] : "";
+}
+
+function liensVisibles(liens) {
+  const choregraphies = new Set((liens || []).map((lien) => lien.type === "youtube" ? idVideo(lien.url) : "").filter(Boolean));
+  return (liens || []).filter((lien) => lien.type !== "lonestar" || !choregraphies.has(idVideo(lien.url)));
 }
 
 function urlEcoute(music) {
