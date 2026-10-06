@@ -38,6 +38,13 @@ if (!contient("Stéphane", "stephane") || contient("Riverside", "zz")) {
 }
 
 const brouillons = new Map();
+const ecoutesPath = path.join(root, "data", "ecoutes.json");
+const ecoutes = fs.existsSync(ecoutesPath) ? JSON.parse(fs.readFileSync(ecoutesPath, "utf8")) : {};
+
+function avecEcoute(music) {
+  const url = ecoutes[`${fold(music.titre)}\t${fold(music.interprete)}`];
+  return url ? { ...music, ecoute: url } : music;
+}
 const clubs = db.prepare(`
   SELECT r.id, r.nom
   FROM repertoires r
@@ -251,7 +258,7 @@ const danse = (id) => {
     JOIN musiques m ON m.id = dm.musique_id
     WHERE dm.danse_id = $id AND dm.deleted_at IS NULL
     ORDER BY dm.ordre
-  `).all({ id });
+  `).all({ id }).map(avecEcoute);
   row.liens = db.prepare(`
     SELECT type, url, label, valeur_originale AS valeur
     FROM liens WHERE danse_id = $id AND deleted_at IS NULL

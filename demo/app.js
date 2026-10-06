@@ -2,7 +2,7 @@ const view = document.querySelector("#view");
 const input = document.querySelector("#q");
 const brand = document.querySelector("#brand");
 
-const lienNom = { youtube: "YouTube", copperknob: "CopperKnob", lonestar: "Lonestar" };
+const lienNom = { youtube: "Chorégraphie", copperknob: "Paroles", lonestar: "Lonestar" };
 
 function el(tag, attrs, children) {
   const node = document.createElement(tag);
@@ -213,7 +213,7 @@ function fiche(danse) {
       document.createElement("br"),
       el("span", { class: "muted" }, [music.interprete || ""]),
     ];
-    const ecoute = urlEcoute(music, danse);
+    const ecoute = urlEcoute(music);
     if (ecoute) {
       ligne.push(document.createElement("br"), el("a", { class: "ecouter", href: ecoute, target: "_blank", rel: "noreferrer" }, ["Écouter"]));
     }
@@ -483,21 +483,8 @@ async function route() {
   }
 }
 
-function morceauNomme(value) {
-  const texte = String(value || "").replace(/\s+/g, " ").trim();
-  if (!texte || texte === "?" || texte === "." || texte === "Inconnu") return "";
-  return texte;
-}
-
-function urlEcoute(music, danse) {
-  const liens = danse.liens || [];
-  const direct = liens.find((lien) => lien.type === "youtube" && /^https?:\/\//i.test(lien.url || ""));
-  if (direct) return direct.url;
-  const autre = liens.find((lien) => /youtu\.?be|youtube\.com/i.test(lien.url || ""));
-  if (autre) return autre.url;
-  const morceau = [morceauNomme(music.titre), morceauNomme(music.interprete)].filter(Boolean).join(" ");
-  if (morceau.length < 2) return "";
-  return `https://www.youtube.com/results?search_query=${encodeURIComponent(morceau)}`;
+function urlEcoute(music) {
+  return /^https?:\/\//i.test(music.ecoute || "") ? music.ecoute : "";
 }
 
 function foldClient(value) {

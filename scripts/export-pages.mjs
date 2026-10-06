@@ -1,9 +1,12 @@
 import fs from "fs";
 import path from "path";
 import { DatabaseSync } from "node:sqlite";
+import { fold } from "./lib/text.mjs";
 
 const root = process.cwd();
 const db = new DatabaseSync(path.join(root, "data", "repertoire.db"), { readOnly: true });
+const ecoutesPath = path.join(root, "data", "ecoutes.json");
+const ecoutes = fs.existsSync(ecoutesPath) ? JSON.parse(fs.readFileSync(ecoutesPath, "utf8")) : {};
 
 const danses = db.prepare(`
   SELECT id, nom, nom_semantic, niveau_original AS niveau, niveau_semantic,
@@ -34,7 +37,10 @@ for (const row of db.prepare(`
   WHERE dm.deleted_at IS NULL
   ORDER BY dm.ordre
 `).all()) {
-  parId.get(row.danse_id)?.musiques.push({ titre: row.titre, interprete: row.interprete });
+  const url = ecoutes[`${fold(row.titre)}\t${fold(row.interprete)}`];
+  const music = { titre: row.titre, interprete: row.interprete };
+  if (url) music.ecoute = url;
+  parId.get(row.danse_id)?.musiques.push(music);
 }
 
 for (const row of db.prepare(`
