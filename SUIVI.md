@@ -4,10 +4,10 @@ Au début de cette étape, le projet ne contenait que la lecture du classeur (sc
 
 ## 1. Ce qui est déjà implémenté
 
-- Lecture du classeur réel `00 aa REPERTOIRE des DANSES 6.303 au 15-06-2026 Orig.xlsx`, sans le modifier.
+- Lecture du classeur réel, sans le modifier. Le 7 octobre 2026, le client a transmis `00 aa REPERTOIRE des DANSES 6.303 au 15-06-2026 Orig modifié.xlsx`. C'est cette version qui est importée. L'ancien fichier du Bureau n'a pas été écrasé.
 - Copie intacte dans `SOURCE/`.
 - Base `data/repertoire.db` (SQLite), identifiants stables, `created_at`, `updated_at`, `deleted_at` sur les tables métier.
-- **363 809 cellules non vides** relues et comparées une à une : **0 perdue, 0 différente**.
+- **363 812 cellules non vides** relues et comparées une à une : **0 perdue, 0 différente**. Une formule est présente : `A2546` vaut `=A2546:AA2546`. Elle est conservée comme formule et n'est pas copiée dans la fiche.
 - 10 feuilles sur 10 ont une stratégie. 6427 fiches danse (une ligne Excel = une fiche).
 - 132 répertoires, 4795 musiques, 3610 chorégraphes, 12941 liens, 220 révisions, 54 lignes Matt & Lucky, 3300 numéros historiques, 250 pays, 27 restaurants, 131 lignes d'annexes (Feuil1 et Feuil3).
 - Matrice de toutes les colonnes : `docs/mapping-excel.md`.
@@ -37,7 +37,7 @@ Ces lectures ont été corrigées avant d'écrire la base. Elles ne sont plus ap
 - Réduire une cellule de répertoire (`x`, une date, `?`, un nombre, un texte) à « présent ».
 - Fusionner deux chorégraphes parce que les noms se ressemblent.
 - Considérer `48.1` comme non numérique. La valeur est gardée comme nombre et comme texte.
-- Affirmer que `A2546` contient encore la formule `=A2546:AA2546`. Dans ce fichier, la cellule de la feuille principale est vide. Le classeur entier contient 0 formule. Le détecteur est testé sur un classeur miniature : le résultat de la formule n'est pas copié dans le nom de la danse.
+- Copier la formule `A2546` (`=A2546:AA2546`) dans le nom ou la date de la danse. Dans le fichier nettoyé, la formule est revenue. Elle est stockée à part. La fiche reste « Have I Told You ». Le détecteur est aussi testé sur un classeur miniature.
 
 ## 4. Données Excel encore incomplètement représentées
 

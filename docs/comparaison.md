@@ -4,7 +4,7 @@ Résultat : aucune perte
 
 | Feuille | Cellules non vides | Identiques | Perdues |
 | --- | ---: | ---: | ---: |
-| 6.079 au 05-04-2026 | 344539 | 344539 | 0 |
+| 6.079 au 05-04-2026 | 344542 | 344542 | 0 |
 | Chorégraphes | 13750 | 13750 | 0 |
 | Révisions | 77 | 77 | 0 |
 | Révision Matt & Lucky | 324 | 324 | 0 |

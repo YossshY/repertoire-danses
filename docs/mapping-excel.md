@@ -16,7 +16,9 @@ Chaque colonne a une destination. Le statut `a_analyser` signifie que la valeur 
 | Chorégraphes | D |  | 2715 | 39 | compris | pays.iso2 (code conservé tel quel, y compris UK) |
 | Chorégraphes | E |  | 2716 | 39 | compris | pays.iso3 |
 | Chorégraphes | F |  | 0 | 0 | a_analyser | source_cells, affiché plus tard dans « Informations héritées d'Excel » |
-| 6.079 au 05-04-2026 | A | DATE  +/- 1ère x Vue | 6427 | 1433 | compris | dances.date_premiere_vue + date_premiere_vue_original |
+| Chorégraphes | G |  | 0 | 0 | a_analyser | source_cells, affiché plus tard dans « Informations héritées d'Excel » |
+| Chorégraphes | H |  | 0 | 0 | a_analyser | source_cells, affiché plus tard dans « Informations héritées d'Excel » |
+| 6.079 au 05-04-2026 | A | DATE  +/- 1ère x Vue | 6428 | 1434 | compris | dances.date_premiere_vue + date_premiere_vue_original |
 | 6.079 au 05-04-2026 | B |  | 5538 | 2 | a_analyser | source_cells, affiché plus tard dans « Informations héritées d'Excel » |
 | 6.079 au 05-04-2026 | C |  | 886 | 12 | a_analyser | source_cells, affiché plus tard dans « Informations héritées d'Excel » |
 | 6.079 au 05-04-2026 | D |  | 886 | 544 | a_analyser | source_cells, affiché plus tard dans « Informations héritées d'Excel » |
@@ -44,8 +46,8 @@ Chaque colonne a une destination. Le statut `a_analyser` signifie que la valeur 
 | 6.079 au 05-04-2026 | Z | CHANSONS | 6428 | 4164 | compris | musiques.titre + danse_musique ; titre original sur la danse |
 | 6.079 au 05-04-2026 | AA | INTERPRÈTES | 6422 | 2197 | compris | musiques.interprete ; texte original sur la danse |
 | 6.079 au 05-04-2026 | AB |  | 242 | 10 | a_analyser | source_cells, affiché plus tard dans « Informations héritées d'Excel » |
-| 6.079 au 05-04-2026 | AC | PAS | 5907 | 69 | compris | dances.pas si le texte est un entier, sinon pas_original seul |
-| 6.079 au 05-04-2026 | AD | MUR | 5889 | 8 | compris | dances.murs si le texte est un entier, sinon murs_original seul |
+| 6.079 au 05-04-2026 | AC | PAS | 5908 | 69 | compris | dances.pas si le texte est un entier, sinon pas_original seul |
+| 6.079 au 05-04-2026 | AD | MUR | 5890 | 8 | compris | dances.murs si le texte est un entier, sinon murs_original seul |
 | 6.079 au 05-04-2026 | AE | TAG | 1403 | 567 | compris | dances.tag |
 | 6.079 au 05-04-2026 | AF | RESTART | 1467 | 495 | compris | dances.restart |
 | 6.079 au 05-04-2026 | AG | CHORÉGRAPHES | 5894 | 1758 | compris | dances.choregraphe_original ; lien vers choregraphes seulement si le texte est identique |
@@ -203,6 +205,40 @@ Chaque colonne a une destination. Le statut `a_analyser` signifie que la valeur 
 | 6.079 au 05-04-2026 | GC |  | 0 | 0 | a_analyser | source_cells, affiché plus tard dans « Informations héritées d'Excel » |
 | 6.079 au 05-04-2026 | GD |  | 0 | 0 | a_analyser | source_cells, affiché plus tard dans « Informations héritées d'Excel » |
 | 6.079 au 05-04-2026 | GE |  | 0 | 0 | a_analyser | source_cells, affiché plus tard dans « Informations héritées d'Excel » |
+| 6.079 au 05-04-2026 | GF |  | 0 | 0 | a_analyser | source_cells, affiché plus tard dans « Informations héritées d'Excel » |
+| 6.079 au 05-04-2026 | GG |  | 0 | 0 | a_analyser | source_cells, affiché plus tard dans « Informations héritées d'Excel » |
+| 6.079 au 05-04-2026 | GH |  | 0 | 0 | a_analyser | source_cells, affiché plus tard dans « Informations héritées d'Excel » |
+| 6.079 au 05-04-2026 | GI |  | 0 | 0 | a_analyser | source_cells, affiché plus tard dans « Informations héritées d'Excel » |
+| 6.079 au 05-04-2026 | GJ |  | 0 | 0 | a_analyser | source_cells, affiché plus tard dans « Informations héritées d'Excel » |
+| 6.079 au 05-04-2026 | GK |  | 0 | 0 | a_analyser | source_cells, affiché plus tard dans « Informations héritées d'Excel » |
+| 6.079 au 05-04-2026 | GL |  | 0 | 0 | a_analyser | source_cells, affiché plus tard dans « Informations héritées d'Excel » |
+| 6.079 au 05-04-2026 | GM |  | 0 | 0 | a_analyser | source_cells, affiché plus tard dans « Informations héritées d'Excel » |
+| 6.079 au 05-04-2026 | GN |  | 0 | 0 | a_analyser | source_cells, affiché plus tard dans « Informations héritées d'Excel » |
+| 6.079 au 05-04-2026 | GO |  | 0 | 0 | a_analyser | source_cells, affiché plus tard dans « Informations héritées d'Excel » |
+| 6.079 au 05-04-2026 | GP |  | 0 | 0 | a_analyser | source_cells, affiché plus tard dans « Informations héritées d'Excel » |
+| 6.079 au 05-04-2026 | GQ |  | 0 | 0 | a_analyser | source_cells, affiché plus tard dans « Informations héritées d'Excel » |
+| 6.079 au 05-04-2026 | GR |  | 0 | 0 | a_analyser | source_cells, affiché plus tard dans « Informations héritées d'Excel » |
+| 6.079 au 05-04-2026 | GS |  | 0 | 0 | a_analyser | source_cells, affiché plus tard dans « Informations héritées d'Excel » |
+| 6.079 au 05-04-2026 | GT |  | 0 | 0 | a_analyser | source_cells, affiché plus tard dans « Informations héritées d'Excel » |
+| 6.079 au 05-04-2026 | GU |  | 0 | 0 | a_analyser | source_cells, affiché plus tard dans « Informations héritées d'Excel » |
+| 6.079 au 05-04-2026 | GV |  | 0 | 0 | a_analyser | source_cells, affiché plus tard dans « Informations héritées d'Excel » |
+| 6.079 au 05-04-2026 | GW |  | 0 | 0 | a_analyser | source_cells, affiché plus tard dans « Informations héritées d'Excel » |
+| 6.079 au 05-04-2026 | GX |  | 0 | 0 | a_analyser | source_cells, affiché plus tard dans « Informations héritées d'Excel » |
+| 6.079 au 05-04-2026 | GY |  | 0 | 0 | a_analyser | source_cells, affiché plus tard dans « Informations héritées d'Excel » |
+| 6.079 au 05-04-2026 | GZ |  | 0 | 0 | a_analyser | source_cells, affiché plus tard dans « Informations héritées d'Excel » |
+| 6.079 au 05-04-2026 | HA |  | 0 | 0 | a_analyser | source_cells, affiché plus tard dans « Informations héritées d'Excel » |
+| 6.079 au 05-04-2026 | HB |  | 0 | 0 | a_analyser | source_cells, affiché plus tard dans « Informations héritées d'Excel » |
+| 6.079 au 05-04-2026 | HC |  | 0 | 0 | a_analyser | source_cells, affiché plus tard dans « Informations héritées d'Excel » |
+| 6.079 au 05-04-2026 | HD |  | 0 | 0 | a_analyser | source_cells, affiché plus tard dans « Informations héritées d'Excel » |
+| 6.079 au 05-04-2026 | HE |  | 0 | 0 | a_analyser | source_cells, affiché plus tard dans « Informations héritées d'Excel » |
+| 6.079 au 05-04-2026 | HF |  | 0 | 0 | a_analyser | source_cells, affiché plus tard dans « Informations héritées d'Excel » |
+| 6.079 au 05-04-2026 | HG |  | 0 | 0 | a_analyser | source_cells, affiché plus tard dans « Informations héritées d'Excel » |
+| 6.079 au 05-04-2026 | HH |  | 0 | 0 | a_analyser | source_cells, affiché plus tard dans « Informations héritées d'Excel » |
+| 6.079 au 05-04-2026 | HI |  | 0 | 0 | a_analyser | source_cells, affiché plus tard dans « Informations héritées d'Excel » |
+| 6.079 au 05-04-2026 | HJ |  | 0 | 0 | a_analyser | source_cells, affiché plus tard dans « Informations héritées d'Excel » |
+| 6.079 au 05-04-2026 | HK |  | 0 | 0 | a_analyser | source_cells, affiché plus tard dans « Informations héritées d'Excel » |
+| 6.079 au 05-04-2026 | HL |  | 0 | 0 | a_analyser | source_cells, affiché plus tard dans « Informations héritées d'Excel » |
+| 6.079 au 05-04-2026 | HM |  | 0 | 0 | a_analyser | source_cells, affiché plus tard dans « Informations héritées d'Excel » |
 | Révisions | A |  | 17 | 3 | compris | revisions.date_originale |
 | Révisions | B |  | 9 | 9 | a_analyser | source_cells + revisions (colonne brute) |
 | Révisions | C |  | 51 | 51 | compris | revisions.libelle_original ; danse liée seulement si le texte est identique à un seul nom |
@@ -234,6 +270,12 @@ Chaque colonne a une destination. Le statut `a_analyser` signifie que la valeur 
 | Numéro | P |  | 0 | 0 | a_analyser | source_cells, affiché plus tard dans « Informations héritées d'Excel » |
 | Numéro | Q |  | 0 | 0 | a_analyser | source_cells, affiché plus tard dans « Informations héritées d'Excel » |
 | Numéro | R |  | 0 | 0 | a_analyser | source_cells, affiché plus tard dans « Informations héritées d'Excel » |
+| Numéro | S |  | 0 | 0 | a_analyser | source_cells, affiché plus tard dans « Informations héritées d'Excel » |
+| Numéro | T |  | 0 | 0 | a_analyser | source_cells, affiché plus tard dans « Informations héritées d'Excel » |
+| Numéro | U |  | 0 | 0 | a_analyser | source_cells, affiché plus tard dans « Informations héritées d'Excel » |
+| Numéro | V |  | 0 | 0 | a_analyser | source_cells, affiché plus tard dans « Informations héritées d'Excel » |
+| Numéro | W |  | 0 | 0 | a_analyser | source_cells, affiché plus tard dans « Informations héritées d'Excel » |
+| Numéro | X |  | 0 | 0 | a_analyser | source_cells, affiché plus tard dans « Informations héritées d'Excel » |
 | Resto-Aires d'autoroutes | A |  | 28 | 23 | compris | restaurants.evenement |
 | Resto-Aires d'autoroutes | B |  | 28 | 24 | compris | restaurants.google_maps_url + hyperlien |
 | Resto-Aires d'autoroutes | C |  | 28 | 25 | compris | restaurants.adresse_complete |
@@ -247,6 +289,8 @@ Chaque colonne a une destination. Le statut `a_analyser` signifie que la valeur 
 ## Colonnes encore à analyser
 
 - Chorégraphes F — (sans en-tête) — Colonne de la feuille « choregraphes » non décrite à l'avance.
+- Chorégraphes G — (sans en-tête) — Colonne de la feuille « choregraphes » non décrite à l'avance.
+- Chorégraphes H — (sans en-tête) — Colonne de la feuille « choregraphes » non décrite à l'avance.
 - 6.079 au 05-04-2026 B — (sans en-tête) — Colonne de la feuille principale sans rôle métier confirmé.
 - 6.079 au 05-04-2026 C — (sans en-tête) — Colonne de la feuille principale sans rôle métier confirmé.
 - 6.079 au 05-04-2026 D — (sans en-tête) — Colonne de la feuille principale sans rôle métier confirmé.
@@ -411,6 +455,40 @@ Chaque colonne a une destination. Le statut `a_analyser` signifie que la valeur 
 - 6.079 au 05-04-2026 GC — (sans en-tête) — Colonne de la feuille principale sans rôle métier confirmé.
 - 6.079 au 05-04-2026 GD — (sans en-tête) — Colonne de la feuille principale sans rôle métier confirmé.
 - 6.079 au 05-04-2026 GE — (sans en-tête) — Colonne de la feuille principale sans rôle métier confirmé.
+- 6.079 au 05-04-2026 GF — (sans en-tête) — Colonne de la feuille principale sans rôle métier confirmé.
+- 6.079 au 05-04-2026 GG — (sans en-tête) — Colonne de la feuille principale sans rôle métier confirmé.
+- 6.079 au 05-04-2026 GH — (sans en-tête) — Colonne de la feuille principale sans rôle métier confirmé.
+- 6.079 au 05-04-2026 GI — (sans en-tête) — Colonne de la feuille principale sans rôle métier confirmé.
+- 6.079 au 05-04-2026 GJ — (sans en-tête) — Colonne de la feuille principale sans rôle métier confirmé.
+- 6.079 au 05-04-2026 GK — (sans en-tête) — Colonne de la feuille principale sans rôle métier confirmé.
+- 6.079 au 05-04-2026 GL — (sans en-tête) — Colonne de la feuille principale sans rôle métier confirmé.
+- 6.079 au 05-04-2026 GM — (sans en-tête) — Colonne de la feuille principale sans rôle métier confirmé.
+- 6.079 au 05-04-2026 GN — (sans en-tête) — Colonne de la feuille principale sans rôle métier confirmé.
+- 6.079 au 05-04-2026 GO — (sans en-tête) — Colonne de la feuille principale sans rôle métier confirmé.
+- 6.079 au 05-04-2026 GP — (sans en-tête) — Colonne de la feuille principale sans rôle métier confirmé.
+- 6.079 au 05-04-2026 GQ — (sans en-tête) — Colonne de la feuille principale sans rôle métier confirmé.
+- 6.079 au 05-04-2026 GR — (sans en-tête) — Colonne de la feuille principale sans rôle métier confirmé.
+- 6.079 au 05-04-2026 GS — (sans en-tête) — Colonne de la feuille principale sans rôle métier confirmé.
+- 6.079 au 05-04-2026 GT — (sans en-tête) — Colonne de la feuille principale sans rôle métier confirmé.
+- 6.079 au 05-04-2026 GU — (sans en-tête) — Colonne de la feuille principale sans rôle métier confirmé.
+- 6.079 au 05-04-2026 GV — (sans en-tête) — Colonne de la feuille principale sans rôle métier confirmé.
+- 6.079 au 05-04-2026 GW — (sans en-tête) — Colonne de la feuille principale sans rôle métier confirmé.
+- 6.079 au 05-04-2026 GX — (sans en-tête) — Colonne de la feuille principale sans rôle métier confirmé.
+- 6.079 au 05-04-2026 GY — (sans en-tête) — Colonne de la feuille principale sans rôle métier confirmé.
+- 6.079 au 05-04-2026 GZ — (sans en-tête) — Colonne de la feuille principale sans rôle métier confirmé.
+- 6.079 au 05-04-2026 HA — (sans en-tête) — Colonne de la feuille principale sans rôle métier confirmé.
+- 6.079 au 05-04-2026 HB — (sans en-tête) — Colonne de la feuille principale sans rôle métier confirmé.
+- 6.079 au 05-04-2026 HC — (sans en-tête) — Colonne de la feuille principale sans rôle métier confirmé.
+- 6.079 au 05-04-2026 HD — (sans en-tête) — Colonne de la feuille principale sans rôle métier confirmé.
+- 6.079 au 05-04-2026 HE — (sans en-tête) — Colonne de la feuille principale sans rôle métier confirmé.
+- 6.079 au 05-04-2026 HF — (sans en-tête) — Colonne de la feuille principale sans rôle métier confirmé.
+- 6.079 au 05-04-2026 HG — (sans en-tête) — Colonne de la feuille principale sans rôle métier confirmé.
+- 6.079 au 05-04-2026 HH — (sans en-tête) — Colonne de la feuille principale sans rôle métier confirmé.
+- 6.079 au 05-04-2026 HI — (sans en-tête) — Colonne de la feuille principale sans rôle métier confirmé.
+- 6.079 au 05-04-2026 HJ — (sans en-tête) — Colonne de la feuille principale sans rôle métier confirmé.
+- 6.079 au 05-04-2026 HK — (sans en-tête) — Colonne de la feuille principale sans rôle métier confirmé.
+- 6.079 au 05-04-2026 HL — (sans en-tête) — Colonne de la feuille principale sans rôle métier confirmé.
+- 6.079 au 05-04-2026 HM — (sans en-tête) — Colonne de la feuille principale sans rôle métier confirmé.
 - Révisions B — (sans en-tête) — Colonne peu remplie, sens non établi.
 - Révisions D — (sans en-tête) — Colonne de la feuille « revisions » non décrite à l'avance.
 - Révisions E — (sans en-tête) — Colonne de la feuille « revisions » non décrite à l'avance.
@@ -436,6 +514,12 @@ Chaque colonne a une destination. Le statut `a_analyser` signifie que la valeur 
 - Numéro P — (sans en-tête) — Colonne du catalogue Numéro. Conservée pour comparaison, pas de suppression même si elle semble vide.
 - Numéro Q — (sans en-tête) — Colonne du catalogue Numéro. Conservée pour comparaison, pas de suppression même si elle semble vide.
 - Numéro R — (sans en-tête) — Colonne du catalogue Numéro. Conservée pour comparaison, pas de suppression même si elle semble vide.
+- Numéro S — (sans en-tête) — Colonne du catalogue Numéro. Conservée pour comparaison, pas de suppression même si elle semble vide.
+- Numéro T — (sans en-tête) — Colonne du catalogue Numéro. Conservée pour comparaison, pas de suppression même si elle semble vide.
+- Numéro U — (sans en-tête) — Colonne du catalogue Numéro. Conservée pour comparaison, pas de suppression même si elle semble vide.
+- Numéro V — (sans en-tête) — Colonne du catalogue Numéro. Conservée pour comparaison, pas de suppression même si elle semble vide.
+- Numéro W — (sans en-tête) — Colonne du catalogue Numéro. Conservée pour comparaison, pas de suppression même si elle semble vide.
+- Numéro X — (sans en-tête) — Colonne du catalogue Numéro. Conservée pour comparaison, pas de suppression même si elle semble vide.
 - Resto-Aires d'autoroutes E — (sans en-tête) — Parfois la ville de l'événement, pas celle du restaurant.
 - Resto-Aires d'autoroutes F — (sans en-tête) — 
 - Feuil1 A — (sans en-tête) — Utilité non établie. Texte conservé.
