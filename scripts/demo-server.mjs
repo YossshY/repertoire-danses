@@ -116,6 +116,7 @@ const ligneRecherche = (danse) => ({
   musique: danse.musique,
   interprete: danse.interprete,
   numero: danse.numero,
+  maitrise: danse.maitrise || "",
 });
 
 const brouillonsTrouves = (q) => [...brouillons.values()].filter((danse) => contient(
@@ -232,6 +233,7 @@ const creerBrouillon = (body) => {
     choregraphe_semantic: texte(body.choregraphe) ? "renseigne" : null,
     musique: texte(body.musique),
     interprete: texte(body.interprete),
+    maitrise: ["maitrise", "moyenne", "aucune", "laisser"].includes(body.maitrise) ? body.maitrise : "",
     musiques: [],
     liens: [],
     repertoires,

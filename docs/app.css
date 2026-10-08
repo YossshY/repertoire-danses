@@ -83,7 +83,7 @@ h1, h2.section, .brand, .figure strong {
 .field { position: relative; display: flex; flex-direction: column; gap: 6px; }
 .field:focus-within { z-index: 5; }
 .field span { font-size: 14px; color: var(--muted); }
-.field input {
+.field input, .field select {
   border: 1px solid var(--line);
   background: var(--paper);
   border-radius: 12px;
@@ -91,7 +91,7 @@ h1, h2.section, .brand, .figure strong {
   font: inherit;
   color: inherit;
 }
-.field input:focus { outline: 2px solid var(--accent); border-color: transparent; }
+.field input:focus, .field select:focus { outline: 2px solid var(--accent); border-color: transparent; }
 .wide { grid-column: 1 / -1; }
 .chips { display: flex; flex-wrap: wrap; gap: 8px; }
 .chip.picked { background: var(--accent-soft); }
@@ -238,29 +238,38 @@ h1, h2.section, .brand, .figure strong {
 }
 .lettre.on { background: var(--wood); color: #f6efe4; border-color: var(--wood); }
 .lecteur {
-  position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 3;
   display: flex;
-  gap: 14px;
+  gap: 8px;
   align-items: center;
-  padding: 10px 18px;
-  background: var(--wood);
+  min-width: 0;
   color: #f6efe4;
 }
-.lecteur p { margin: 0; flex: 1; }
+.lecteur iframe {
+  width: 104px;
+  height: 58px;
+  flex: none;
+  border: 0;
+  border-radius: 8px;
+  background: #1a120e;
+}
+.lecteur p {
+  margin: 0;
+  max-width: 160px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 14px;
+}
 .lecteur button {
   border: 0;
   background: #f6efe4;
   color: var(--wood);
   border-radius: 999px;
-  padding: 8px 14px;
+  padding: 8px 12px;
   font: inherit;
   cursor: pointer;
+  white-space: nowrap;
 }
-body.avec-lecteur { padding-bottom: 92px; }
 .facts { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
 .fact {
   background: var(--paper);

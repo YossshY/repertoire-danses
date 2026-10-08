@@ -4,13 +4,13 @@ const brand = document.querySelector("#brand");
 
 const lienNom = { youtube: "Chorégraphie", copperknob: "Paroles", lonestar: "Lonestar" };
 const libelleMaitrise = {
-  maitrise: "Maîtrisée",
-  moyenne: "Moyenne",
-  aucune: "Pas du tout",
-  laisser: "Pas envie",
+  maitrise: "Acquise",
+  moyenne: "En évolution",
+  aucune: "Non apprise",
+  laisser: "Exclue",
 };
 const pagesCatalogue = {
-  danses: ["Danses", "Vert : maîtrisée. Orange : moyenne. Rouge : pas du tout. Gris : pas envie de l'apprendre."],
+  danses: ["Danses", "Vert : acquise. Orange : en évolution. Rouge : non apprise. Gris : exclue."],
   chansons: ["Chansons", "Les musiques du répertoire, par ordre alphabétique."],
   groupes: ["Groupes", "Les artistes et les groupes."],
   playlists: ["Playlists", "Quatre séries de 15 à 20 danses sont prévues pour chaque playlist. Le classeur ne les sépare pas encore."],
@@ -398,6 +398,10 @@ function pageSaisie() {
   const interprete = el("input", { type: "text", autocomplete: "off" });
   const choregraphe = el("input", { type: "text", autocomplete: "off" });
   const niveau = el("input", { type: "text", autocomplete: "off" });
+  const maitrise = el("select", {}, [
+    el("option", { value: "" }, ["Non précisé"]),
+    ...Object.entries(libelleMaitrise).map(([value, label]) => el("option", { value }, [label])),
+  ]);
   const type = el("input", { type: "text", autocomplete: "off" });
   const numero = el("input", { type: "text", autocomplete: "off" });
   const pas = el("input", { type: "text", autocomplete: "off", inputmode: "decimal" });
@@ -413,6 +417,7 @@ function pageSaisie() {
     champ("Artiste", interprete),
     champ("Chorégraphe", choregraphe),
     champ("Niveau", niveau),
+    champ("Maîtrise", maitrise),
     champ("Type", type),
     champ("Numéro", numero),
     champ("Pas", pas),
@@ -467,6 +472,7 @@ function pageSaisie() {
           interprete: interprete.value,
           choregraphe: choregraphe.value,
           niveau: niveau.value,
+          maitrise: maitrise.value,
           type: type.value,
           numero: numero.value,
           pas: pas.value,
@@ -592,33 +598,24 @@ async function pageCatalogue(genre) {
   show(box);
 }
 
-let lecteur = null;
-let videoVoulue = "";
+let videoEnCours = "";
+
+function commandeLecteur(func) {
+  document.querySelector("#yt")?.contentWindow?.postMessage(JSON.stringify({ event: "command", func, args: [] }), "*");
+}
 
 function lancerLecture(music) {
   const id = idVideo(music.ecoute);
   if (!id) return;
-  videoVoulue = id;
   document.querySelector("#lecteur").hidden = false;
-  document.body.classList.add("avec-lecteur");
   document.querySelector("#lecteur-titre").textContent = [music.titre, music.interprete].filter(Boolean).join(" · ");
-  if (lecteur && lecteur.loadVideoById) {
-    lecteur.loadVideoById(id);
+  if (videoEnCours === id) {
+    commandeLecteur("playVideo");
     return;
   }
-  if (window.onYouTubeIframeAPIReady) return;
-  window.onYouTubeIframeAPIReady = () => {
-    lecteur = new YT.Player("yt", {
-      videoId: videoVoulue,
-      width: "160",
-      height: "90",
-      playerVars: { rel: 0, playsinline: 1 },
-      events: { onReady: (event) => event.target.playVideo() },
-    });
-  };
-  const script = document.createElement("script");
-  script.src = "https://www.youtube.com/iframe_api";
-  document.head.append(script);
+  videoEnCours = id;
+  const origin = encodeURIComponent(location.origin);
+  document.querySelector("#yt").src = `https://www.youtube-nocookie.com/embed/${id}?autoplay=1&enablejsapi=1&rel=0&playsinline=1&origin=${origin}`;
 }
 
 function urlEcoute(music) {
@@ -659,9 +656,9 @@ document.querySelector("#nouvelle").addEventListener("click", () => {
 });
 brand.addEventListener("click", () => { input.value = ""; location.hash = "#/"; });
 window.addEventListener("hashchange", route);
-document.querySelector("#lecteur-play").addEventListener("click", () => lecteur?.playVideo());
-document.querySelector("#lecteur-pause").addEventListener("click", () => lecteur?.pauseVideo());
-document.querySelector("#lecteur-stop").addEventListener("click", () => lecteur?.stopVideo());
+document.querySelector("#lecteur-play").addEventListener("click", () => commandeLecteur("playVideo"));
+document.querySelector("#lecteur-pause").addEventListener("click", () => commandeLecteur("pauseVideo"));
+document.querySelector("#lecteur-stop").addEventListener("click", () => commandeLecteur("stopVideo"));
 window.addEventListener("keydown", (event) => {
   if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === "k") {
     event.preventDefault();
