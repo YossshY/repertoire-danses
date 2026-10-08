@@ -3,6 +3,18 @@ const input = document.querySelector("#q");
 const brand = document.querySelector("#brand");
 
 const lienNom = { youtube: "Chorégraphie", copperknob: "Paroles", lonestar: "Lonestar" };
+const libelleMaitrise = {
+  maitrise: "Maîtrisée",
+  moyenne: "Moyenne",
+  aucune: "Pas du tout",
+  laisser: "Pas envie",
+};
+const pagesCatalogue = {
+  danses: ["Danses", "Vert : maîtrisée. Orange : moyenne. Rouge : pas du tout. Gris : pas envie de l'apprendre."],
+  chansons: ["Chansons", "Les musiques du répertoire, par ordre alphabétique."],
+  groupes: ["Groupes", "Les artistes et les groupes."],
+  playlists: ["Playlists", "Quatre séries de 15 à 20 danses sont prévues pour chaque playlist. Le classeur ne les sépare pas encore."],
+};
 
 function el(tag, attrs, children) {
   const node = document.createElement(tag);
@@ -76,8 +88,11 @@ function badges(danse) {
     seen.add(key);
     labels.push(part);
   }
-  if (!labels.length) return [el("span", { class: "badge quiet" }, ["Niveau non précisé"])];
-  return labels.map((label, index) => el("span", { class: index === 0 ? "badge" : "badge quiet" }, [label]));
+  const nodes = labels.length
+    ? labels.map((label, index) => el("span", { class: index === 0 ? "badge" : "badge quiet" }, [label]))
+    : [el("span", { class: "badge quiet" }, ["Niveau non précisé"])];
+  if (libelleMaitrise[danse.maitrise]) nodes.push(el("span", { class: `badge maitrise-${danse.maitrise}` }, [libelleMaitrise[danse.maitrise]]));
+  return nodes;
 }
 
 function clubLisible(nom) {
@@ -146,6 +161,12 @@ async function accueil() {
         el("span", {}, ["Clubs et playlists"]),
       ]),
     ]),
+    el("div", { class: "row" }, [
+      el("button", { class: "choice", type: "button", onclick: () => location.hash = "#/danses" }, [el("strong", {}, ["Danses"]), el("span", {}, ["Ordre alphabétique"])]),
+      el("button", { class: "choice", type: "button", onclick: () => location.hash = "#/chansons" }, [el("strong", {}, ["Chansons"]), el("span", {}, ["Musiques"])]),
+      el("button", { class: "choice", type: "button", onclick: () => location.hash = "#/groupes" }, [el("strong", {}, ["Groupes"]), el("span", {}, ["Artistes"])]),
+      el("button", { class: "choice", type: "button", onclick: () => location.hash = "#/playlists" }, [el("strong", {}, ["Playlists"]), el("span", {}, ["Séries à confirmer"])]),
+    ]),
   ]);
   if (data.exemples.length) {
     box.append(el("p", { class: "small" }, ["Par exemple"]));
@@ -174,6 +195,7 @@ function resultats(data, q) {
   for (const item of items) {
     const titre = el("span", { class: "hit-title" }, [el("b", {}, [item.nom || "Sans nom"])]);
     if (item.niveau && item.niveau !== "?") titre.append(el("span", { class: "badge" }, [item.niveau]));
+    if (libelleMaitrise[item.maitrise]) titre.append(el("span", { class: `badge maitrise-${item.maitrise}` }, [libelleMaitrise[item.maitrise]]));
     list.append(el("button", { class: "hit", type: "button", onclick: () => { location.hash = `#/danse/${item.id}`; } }, [
       titre,
       el("span", { class: "muted" }, [metaLine([item.interprete, item.choregraphe, item.type, item.numero ? `n° ${item.numero}` : ""]) || ""]),
@@ -202,6 +224,7 @@ function fiche(danse) {
     el("button", { class: "back", type: "button", onclick: () => history.back() }, ["Retour"]),
     danse.demo ? el("p", { class: "demo-note" }, ["Saisie de démonstration. Elle reste affichée pendant la visite et n'est pas écrite dans le classeur."]) : "",
     el("h1", {}, [danse.nom || "Sans nom"]),
+    lectureDanse(danse.nom) ? el("p", { class: "sens" }, [lectureDanse(danse.nom)]) : "",
     el("div", { class: "badges" }, badges(danse)),
   ]);
 
@@ -215,7 +238,7 @@ function fiche(danse) {
     ];
     const ecoute = urlEcoute(music);
     if (ecoute) {
-      ligne.push(document.createElement("br"), el("a", { class: "ecouter", href: ecoute, target: "_blank", rel: "noreferrer" }, ["Écouter"]));
+      ligne.push(document.createElement("br"), el("button", { class: "ecouter", type: "button", onclick: () => lancerLecture(music) }, ["Lecture"]));
     }
     musicCard.append(el("p", { class: "music" }, ligne));
   }
@@ -474,6 +497,8 @@ async function route() {
     }
     if (hash === "#/saisie") return pageSaisie();
     if (hash === "#/repertoires") return pageRepertoires();
+    const catalogueMatch = hash.match(/^#\/(danses|chansons|groupes|playlists)/);
+    if (catalogueMatch) return pageCatalogue(catalogueMatch[1]);
     const danseMatch = hash.match(/^#\/danse\/([0-9a-f-]{36})$/i);
     if (danseMatch) return fiche(await api(`/api/danses/${danseMatch[1]}`));
     const repMatch = hash.match(/^#\/repertoire\/([0-9a-f-]{36})$/i);
@@ -497,6 +522,103 @@ function idVideo(url) {
 function liensVisibles(liens) {
   const choregraphies = new Set((liens || []).map((lien) => lien.type === "youtube" ? idVideo(lien.url) : "").filter(Boolean));
   return (liens || []).filter((lien) => lien.type !== "lonestar" || !choregraphies.has(idVideo(lien.url)));
+}
+
+function lectureDanse(nom) {
+  const texte = String(nom || "");
+  const mots = [];
+  if (/\(P\)/i.test(texte)) mots.push("Partenaire");
+  const code = texte.match(/\b(PG|PD)\s*(-\s*M)?\s*(-?\s*FF)?\b/i);
+  if (code) {
+    const suite = [code[1].toUpperCase() === "PG" ? "Pied gauche" : "Pied droit"];
+    if (code[2]) suite.push("miroir");
+    if (code[3]) suite.push("face à face");
+    mots.push(suite.join(", "));
+  }
+  return mots.join(" · ");
+}
+
+function lettreDe(label) {
+  const lettre = foldClient(String(label || "")).replace(/^[^a-z0-9]+/, "")[0] || "#";
+  return /[a-z]/.test(lettre) ? lettre.toUpperCase() : "#";
+}
+
+function ouvrirCatalogue(genre, item) {
+  if (genre === "playlists") location.hash = `#/repertoire/${item.id}`;
+  else if (genre === "danses") location.hash = `#/danse/${item.id}`;
+  else {
+    input.value = item.label;
+    location.hash = `#/recherche?q=${encodeURIComponent(item.label)}`;
+  }
+}
+
+async function pageCatalogue(genre) {
+  const [titre, hint] = pagesCatalogue[genre];
+  const entrees = [...await api(`/api/catalogue?genre=${genre}`)].sort((a, b) => a.label.localeCompare(b.label, "fr", { sensitivity: "base" }));
+  const index = entrees.length > 40;
+  const lettre = (new URLSearchParams(location.hash.split("?")[1] || "").get("lettre") || "A").toUpperCase();
+  const visibles = index ? entrees.filter((item) => lettreDe(item.label) === lettre) : entrees;
+  const box = el("section", {}, [
+    el("h1", { class: "section" }, [titre]),
+    el("p", { class: "hint" }, [hint]),
+  ]);
+  if (index) {
+    const lettres = el("div", { class: "lettres" });
+    for (const signe of [..."ABCDEFGHIJKLMNOPQRSTUVWXYZ", "#"]) {
+      lettres.append(el("button", {
+        type: "button",
+        class: signe === lettre ? "lettre on" : "lettre",
+        onclick: () => {
+          const next = `#/${genre}?lettre=${encodeURIComponent(signe)}`;
+          if (location.hash === next) route();
+          else location.hash = next;
+        },
+      }, [signe]));
+    }
+    box.append(lettres);
+    box.append(el("p", { class: "small" }, [`${nombre(visibles.length)} sur ${nombre(entrees.length)}`]));
+  }
+  const list = el("div", { class: "panel list" });
+  for (const item of visibles) {
+    const ligne = el("span", { class: "hit-title" }, [el("b", {}, [item.label])]);
+    if (libelleMaitrise[item.maitrise]) ligne.append(el("span", { class: `badge maitrise-${item.maitrise}` }, [libelleMaitrise[item.maitrise]]));
+    list.append(el("button", { class: "hit", type: "button", onclick: () => ouvrirCatalogue(genre, item) }, [
+      ligne,
+      el("span", { class: "muted" }, [item.detail || ""]),
+      el("span", {}, [""]),
+    ]));
+  }
+  if (visibles.length) box.append(list);
+  show(box);
+}
+
+let lecteur = null;
+let videoVoulue = "";
+
+function lancerLecture(music) {
+  const id = idVideo(music.ecoute);
+  if (!id) return;
+  videoVoulue = id;
+  document.querySelector("#lecteur").hidden = false;
+  document.body.classList.add("avec-lecteur");
+  document.querySelector("#lecteur-titre").textContent = [music.titre, music.interprete].filter(Boolean).join(" · ");
+  if (lecteur && lecteur.loadVideoById) {
+    lecteur.loadVideoById(id);
+    return;
+  }
+  if (window.onYouTubeIframeAPIReady) return;
+  window.onYouTubeIframeAPIReady = () => {
+    lecteur = new YT.Player("yt", {
+      videoId: videoVoulue,
+      width: "160",
+      height: "90",
+      playerVars: { rel: 0, playsinline: 1 },
+      events: { onReady: (event) => event.target.playVideo() },
+    });
+  };
+  const script = document.createElement("script");
+  script.src = "https://www.youtube.com/iframe_api";
+  document.head.append(script);
 }
 
 function urlEcoute(music) {
@@ -537,6 +659,9 @@ document.querySelector("#nouvelle").addEventListener("click", () => {
 });
 brand.addEventListener("click", () => { input.value = ""; location.hash = "#/"; });
 window.addEventListener("hashchange", route);
+document.querySelector("#lecteur-play").addEventListener("click", () => lecteur?.playVideo());
+document.querySelector("#lecteur-pause").addEventListener("click", () => lecteur?.pauseVideo());
+document.querySelector("#lecteur-stop").addEventListener("click", () => lecteur?.stopVideo());
 window.addEventListener("keydown", (event) => {
   if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === "k") {
     event.preventDefault();

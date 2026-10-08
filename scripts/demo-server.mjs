@@ -40,6 +40,12 @@ if (!contient("Stéphane", "stephane") || contient("Riverside", "zz")) {
 const brouillons = new Map();
 const ecoutesPath = path.join(root, "data", "ecoutes.json");
 const ecoutes = fs.existsSync(ecoutesPath) ? JSON.parse(fs.readFileSync(ecoutesPath, "utf8")) : {};
+const maitrisesPath = path.join(root, "data", "maitrise.json");
+const maitrises = fs.existsSync(maitrisesPath) ? JSON.parse(fs.readFileSync(maitrisesPath, "utf8")) : {};
+
+function maitriseDe(sourceRow) {
+  return maitrises[sourceRow] || "";
+}
 
 function avecEcoute(music) {
   const url = ecoutes[`${fold(music.titre)}\t${fold(music.interprete)}`];
@@ -124,12 +130,12 @@ const recherche = (q) => {
   const danses = db.prepare(`
     SELECT id, nom, niveau_original AS niveau, type_original AS type,
            choregraphe_original AS choregraphe, musique_originale AS musique,
-           interprete_original AS interprete, numero
+           interprete_original AS interprete, numero, source_row
     FROM dances
     WHERE ${where}
     ORDER BY CASE WHEN nom_semantic = 'renseigne' THEN 0 ELSE 1 END, nom
     LIMIT 40
-  `).all({ q: term });
+  `).all({ q: term }).map((row) => ({ ...ligneRecherche(row), maitrise: maitriseDe(row.source_row) }));
   const ajouts = brouillonsTrouves(q).map(ligneRecherche);
   return { total: total + ajouts.length, danses: [...ajouts, ...danses].slice(0, 40) };
 };
@@ -248,10 +254,12 @@ const danse = (id) => {
            a_voir_original AS a_voir,
            date_premiere_vue, date_choregraphie, date_derniere_revision,
            choregraphe_original AS choregraphe, choregraphe_semantic,
-           musique_originale AS musique, interprete_original AS interprete
+           musique_originale AS musique, interprete_original AS interprete, source_row
     FROM dances WHERE id = $id AND deleted_at IS NULL
   `).get({ id });
   if (!row) return null;
+  row.maitrise = maitriseDe(row.source_row);
+  delete row.source_row;
   row.musiques = db.prepare(`
     SELECT m.titre, m.interprete
     FROM danse_musique dm
@@ -282,6 +290,46 @@ const danse = (id) => {
   `).get({ id });
   row.pays = pays?.pays || null;
   return row;
+};
+
+const catalogue = (genre) => {
+  if (genre === "danses") {
+    return db.prepare(`
+      SELECT id, nom AS label, interprete_original AS detail, source_row
+      FROM dances
+      WHERE deleted_at IS NULL AND nom_semantic = 'renseigne' AND length(trim(nom)) > 1
+    `).all().map((row) => ({ id: row.id, label: row.label, detail: row.detail || "", maitrise: maitriseDe(row.source_row) }));
+  }
+  if (genre === "chansons") {
+    return db.prepare(`
+      SELECT MIN(d.id) AS id, m.titre AS label, m.interprete AS detail
+      FROM musiques m
+      JOIN danse_musique dm ON dm.musique_id = m.id AND dm.deleted_at IS NULL
+      JOIN dances d ON d.id = dm.danse_id AND d.deleted_at IS NULL
+      WHERE m.deleted_at IS NULL AND length(trim(m.titre)) > 1
+      GROUP BY m.titre, m.interprete
+    `).all();
+  }
+  if (genre === "groupes") {
+    return db.prepare(`
+      SELECT MIN(d.id) AS id, m.interprete AS label, COUNT(DISTINCT m.titre) AS n
+      FROM musiques m
+      JOIN danse_musique dm ON dm.musique_id = m.id AND dm.deleted_at IS NULL
+      JOIN dances d ON d.id = dm.danse_id AND d.deleted_at IS NULL
+      WHERE m.deleted_at IS NULL AND length(trim(m.interprete)) > 2
+      GROUP BY m.interprete
+    `).all().map((row) => ({ id: row.id, label: row.label, detail: `${row.n} chansons` }));
+  }
+  if (genre === "playlists") {
+    return db.prepare(`
+      SELECT r.id, r.nom AS label, COUNT(dr.id) AS n
+      FROM repertoires r
+      JOIN danse_repertoire dr ON dr.repertoire_id = r.id AND dr.deleted_at IS NULL
+      WHERE r.deleted_at IS NULL AND lower(r.nom) LIKE '%playlist%'
+      GROUP BY r.id
+    `).all().map((row) => ({ id: row.id, label: row.label, detail: `${row.n} danses`, playlist: true }));
+  }
+  return [];
 };
 
 const repertoires = () => db.prepare(`
@@ -346,6 +394,7 @@ const server = http.createServer(async (req, res) => {
       return json(res, cree.danse);
     }
     if (url.pathname === "/api/repertoires") return json(res, repertoires());
+    if (url.pathname === "/api/catalogue") return json(res, catalogue(url.searchParams.get("genre") || ""));
     const danseMatch = url.pathname.match(/^\/api\/danses\/([^/]+)$/);
     if (danseMatch) {
       if (!idOk(danseMatch[1])) return send(res, 400, '{"message":"Identifiant invalide"}');

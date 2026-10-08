@@ -7,6 +7,8 @@ const root = process.cwd();
 const db = new DatabaseSync(path.join(root, "data", "repertoire.db"), { readOnly: true });
 const ecoutesPath = path.join(root, "data", "ecoutes.json");
 const ecoutes = fs.existsSync(ecoutesPath) ? JSON.parse(fs.readFileSync(ecoutesPath, "utf8")) : {};
+const maitrisesPath = path.join(root, "data", "maitrise.json");
+const maitrises = fs.existsSync(maitrisesPath) ? JSON.parse(fs.readFileSync(maitrisesPath, "utf8")) : {};
 
 const danses = db.prepare(`
   SELECT id, nom, nom_semantic, niveau_original AS niveau, niveau_semantic,
@@ -17,12 +19,14 @@ const danses = db.prepare(`
          date_premiere_vue, date_choregraphie, date_derniere_revision,
          choregraphe_original AS choregraphe, choregraphe_semantic,
          musique_originale AS musique, interprete_original AS interprete,
-         search_text AS search
+         search_text AS search, source_row
   FROM dances
   WHERE deleted_at IS NULL
 `).all();
 
 const parId = new Map(danses.map((danse) => {
+  danse.maitrise = maitrises[danse.source_row] || "";
+  delete danse.source_row;
   danse.musiques = [];
   danse.liens = [];
   danse.repertoires = [];

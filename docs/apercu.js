@@ -165,6 +165,52 @@
     return danse;
   }
 
+  function nomme(value) {
+    const texte = fold(value);
+    return texte.length > 2 && texte !== "inconnu" && texte !== "inconnue";
+  }
+
+  function catalogue(genre) {
+    if (genre === "danses") {
+      return data.danses
+        .filter((danse) => danse.nom_semantic === "renseigne" && nomme(danse.nom))
+        .map((danse) => ({ id: danse.id, label: danse.nom, detail: danse.interprete || "", maitrise: danse.maitrise || "" }));
+    }
+    if (genre === "chansons") {
+      const vus = new Set();
+      const rows = [];
+      for (const danse of data.danses) {
+        for (const music of danse.musiques) {
+          if (!nomme(music.titre)) continue;
+          const cle = `${fold(music.titre)}\t${fold(music.interprete)}`;
+          if (vus.has(cle)) continue;
+          vus.add(cle);
+          rows.push({ id: danse.id, label: music.titre, detail: music.interprete || "" });
+        }
+      }
+      return rows;
+    }
+    if (genre === "groupes") {
+      const vus = new Map();
+      for (const danse of data.danses) {
+        for (const music of danse.musiques) {
+          if (!nomme(music.interprete)) continue;
+          const cle = fold(music.interprete);
+          const item = vus.get(cle) || { id: danse.id, label: music.interprete, titres: new Set() };
+          item.titres.add(fold(music.titre));
+          vus.set(cle, item);
+        }
+      }
+      return [...vus.values()].map((item) => ({ id: item.id, label: item.label, detail: `${item.titres.size} chansons` }));
+    }
+    if (genre === "playlists") {
+      return data.clubs
+        .filter((club) => /playlist/i.test(club.nom))
+        .map((club) => ({ id: club.id, label: club.nom, detail: `${club.danses} danses`, playlist: true }));
+    }
+    return [];
+  }
+
   function fiche(id) {
     return parId.get(id) || null;
   }
@@ -196,6 +242,7 @@
     }
     if (url.pathname === "/api/suggestions") return suggestions(url.searchParams.get("champ") || "recherche", url.searchParams.get("q") || "");
     if (url.pathname === "/api/repertoires") return data.clubs;
+    if (url.pathname === "/api/catalogue") return catalogue(url.searchParams.get("genre") || "");
     if (options && options.method === "POST" && url.pathname === "/api/danses") return creer(JSON.parse(options.body || "{}"));
     const danseMatch = url.pathname.match(/^\/api\/danses\/([^/]+)$/);
     if (danseMatch) {
