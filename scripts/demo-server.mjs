@@ -241,7 +241,7 @@ const creerBrouillon = (body) => {
     demo: true,
   };
   if (danse.musique || danse.interprete) danse.musiques.push({ titre: danse.musique, interprete: danse.interprete });
-  if (/^https?:\/\//i.test(youtube)) danse.liens.push({ type: "youtube", url: youtube, label: "YouTube", valeur: youtube });
+  if (/^https?:\/\//i.test(youtube)) danse.liens.push({ type: "youtube", url: youtube, label: "Chorégraphie", valeur: youtube });
   brouillons.set(danse.id, danse);
   return { danse };
 };

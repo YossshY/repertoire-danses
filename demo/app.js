@@ -5,15 +5,15 @@ const brand = document.querySelector("#brand");
 const lienNom = { youtube: "Chorégraphie", copperknob: "Paroles", lonestar: "Lonestar" };
 const libelleMaitrise = {
   maitrise: "Acquise",
-  moyenne: "En évolution",
+  moyenne: "En apprentissage",
   aucune: "Non apprise",
   laisser: "Exclue",
 };
 const pagesCatalogue = {
-  danses: ["Danses", "Vert : acquise. Orange : en évolution. Rouge : non apprise. Gris : exclue."],
+  danses: ["Danses", "Vert : acquise. Orange : en apprentissage. Rouge : non apprise. Gris : exclue."],
   chansons: ["Chansons", "Les musiques du répertoire, par ordre alphabétique."],
   groupes: ["Groupes", "Les artistes et les groupes."],
-  playlists: ["Playlists", "Quatre séries de 15 à 20 danses sont prévues pour chaque playlist. Le classeur ne les sépare pas encore."],
+  playlists: ["Listes de lecture", "Quatre séries de 15 à 20 danses sont prévues pour chaque liste. Le classeur ne les sépare pas encore."],
 };
 
 function el(tag, attrs, children) {
@@ -140,7 +140,7 @@ async function accueil() {
   const [data, reps] = await Promise.all([api("/api/accueil"), api("/api/repertoires")]);
   const clubs = reps.filter((rep) => clubLisible(rep.nom)).length;
   const box = el("section", { class: "hero" }, [
-    el("p", { class: "eyebrow" }, ["Line dance"]),
+    el("p", { class: "eyebrow" }, ["Danse country"]),
     el("h1", {}, ["Le répertoire des danses country."]),
     el("p", { class: "lede" }, ["Retrouvez une danse par son nom, sa musique, son artiste ou son chorégraphe, puis voyez dans quels clubs elle se danse."]),
     el("div", { class: "figures" }, [
@@ -158,14 +158,14 @@ async function accueil() {
       ]),
       el("button", { class: "choice", type: "button", onclick: () => location.hash = "#/repertoires" }, [
         el("strong", {}, ["Listes"]),
-        el("span", {}, ["Clubs et playlists"]),
+        el("span", {}, ["Clubs et listes de lecture"]),
       ]),
     ]),
     el("div", { class: "row" }, [
       el("button", { class: "choice", type: "button", onclick: () => location.hash = "#/danses" }, [el("strong", {}, ["Danses"]), el("span", {}, ["Ordre alphabétique"])]),
       el("button", { class: "choice", type: "button", onclick: () => location.hash = "#/chansons" }, [el("strong", {}, ["Chansons"]), el("span", {}, ["Musiques"])]),
       el("button", { class: "choice", type: "button", onclick: () => location.hash = "#/groupes" }, [el("strong", {}, ["Groupes"]), el("span", {}, ["Artistes"])]),
-      el("button", { class: "choice", type: "button", onclick: () => location.hash = "#/playlists" }, [el("strong", {}, ["Playlists"]), el("span", {}, ["Séries à confirmer"])]),
+      el("button", { class: "choice", type: "button", onclick: () => location.hash = "#/playlists" }, [el("strong", {}, ["Listes de lecture"]), el("span", {}, ["Séries à confirmer"])]),
     ]),
   ]);
   if (data.exemples.length) {
@@ -422,7 +422,7 @@ function pageSaisie() {
     champ("Numéro", numero),
     champ("Pas", pas),
     champ("Murs", murs),
-    champ("YouTube", youtube, true),
+    champ("Chorégraphie", youtube, true),
     champ("Répertoire", club, true),
   ]);
   function dessinerClubs() {
