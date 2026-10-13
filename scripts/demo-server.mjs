@@ -3,6 +3,7 @@ import fs from "fs";
 import path from "path";
 import { DatabaseSync } from "node:sqlite";
 import { fold } from "./lib/text.mjs";
+import { appliquerNotes, notesParLigne } from "./lib/notes-ligne.mjs";
 
 const root = process.cwd();
 const dbPath = path.join(root, "data", "repertoire.db");
@@ -42,6 +43,7 @@ const ecoutesPath = path.join(root, "data", "ecoutes.json");
 const ecoutes = fs.existsSync(ecoutesPath) ? JSON.parse(fs.readFileSync(ecoutesPath, "utf8")) : {};
 const maitrisesPath = path.join(root, "data", "maitrise.json");
 const maitrises = fs.existsSync(maitrisesPath) ? JSON.parse(fs.readFileSync(maitrisesPath, "utf8")) : {};
+const notes = notesParLigne(db);
 
 function maitriseDe(sourceRow) {
   return maitrises[sourceRow] || "";
@@ -261,6 +263,7 @@ const danse = (id) => {
   `).get({ id });
   if (!row) return null;
   row.maitrise = maitriseDe(row.source_row);
+  appliquerNotes(row, notes);
   delete row.source_row;
   row.musiques = db.prepare(`
     SELECT m.titre, m.interprete

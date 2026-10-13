@@ -221,7 +221,9 @@ h1, h2.section, .brand, .figure strong {
   font: inherit;
   cursor: pointer;
 }
-.sens { color: var(--muted); margin: 0 0 12px; }
+.sens { color: var(--muted); margin: 0 0 8px; }
+.hors { margin: 0 0 12px; }
+.hors .hint { margin: 0 0 8px; }
 .badge.maitrise-maitrise { background: #5f8f38; }
 .badge.maitrise-moyenne { background: #d0891e; }
 .badge.maitrise-aucune { background: #c0392b; }

@@ -214,8 +214,9 @@ function fiche(danse) {
   else if (danse.pas_original && danse.pas_original !== "?") faits.push(`Pas ${danse.pas_original}`);
   if (danse.murs != null) faits.push(`${nombre(danse.murs)} mur${danse.murs > 1 ? "s" : ""}`);
   if (danse.numero) faits.push(`n° ${danse.numero}`);
-  if (danse.tag) faits.push(`TAG ${danse.tag}`);
-  if (danse.restart) faits.push(`Restart ${danse.restart}`);
+  if (danse.extraire) faits.push("Musique à extraire");
+  if (danse.pdf_fr) faits.push("Feuille des pas en français");
+  else if (danse.pdf_fr === null) faits.push("Feuille des pas dans une autre langue");
   if (frDate(danse.date_premiere_vue)) faits.push(`Vue le ${frDate(danse.date_premiere_vue)}`);
   if (frDate(danse.date_choregraphie)) faits.push(`Chorée le ${frDate(danse.date_choregraphie)}`);
   if (frDate(danse.date_derniere_revision)) faits.push(`Révisée le ${frDate(danse.date_derniere_revision)}`);
@@ -225,6 +226,9 @@ function fiche(danse) {
     danse.demo ? el("p", { class: "demo-note" }, ["Saisie de démonstration. Elle reste affichée pendant la visite et n'est pas écrite dans le classeur."]) : "",
     el("h1", {}, [danse.nom || "Sans nom"]),
     lectureDanse(danse.nom) ? el("p", { class: "sens" }, [lectureDanse(danse.nom)]) : "",
+    danse.videoDe ? el("p", { class: "sens" }, [`Vidéo de ${nomVideo(danse.videoDe)}`]) : "",
+    danse.partenaireApprise ? el("p", { class: "sens" }, ["Danse partenaire apprise"]) : "",
+    danse.partenaireNonApprise ? el("p", { class: "sens" }, ["Danse partenaire non apprise"]) : "",
     el("div", { class: "badges" }, badges(danse)),
   ]);
 
@@ -250,13 +254,29 @@ function fiche(danse) {
 
   box.append(el("div", { class: "grid" }, [musicCard, chore]));
   if (faits.length) box.append(el("div", { class: "facts" }, faits.map((fait) => el("span", { class: "fact" }, [fait]))));
+  if (danse.tag) {
+    const horloge = lireMurs(danse.tag);
+    const lignes = ["Quelques temps supplémentaires entre deux murs ou deux sections."];
+    if (/phras/i.test(danse.tag)) lignes.push("Phrasé : enchaînement divisé en parties, souvent A, B et C.");
+    if (horloge) lignes.push(`${danse.tag} : ${horloge}.`);
+    else if (!/phras/i.test(danse.tag) && danse.tag !== "?") lignes.push(danse.tag);
+    box.append(el("p", { class: "hint" }, [lignes.join(" ")]));
+  }
+  if (danse.restart && danse.restart !== "?") {
+    const horloge = lireMurs(danse.restart);
+    box.append(el("p", { class: "hint" }, [
+      `Reprise : la chorégraphie reprend depuis le début avant la fin des pas prévus pour le mur en cours.${horloge ? ` ${danse.restart} : ${horloge}.` : ` ${danse.restart}.`}`,
+    ]));
+  }
 
   const visibles = liensVisibles(danse.liens);
   if (visibles.length) {
     const links = el("div", { class: "links" });
     box.append(el("h2", { class: "section" }, ["Liens"]));
     for (const lien of visibles) {
-      const label = lienNom[lien.type] || lien.label || "Lien";
+      const label = lien.type === "copperknob"
+        ? (danse.paroles === "fr" ? "Paroles · français" : "Paroles · autre langue")
+        : (lienNom[lien.type] || lien.label || "Lien");
       if (lien.url) links.append(el("a", { class: "link", href: lien.url, target: "_blank", rel: "noreferrer" }, [label]));
       else if (lien.valeur && lien.valeur !== "?") links.append(el("span", { class: "link quiet" }, [`${label} · ${lien.valeur}`]));
     }
@@ -288,14 +308,86 @@ function fiche(danse) {
   show(box);
 }
 
+const annuaire = [
+  { alias: ["Country Wind"], nom: "Country Wind", liens: ["https://www.facebook.com/profile.php?id=100057062017647"] },
+  { alias: ["Lucky Jordan"], nom: "Lucky Jordan", liens: ["https://www.facebook.com/lucky.jordan.9"] },
+  { alias: ["Matt Carson"], nom: "Matt Carson", liens: ["https://www.facebook.com/matt.carson.777"] },
+  { alias: ["Carin Care"], nom: "Carin Care", liens: ["https://www.facebook.com/carincare"] },
+  { alias: ["Texas Twixy"], nom: "Texas Twixy", liens: ["https://www.facebook.com/texas.twixy.2022"] },
+  { alias: ["Country Duo Highway"], nom: "Country Duo Highway", liens: ["https://www.facebook.com/groups/676686454060031/"] },
+  { alias: ["WILMA"], nom: "Wilma van de Bunt", liens: ["https://www.facebook.com/groups/1243660202349473"] },
+  { alias: ["ELKE"], nom: "ELKE The Jillaroo", liens: ["https://www.facebook.com/jackandthejillaroos", "https://www.facebook.com/Elke.Joey"] },
+  { alias: ["DUO Two Of A Kind"], nom: "Duo Two of a Kind", liens: ["https://www.facebook.com/WilmaenMarcoMassar"] },
+  { alias: ["DUO RICKY PETRA"], nom: "Duo Ricky & Petra D", liens: ["https://www.facebook.com/RickyPetraD"] },
+  { alias: ["DEX DYLAN"], nom: "Dex Dylan", liens: ["https://www.facebook.com/groups/1926334344351399", "https://www.facebook.com/danny.depauw.5"] },
+  { alias: ["Daddy Redneck"], nom: "Daddy Redneck", liens: ["https://www.facebook.com/profile.php?id=100028139627958"] },
+  { alias: ["CONNY LEE"], nom: "Conny Lee", liens: ["https://www.facebook.com/profile.php?id=100013831417702"] },
+  { alias: ["TIN WHEEL COUNTRY BAND"], nom: "Tin Wheel Country Band", liens: ["https://www.facebook.com/groups/57871427372"] },
+  { alias: ["MISTER P."], nom: "Mister P.", liens: ["https://www.facebook.com/misterpcountry/"] },
+  { alias: ["Kris Robyan"], nom: "Kris Robyan", liens: ["https://www.facebook.com/KrisRobyan"] },
+  { alias: ["Mrs McBright", "Mrs Mc Bright"], nom: "Mrs McBright", liens: ["https://www.facebook.com/mrsmcbright"] },
+  { alias: ["Tim Nash"], nom: "Tim Nash", liens: ["https://www.facebook.com/TimNashBelgium"] },
+  { alias: ["COUNTRY FEVER"], nom: "Country Fever", liens: ["https://www.facebook.com/groups/318230333875"] },
+  { alias: ["BOB'S Country Band"], nom: "Bob's Country Band", liens: ["https://www.facebook.com/people/Bobs-Country-Band/100063571960155/"] },
+  { alias: ["TRB Travelin' River Band", "TRB Travelin River Band"], nom: "Travelin' River Band", liens: ["https://www.facebook.com/TravelinRiverBand"] },
+  { alias: ["BBC"], nom: "Beethovens' Boogie Country", liens: ["https://www.facebook.com/profile.php?id=100045474588851"] },
+  { alias: ["Sundie"], nom: "Sundie Remy", liens: ["https://www.facebook.com/sundie.remy"] },
+  { alias: ["Mimuzik"], nom: "Mimuzik", liens: ["https://www.facebook.com/mimuzik007/"] },
+  { alias: ["ALL SHOOK UP"], nom: "All Shook Up", liens: ["https://www.facebook.com/Allshookupmusic"] },
+  { alias: ["BACK WEST"], nom: "BackWest Country-Band", liens: ["https://www.facebook.com/backwest.countryband", "https://www.backwest.fr/playlist/"] },
+  { alias: ["KRYSTEN HEATHER"], nom: "Krysten Heather", liens: ["https://www.facebook.com/krysten.heather", "https://krystenheather.wixsite.com/krysten-heather/playlist"] },
+  { alias: ["Miss Lana"], nom: "Miss Lana - Country", liens: ["https://www.facebook.com/groups/1557586554558567", "https://www.facebook.com/MissLana1978", "https://www.facebook.com/lana.gorrebeeck"] },
+  { alias: ["Silver", "SILVER"], nom: "Silver", liens: ["https://www.facebook.com/marnix.devriese.5"] },
+  { alias: ["PAT CALAHAN"], nom: "Pat Calahan", liens: ["https://www.facebook.com/pat.calahan"] },
+  { alias: ["TOLY"], nom: "Toly Christine Zammit", liens: ["https://www.facebook.com/tolyanimation", "https://tolyanimation.com/fiches-danses/", "https://tolyanimation.com/"] },
+  { alias: ["Route 66"], nom: "Country Band Route 66", liens: ["https://route66countryband.wordpress.com/", "https://www.facebook.com/profile.php?id=100064116181534&sk=photos"] },
+  { alias: ["Lies Van Goethem", "LIES VAN GOETHEM"], nom: "Lies Van Goethem", liens: ["https://www.facebook.com/lies.vangoethem"] },
+  { alias: ["Enerj'Ane"], nom: "Anne De Paepe", liens: ["https://www.facebook.com/anne.depaepe.5", "https://www.facebook.com/profile.php?id=61556389834044"] },
+  { alias: ["Tania & Marcel"], nom: "Tania Andre", liens: ["https://www.facebook.com/profile.php?id=1400160748", "https://www.facebook.com/groups/106003142775807"] },
+];
+
+function cleAnnuaire(valeur) {
+  return foldClient(String(valeur || "")).replace(/['’.]/g, "").replace(/\s+/g, "");
+}
+
+function groupeConnu(nom) {
+  const cle = cleAnnuaire(nom);
+  let meilleur = null;
+  for (const groupe of annuaire) {
+    for (const alias of groupe.alias) {
+      const mot = cleAnnuaire(alias);
+      if (!mot || !(cle === mot || cle.startsWith(mot))) continue;
+      if (!meilleur || mot.length > meilleur.mot) meilleur = { mot: mot.length, groupe };
+    }
+  }
+  return meilleur ? meilleur.groupe : null;
+}
+
+function libellePage(url) {
+  return /facebook\.com/i.test(url) ? "Page" : "Site";
+}
+
+function liensGroupe(nom) {
+  const groupe = groupeConnu(nom);
+  if (!groupe) return null;
+  const bloc = el("div", { class: "hors" });
+  if (cleAnnuaire(groupe.nom) !== cleAnnuaire(nom)) bloc.append(el("p", { class: "hint" }, [groupe.nom]));
+  const liens = el("div", { class: "links" });
+  for (const url of groupe.liens) liens.append(el("a", { class: "link quiet", href: url, target: "_blank", rel: "noreferrer" }, [libellePage(url)]));
+  bloc.append(liens);
+  return bloc;
+}
+
 async function pageRepertoires() {
   const data = (await api("/api/repertoires")).filter((rep) => clubLisible(rep.nom));
   const box = el("section", {}, [el("h1", { class: "section" }, ["Listes"])]);
   const list = el("div", { class: "panel list" });
   for (const rep of data) {
+    const groupe = groupeConnu(rep.nom);
+    const detail = groupe && cleAnnuaire(groupe.nom) !== cleAnnuaire(rep.nom) ? `${groupe.nom} · ` : "";
     list.append(el("button", { class: "rep-hit", type: "button", onclick: () => { location.hash = `#/repertoire/${rep.id}`; } }, [
       el("b", {}, [rep.nom]),
-      el("span", { class: "muted" }, [`${nombre(rep.danses)} danses`]),
+      el("span", { class: "muted" }, [`${detail}${nombre(rep.danses)} danses`]),
     ]));
   }
   box.append(list);
@@ -307,6 +399,7 @@ async function pageRepertoire(id) {
   const box = el("section", {}, [
     el("button", { class: "back", type: "button", onclick: () => { location.hash = "#/repertoires"; } }, ["Toutes les listes"]),
     el("h1", { class: "section" }, [data.nom]),
+    liensGroupe(data.nom) || "",
     el("p", { class: "small" }, [`${nombre(data.total)} danses${data.danses.length < data.total ? ` · ${data.danses.length} affichées` : ""}`]),
   ]);
   const list = el("div", { class: "panel list" });
@@ -535,13 +628,49 @@ function lectureDanse(nom) {
   const mots = [];
   if (/\(P\)/i.test(texte)) mots.push("Partenaire");
   const code = texte.match(/\b(PG|PD)\s*(-\s*M)?\s*(-?\s*FF)?\b/i);
-  if (code) {
-    const suite = [code[1].toUpperCase() === "PG" ? "Pied gauche" : "Pied droit"];
-    if (code[2]) suite.push("miroir");
-    if (code[3]) suite.push("face à face");
-    mots.push(suite.join(", "));
+  if (!code) return mots.join(" · ");
+  const gauche = code[1].toUpperCase() === "PG";
+  const pied = gauche ? "pied gauche" : "pied droit";
+  const autre = gauche ? "pied droit" : "pied gauche";
+  let ligne = `Pied ${gauche ? "gauche" : "droit"}`;
+  if (code[2]) ligne += ", miroir";
+  if (code[3]) ligne += ", face à face";
+  mots.push(ligne);
+  const details = [mots.join(" · ")];
+  if (code[2]) details.push(`L'homme démarre du ${pied} et la partenaire du ${autre}.`);
+  if (code[3]) details.push("On démarre face à face, et non coude à coude.");
+  return details.join(" ");
+}
+
+const videosDe = {
+  "a.g.": "Agnès Gautier",
+  "ag": "Agnès Gautier",
+  "idj": "Ingeborg De Jonckere",
+  "frederab": "Fred et Rabia",
+  "chin.": "présenté par une Chinoise (LineDanceDallas)",
+  "faur": "Jean-Claude Faur",
+  "a & s": "Alan et Sonia Cole",
+  "a&s": "Alan et Sonia Cole",
+};
+
+function nomVideo(valeur) {
+  const texte = String(valeur || "").replace(/\s+/g, " ").trim();
+  if (!texte) return "";
+  return videosDe[foldClient(texte).replace(/\s+/g, " ")] || texte;
+}
+
+function lireMurs(valeur) {
+  const texte = String(valeur || "");
+  const morceaux = [];
+  const re = /(?:M\s*)?(\d+)\s*-\s*(\d+)\s*h/gi;
+  let match = re.exec(texte);
+  while (match) {
+    morceaux.push(`mur ${match[1]} à ${match[2]} heures`);
+    match = re.exec(texte);
   }
-  return mots.join(" · ");
+  if (morceaux.length) return morceaux.join(", ");
+  const simple = texte.match(/M\s*(\d+)/i);
+  return simple ? `mur ${simple[1]}` : "";
 }
 
 function lettreDe(label) {

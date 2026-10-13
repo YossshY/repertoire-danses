@@ -2,6 +2,7 @@ import fs from "fs";
 import path from "path";
 import { DatabaseSync } from "node:sqlite";
 import { fold } from "./lib/text.mjs";
+import { appliquerNotes, notesParLigne } from "./lib/notes-ligne.mjs";
 
 const root = process.cwd();
 const db = new DatabaseSync(path.join(root, "data", "repertoire.db"), { readOnly: true });
@@ -9,12 +10,13 @@ const ecoutesPath = path.join(root, "data", "ecoutes.json");
 const ecoutes = fs.existsSync(ecoutesPath) ? JSON.parse(fs.readFileSync(ecoutesPath, "utf8")) : {};
 const maitrisesPath = path.join(root, "data", "maitrise.json");
 const maitrises = fs.existsSync(maitrisesPath) ? JSON.parse(fs.readFileSync(maitrisesPath, "utf8")) : {};
+const notes = notesParLigne(db);
 
 const danses = db.prepare(`
   SELECT id, nom, nom_semantic, niveau_original AS niveau, niveau_semantic,
          type_original AS type, genre_original AS genre,
          pas, pas_original, murs, murs_original,
-         tag, restart, numero, video_original AS video, valse_original AS valse,
+         tag, restart, numero, pdf_fr, video_original AS video, valse_original AS valse,
          a_voir_original AS a_voir,
          date_premiere_vue, date_choregraphie, date_derniere_revision,
          choregraphe_original AS choregraphe, choregraphe_semantic,
@@ -26,6 +28,7 @@ const danses = db.prepare(`
 
 const parId = new Map(danses.map((danse) => {
   danse.maitrise = maitrises[danse.source_row] || "";
+  appliquerNotes(danse, notes);
   delete danse.source_row;
   danse.musiques = [];
   danse.liens = [];
