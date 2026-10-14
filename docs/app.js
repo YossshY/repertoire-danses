@@ -10,7 +10,7 @@ const libelleMaitrise = {
   laisser: "Exclue",
 };
 const pagesCatalogue = {
-  danses: ["Danses", "Vert : acquise. Orange : en apprentissage. Rouge : non apprise. Gris : exclue."],
+  danses: ["Danses", ""],
   chansons: ["Chansons", "Les musiques du répertoire, par ordre alphabétique."],
   groupes: ["Groupes", "Les artistes et les groupes."],
   playlists: ["Listes de lecture", "Quatre séries de 15 à 20 danses sont prévues pour chaque liste. Le classeur ne les sépare pas encore."],
@@ -257,13 +257,18 @@ function fiche(danse) {
     box.append(dates);
   }
   if (listes.length) {
-    box.append(el("h2", { class: "section" }, [`Listes · ${listes.length}`]));
-    box.append(el("p", { class: "hint" }, ["Chaque nom est une liste du classeur où la danse est inscrite : un club, un groupe ou une playlist."]));
-    const reps = el("div", { class: "listes" });
-    for (const rep of listes) {
-      reps.append(el("button", { class: "liste", type: "button", onclick: () => { location.hash = `#/repertoire/${rep.id}`; } }, [rep.nom]));
+    const blocs = { club: [], groupe: [], playlist: [] };
+    for (const rep of listes) blocs[sorteListe(rep.nom)].push(rep);
+    const titres = [["club", "Clubs"], ["groupe", "Groupes"], ["playlist", "Listes de lecture"]];
+    for (const [cle, titre] of titres) {
+      if (!blocs[cle].length) continue;
+      box.append(el("h2", { class: "section" }, [`${titre} · ${blocs[cle].length}`]));
+      const reps = el("div", { class: "listes" });
+      for (const rep of blocs[cle]) {
+        reps.append(el("button", { class: "liste", type: "button", onclick: () => { location.hash = `#/repertoire/${rep.id}`; } }, [rep.nom]));
+      }
+      box.append(reps);
     }
-    box.append(reps);
   }
   show(box);
 }
@@ -326,6 +331,12 @@ function groupeConnu(nom) {
 function libellePage(url, nom, dejaPage) {
   if (!/facebook\.com/i.test(url)) return "Site";
   return dejaPage ? "Autre page" : nom;
+}
+
+function sorteListe(nom) {
+  if (/playlist/i.test(nom || "")) return "playlist";
+  if (groupeConnu(nom)) return "groupe";
+  return "club";
 }
 
 function liensGroupe(nom) {
@@ -760,10 +771,8 @@ async function pageCatalogue(genre) {
   const index = retenues.length > 40;
   const lettre = (query.get("lettre") || "A").toUpperCase();
   const visibles = index ? retenues.filter((item) => lettreDe(item.label) === lettre) : retenues;
-  const box = el("section", {}, [
-    el("h1", { class: "section" }, [titre]),
-    el("p", { class: "hint" }, [hint]),
-  ]);
+  const box = el("section", {}, [el("h1", { class: "section" }, [titre])]);
+  if (hint) box.append(el("p", { class: "hint" }, [hint]));
   if (genre === "danses") {
     const choix = el("div", { class: "lettres" });
     for (const [id, label] of filtresDanse) {

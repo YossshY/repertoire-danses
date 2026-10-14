@@ -96,7 +96,7 @@ h1, h2.section, .brand, .figure strong {
   padding: 0 8px;
   cursor: pointer;
 }
-#search-form { position: relative; flex: 0 1 340px; width: 340px; min-width: 0; }
+#search-form { position: relative; flex: 1 1 520px; width: auto; max-width: 720px; min-width: 0; }
 .nouvelle {
   margin-left: auto;
   border: 0;
