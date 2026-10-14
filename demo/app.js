@@ -709,8 +709,6 @@ function valeurTableau(ligne, cle) {
 }
 
 function libellePointage(lien) {
-  if (lien.type === "partenaire") return `${lien.nom} · Partenaire`;
-  if (lien.type === "ligne") return `${lien.nom} · Ligne`;
   return lien.marque ? `${lien.nom} · ${lien.marque}` : lien.nom;
 }
 
@@ -720,7 +718,7 @@ async function pageTableau() {
   const lignes = [...toutes];
   const fermes = new Set();
   const tri = { cle: "nom", sens: 1 };
-  const filtre = { clubId: "", pratique: "" };
+  const filtre = { clubId: "" };
   const clubs = new Map();
   for (const ligne of toutes) {
     for (const lien of ligne.associations || []) {
@@ -735,19 +733,11 @@ async function pageTableau() {
   for (const [id, nom] of [...clubs.entries()].sort((a, b) => a[1].localeCompare(b[1], "fr", { sensitivity: "base" }))) {
     choixClub.append(el("option", { value: id }, [nom]));
   }
-  const choixPratique = el("select", {
-    onchange: (event) => { filtre.pratique = event.target.value; restreindre(); },
-  }, [
-    el("option", { value: "" }, ["Toute pratique"]),
-    el("option", { value: "ligne" }, ["Ligne seulement"]),
-    el("option", { value: "partenaire" }, ["Partenaire seulement"]),
-  ]);
   const page = el("section", { class: "tableau-page" }, [
     el("h1", { class: "section" }, ["Tableau"]),
     compte,
     el("div", { class: "t-filtres" }, [
       champ("Club", choixClub),
-      champ("Pratique", choixPratique),
     ]),
   ]);
   const scroll = el("div", { class: "tableau-scroll" });
@@ -856,13 +846,9 @@ async function pageTableau() {
 
   function cellulePointage(ligne) {
     let liens = (ligne.associations || []).filter((lien) => clubLisible(lien.nom));
-    if (filtre.clubId) liens = liens.filter((lien) => lien.clubId === filtre.clubId && (!filtre.pratique || lien.type === filtre.pratique));
+    if (filtre.clubId) liens = liens.filter((lien) => lien.clubId === filtre.clubId);
     const node = el("div", { class: "t-cell t-pointage", title: liens.map(libellePointage).join(" · ") });
-    for (const lien of liens.slice(0, 2)) {
-      const sorte = lien.type === "partenaire" ? "partenaire" : lien.type === "ligne" ? "ligne" : "marque";
-      const texte = lien.type === "partenaire" ? `🤝 ${lien.nom}` : (lien.marque || lien.nom);
-      node.append(el("span", { class: `pastille ${sorte}` }, [texte]));
-    }
+    for (const lien of liens.slice(0, 2)) node.append(el("span", { class: "pastille" }, [lien.nom]));
     if (liens.length > 2) node.append(el("span", { class: "pastille suite" }, [`+${liens.length - 2}`]));
     return node;
   }
@@ -902,12 +888,8 @@ async function pageTableau() {
   }
 
   function garde(ligne) {
-    if (!filtre.clubId && !filtre.pratique) return true;
-    return (ligne.associations || []).some((lien) => {
-      if (filtre.clubId && lien.clubId !== filtre.clubId) return false;
-      if (filtre.pratique && lien.type !== filtre.pratique) return false;
-      return true;
-    });
+    if (!filtre.clubId) return true;
+    return (ligne.associations || []).some((lien) => lien.clubId === filtre.clubId);
   }
 
   function restreindre() {

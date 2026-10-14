@@ -433,20 +433,10 @@ const ligneTableau = (danse) => ({
   revision: danse.date_derniere_revision || "",
 });
 
-function typePointage(valeur) {
-  const marque = String(valeur || "").trim();
-  if (/^x$/i.test(marque)) return "ligne";
-  if (/^pp?$/i.test(marque)) return "partenaire";
-  return "";
-}
-
 function lienClub(clubId, nom, valeur) {
-  const type = typePointage(valeur);
-  const lien = { clubId, nom, type };
-  if (!type) {
-    const marque = texte(valeur, 40);
-    if (marque) lien.marque = marque;
-  }
+  const lien = { clubId, nom };
+  const marque = texte(valeur, 40);
+  if (marque && !/^x$/i.test(marque)) lien.marque = marque;
   return lien;
 }
 
