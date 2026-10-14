@@ -352,7 +352,7 @@ const catalogue = (genre) => {
       GROUP BY m.titre, m.interprete
     `).all();
   }
-  if (genre === "groupes") {
+  if (genre === "artistes" || genre === "groupes") {
     return db.prepare(`
       SELECT MIN(d.id) AS id, m.interprete AS label, COUNT(DISTINCT m.titre) AS n
       FROM musiques m

@@ -12,8 +12,8 @@ const libelleMaitrise = {
 const pagesCatalogue = {
   danses: ["Danses", ""],
   chansons: ["Chansons", "Les musiques du répertoire, par ordre alphabétique."],
-  groupes: ["Groupes", "Les artistes et les groupes."],
-  playlists: ["Listes de lecture", "Quatre séries de 15 à 20 danses sont prévues pour chaque liste. Le classeur ne les sépare pas encore."],
+  artistes: ["Artistes", "Les chanteurs des musiques."],
+  playlists: ["Listes de lecture", "Le classeur ne découpe pas les quatre séries d'environ 15 danses. Il contient seulement deux colonnes dont le titre porte « playlist »."],
 };
 
 function el(tag, attrs, children) {
@@ -333,6 +333,20 @@ function libellePage(url, nom, dejaPage) {
   return dejaPage ? "Autre page" : nom;
 }
 
+function retourListe(nom) {
+  const sorte = sorteListe(nom);
+  if (sorte === "playlist") return "#/playlists";
+  if (sorte === "groupe") return "#/groupes";
+  return "#/clubs";
+}
+
+function libelleRetour(nom) {
+  const sorte = sorteListe(nom);
+  if (sorte === "playlist") return "Listes de lecture";
+  if (sorte === "groupe") return "Groupes";
+  return "Clubs";
+}
+
 function sorteListe(nom) {
   if (/playlist/i.test(nom || "")) return "playlist";
   if (groupeConnu(nom)) return "groupe";
@@ -355,9 +369,18 @@ function liensGroupe(nom) {
   return bloc;
 }
 
-async function pageRepertoires() {
-  const data = (await api("/api/repertoires")).filter((rep) => clubLisible(rep.nom));
-  const box = el("section", {}, [el("h1", { class: "section" }, ["Listes"])]);
+async function pageListes(sorte) {
+  const titre = sorte === "groupe" ? "Groupes" : "Clubs";
+  const hint = sorte === "groupe"
+    ? "Les personnes et les formations indiquées par le client."
+    : "Les clubs, et les listes qui ne sont ni un groupe ni une playlist.";
+  const data = (await api("/api/repertoires"))
+    .filter((rep) => clubLisible(rep.nom) && sorteListe(rep.nom) === sorte)
+    .sort((a, b) => a.nom.localeCompare(b.nom, "fr", { sensitivity: "base" }));
+  const box = el("section", {}, [
+    el("h1", { class: "section" }, [titre]),
+    el("p", { class: "hint" }, [hint]),
+  ]);
   const list = el("div", { class: "panel list" });
   for (const rep of data) {
     const groupe = groupeConnu(rep.nom);
@@ -367,14 +390,15 @@ async function pageRepertoires() {
       el("span", { class: "muted" }, [`${detail}${nombre(rep.danses)} danses`]),
     ]));
   }
-  box.append(list);
+  if (data.length) box.append(list);
+  else box.append(el("p", { class: "hint" }, ["Rien dans ce choix."]));
   show(box);
 }
 
 async function pageRepertoire(id) {
   const data = await api(`/api/repertoires/${id}`);
   const box = el("section", {}, [
-    el("button", { class: "back", type: "button", onclick: () => { location.hash = "#/repertoires"; } }, ["Toutes les listes"]),
+    el("button", { class: "back", type: "button", onclick: () => { location.hash = retourListe(data.nom); } }, [libelleRetour(data.nom)]),
     el("h1", { class: "section" }, [data.nom]),
     liensGroupe(data.nom) || "",
     el("p", { class: "small" }, [`${nombre(data.total)} danses${data.danses.length < data.total ? ` · ${data.danses.length} affichées` : ""}`]),
@@ -389,6 +413,9 @@ async function pageRepertoire(id) {
     ]));
   }
   box.append(list);
+  for (const bouton of document.querySelectorAll(".menu [data-route]")) {
+    bouton.classList.toggle("on", bouton.dataset.route === retourListe(data.nom));
+  }
   show(box);
 }
 
@@ -611,9 +638,8 @@ function marquerMenu() {
   const hash = location.hash || "#/danses";
   for (const bouton of document.querySelectorAll(".menu [data-route]")) {
     const route = bouton.dataset.route;
-    const liste = route === "#/repertoires" && hash.startsWith("#/repertoire/");
     const danse = route === "#/danses" && hash.startsWith("#/danse/");
-    bouton.classList.toggle("on", hash === route || hash.startsWith(`${route}?`) || liste || danse);
+    bouton.classList.toggle("on", hash === route || hash.startsWith(`${route}?`) || danse);
   }
   document.querySelector("#nouvelle").classList.toggle("on", hash === "#/saisie");
 }
@@ -633,8 +659,10 @@ async function route() {
       return resultats(await api(`/api/recherche?q=${encodeURIComponent(q)}`), q);
     }
     if (hash === "#/saisie") return pageSaisie();
-    if (hash === "#/repertoires") return pageRepertoires();
-    const catalogueMatch = hash.match(/^#\/(danses|chansons|groupes|playlists)/);
+    if (hash === "#/clubs" || hash.startsWith("#/clubs?")) return pageListes("club");
+    if (hash === "#/groupes" || hash.startsWith("#/groupes?")) return pageListes("groupe");
+    if (hash === "#/repertoires") return pageListes("club");
+    const catalogueMatch = hash.match(/^#\/(danses|chansons|artistes|playlists)/);
     if (catalogueMatch) return pageCatalogue(catalogueMatch[1]);
     const danseMatch = hash.match(/^#\/danse\/([0-9a-f-]{36})$/i);
     if (danseMatch) return fiche(await api(`/api/danses/${danseMatch[1]}`));

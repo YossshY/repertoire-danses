@@ -205,7 +205,7 @@
       }
       return rows;
     }
-    if (genre === "groupes") {
+    if (genre === "artistes" || genre === "groupes") {
       const vus = new Map();
       for (const danse of data.danses) {
         for (const music of danse.musiques) {
