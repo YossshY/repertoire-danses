@@ -3,7 +3,7 @@ import fs from "fs";
 import path from "path";
 import { DatabaseSync } from "node:sqlite";
 import { fold } from "./lib/text.mjs";
-import { appliquerNotes, notesParLigne } from "./lib/notes-ligne.mjs";
+import { appliquerNotes, nomVideoDe, notesParLigne } from "./lib/notes-ligne.mjs";
 
 const root = process.cwd();
 const dbPath = path.join(root, "data", "repertoire.db");
@@ -122,7 +122,7 @@ const ligneRecherche = (danse) => ({
 });
 
 const brouillonsTrouves = (q) => [...brouillons.values()].filter((danse) => contient(
-  [danse.nom, danse.musique, danse.interprete, danse.choregraphe, danse.numero].filter(Boolean).join(" "),
+  [danse.nom, danse.musique, danse.interprete, danse.choregraphe, danse.numero, danse.videoDe].filter(Boolean).join(" "),
   q,
 ));
 
@@ -139,8 +139,27 @@ const recherche = (q) => {
     ORDER BY CASE WHEN nom_semantic = 'renseigne' THEN 0 ELSE 1 END, nom
     LIMIT 40
   `).all({ q: term }).map((row) => ({ ...ligneRecherche(row), maitrise: maitriseDe(row.source_row) }));
+  const deja = new Set(danses.map((danse) => danse.id));
+  const lignes = [];
+  const needle = fold(q);
+  if (needle.length >= 2) {
+    for (const [ligne, note] of notes) {
+      if (!note.videoDe) continue;
+      if (fold(note.videoDe).includes(needle) || fold(nomVideoDe(note.videoDe)).includes(needle)) lignes.push(ligne);
+      if (lignes.length >= 40) break;
+    }
+  }
+  const complement = lignes.length
+    ? db.prepare(`
+        SELECT id, nom, niveau_original AS niveau, type_original AS type,
+               choregraphe_original AS choregraphe, musique_originale AS musique,
+               interprete_original AS interprete, numero, source_row
+        FROM dances
+        WHERE deleted_at IS NULL AND source_row IN (${lignes.join(",")})
+      `).all().filter((row) => !deja.has(row.id)).map((row) => ({ ...ligneRecherche(row), maitrise: maitriseDe(row.source_row) }))
+    : [];
   const ajouts = brouillonsTrouves(q).map(ligneRecherche);
-  return { total: total + ajouts.length, danses: [...ajouts, ...danses].slice(0, 40) };
+  return { total: total + complement.length + ajouts.length, danses: [...ajouts, ...danses, ...complement].slice(0, 40) };
 };
 
 const rangSuggestion = (label, detail, q) => {
@@ -229,13 +248,19 @@ const creerBrouillon = (body) => {
     murs: murs && Number.isFinite(Number(murs)) ? Number(murs) : null,
     murs_original: murs || null,
     numero: texte(body.numero, 40),
-    tag: null,
-    restart: null,
+    tag: texte(body.tag, 80) || null,
+    restart: texte(body.restart, 80) || null,
     choregraphe: texte(body.choregraphe),
     choregraphe_semantic: texte(body.choregraphe) ? "renseigne" : null,
     musique: texte(body.musique),
     interprete: texte(body.interprete),
     maitrise: ["maitrise", "moyenne", "aucune", "laisser"].includes(body.maitrise) ? body.maitrise : "",
+    videoDe: texte(body.videoDe, 80),
+    partenaireApprise: body.partenaire === "apprise",
+    partenaireNonApprise: body.partenaire === "non",
+    extraire: Boolean(body.extraire),
+    paroles: body.pdf === "fr" ? "fr" : "",
+    pdf_fr: body.pdf === "fr" ? "Fr" : body.pdf === "autre" ? null : undefined,
     musiques: [],
     liens: [],
     repertoires,
@@ -303,7 +328,19 @@ const catalogue = (genre) => {
       SELECT id, nom AS label, interprete_original AS detail, source_row
       FROM dances
       WHERE deleted_at IS NULL AND nom_semantic = 'renseigne' AND length(trim(nom)) > 1
-    `).all().map((row) => ({ id: row.id, label: row.label, detail: row.detail || "", maitrise: maitriseDe(row.source_row) }));
+    `).all().map((row) => {
+      const note = notes.get(row.source_row) || {};
+      return {
+        id: row.id,
+        label: row.label,
+        detail: row.detail || "",
+        maitrise: maitriseDe(row.source_row),
+        partenaireApprise: Boolean(note.partenaireApprise),
+        partenaireNonApprise: Boolean(note.partenaireNonApprise),
+        paroles: note.paroles || "",
+        extraire: Boolean(note.extraire),
+      };
+    });
   }
   if (genre === "chansons") {
     return db.prepare(`

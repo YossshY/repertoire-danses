@@ -1,3 +1,21 @@
+import { fold } from "./text.mjs";
+
+const videosDe = {
+  "a.g.": "Agnès Gautier",
+  "ag": "Agnès Gautier",
+  "idj": "Ingeborg De Jonckere",
+  "frederab": "Fred et Rabia",
+  "chin.": "présenté par une Chinoise (LineDanceDallas)",
+  "faur": "Jean-Claude Faur",
+  "a & s": "Alan et Sonia Cole",
+  "a&s": "Alan et Sonia Cole",
+};
+
+export function nomVideoDe(texte) {
+  const cle = fold(texte);
+  return videosDe[cle] || videosDe[cle.replace(/\s/g, "")] || texte;
+}
+
 export function notesParLigne(db) {
   const rows = db.prepare(`
     SELECT c.col_index AS col, s.source_row AS ligne, s.raw_text AS texte

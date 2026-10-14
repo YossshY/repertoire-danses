@@ -83,7 +83,7 @@ h1, h2.section, .brand, .figure strong {
 .field { position: relative; display: flex; flex-direction: column; gap: 6px; }
 .field:focus-within { z-index: 5; }
 .field span { font-size: 14px; color: var(--muted); }
-.field input, .field select {
+.field input:not([type="checkbox"]), .field select {
   border: 1px solid var(--line);
   background: var(--paper);
   border-radius: 12px;
@@ -91,7 +91,7 @@ h1, h2.section, .brand, .figure strong {
   font: inherit;
   color: inherit;
 }
-.field input:focus, .field select:focus { outline: 2px solid var(--accent); border-color: transparent; }
+.field input:not([type="checkbox"]):focus, .field select:focus { outline: 2px solid var(--accent); border-color: transparent; }
 .wide { grid-column: 1 / -1; }
 .chips { display: flex; flex-wrap: wrap; gap: 8px; }
 .chip.picked { background: var(--accent-soft); }
@@ -235,7 +235,7 @@ h1, h2.section, .brand, .figure strong {
   color: inherit;
   border-radius: 8px;
   min-width: 32px;
-  padding: 6px 0;
+  padding: 6px 10px;
   cursor: pointer;
 }
 .lettre.on { background: var(--wood); color: #f6efe4; border-color: var(--wood); }

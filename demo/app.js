@@ -227,8 +227,7 @@ function fiche(danse) {
     el("h1", {}, [danse.nom || "Sans nom"]),
     lectureDanse(danse.nom) ? el("p", { class: "sens" }, [lectureDanse(danse.nom)]) : "",
     danse.videoDe ? el("p", { class: "sens" }, [`Vidéo de ${nomVideo(danse.videoDe)}`]) : "",
-    danse.partenaireApprise ? el("p", { class: "sens" }, ["Danse partenaire apprise"]) : "",
-    danse.partenaireNonApprise ? el("p", { class: "sens" }, ["Danse partenaire non apprise"]) : "",
+    lignePartenaire(danse) ? el("p", { class: "sens" }, [lignePartenaire(danse)]) : "",
     el("div", { class: "badges" }, badges(danse)),
   ]);
 
@@ -363,8 +362,9 @@ function groupeConnu(nom) {
   return meilleur ? meilleur.groupe : null;
 }
 
-function libellePage(url) {
-  return /facebook\.com/i.test(url) ? "Page" : "Site";
+function libellePage(url, nom, dejaPage) {
+  if (!/facebook\.com/i.test(url)) return "Site";
+  return dejaPage ? "Autre page" : nom;
 }
 
 function liensGroupe(nom) {
@@ -373,7 +373,12 @@ function liensGroupe(nom) {
   const bloc = el("div", { class: "hors" });
   if (cleAnnuaire(groupe.nom) !== cleAnnuaire(nom)) bloc.append(el("p", { class: "hint" }, [groupe.nom]));
   const liens = el("div", { class: "links" });
-  for (const url of groupe.liens) liens.append(el("a", { class: "link quiet", href: url, target: "_blank", rel: "noreferrer" }, [libellePage(url)]));
+  let dejaPage = false;
+  for (const url of groupe.liens) {
+    const label = libellePage(url, groupe.nom, dejaPage);
+    if (/facebook\.com/i.test(url)) dejaPage = true;
+    liens.append(el("a", { class: "link quiet", href: url, target: "_blank", rel: "noreferrer" }, [label]));
+  }
   bloc.append(liens);
   return bloc;
 }
@@ -495,6 +500,20 @@ function pageSaisie() {
     el("option", { value: "" }, ["Non précisé"]),
     ...Object.entries(libelleMaitrise).map(([value, label]) => el("option", { value }, [label])),
   ]);
+  const partenaire = el("select", {}, [
+    el("option", { value: "" }, ["Non précisé"]),
+    el("option", { value: "apprise" }, ["Apprise"]),
+    el("option", { value: "non" }, ["Non apprise"]),
+  ]);
+  const feuille = el("select", {}, [
+    el("option", { value: "" }, ["Non précisé"]),
+    el("option", { value: "fr" }, ["En français"]),
+    el("option", { value: "autre" }, ["Autre langue"]),
+  ]);
+  const videoDe = el("input", { type: "text", autocomplete: "off" });
+  const tag = el("input", { type: "text", autocomplete: "off" });
+  const reprise = el("input", { type: "text", autocomplete: "off" });
+  const extraire = el("input", { type: "checkbox" });
   const type = el("input", { type: "text", autocomplete: "off" });
   const numero = el("input", { type: "text", autocomplete: "off" });
   const pas = el("input", { type: "text", autocomplete: "off", inputmode: "decimal" });
@@ -511,6 +530,12 @@ function pageSaisie() {
     champ("Chorégraphe", choregraphe),
     champ("Niveau", niveau),
     champ("Maîtrise", maitrise),
+    champ("Partenaire", partenaire),
+    champ("Vidéo de", videoDe),
+    champ("Feuille des pas", feuille),
+    champ("Temps ajoutés", tag),
+    champ("Reprise", reprise),
+    champ("Musique à extraire", extraire),
     champ("Type", type),
     champ("Numéro", numero),
     champ("Pas", pas),
@@ -566,6 +591,12 @@ function pageSaisie() {
           choregraphe: choregraphe.value,
           niveau: niveau.value,
           maitrise: maitrise.value,
+          partenaire: partenaire.value,
+          videoDe: videoDe.value,
+          pdf: feuille.value,
+          tag: tag.value,
+          restart: reprise.value,
+          extraire: extraire.checked,
           type: type.value,
           numero: numero.value,
           pas: pas.value,
@@ -621,6 +652,13 @@ function idVideo(url) {
 function liensVisibles(liens) {
   const choregraphies = new Set((liens || []).map((lien) => lien.type === "youtube" ? idVideo(lien.url) : "").filter(Boolean));
   return (liens || []).filter((lien) => lien.type !== "lonestar" || !choregraphies.has(idVideo(lien.url)));
+}
+
+function lignePartenaire(danse) {
+  if (danse.partenaireApprise && danse.partenaireNonApprise) return "Le classeur porte les deux marques : partenaire apprise et non apprise.";
+  if (danse.partenaireNonApprise) return "Danse partenaire non apprise";
+  if (danse.partenaireApprise) return "Danse partenaire apprise";
+  return "";
 }
 
 function lectureDanse(nom) {
@@ -687,31 +725,71 @@ function ouvrirCatalogue(genre, item) {
   }
 }
 
+const filtresDanse = [
+  ["", "Toutes"],
+  ["maitrise", "Acquise"],
+  ["moyenne", "En apprentissage"],
+  ["aucune", "Non apprise"],
+  ["laisser", "Exclue"],
+  ["p-oui", "Partenaire apprise"],
+  ["p-non", "Partenaire non apprise"],
+  ["fr", "Paroles en français"],
+  ["extraire", "Musique à extraire"],
+];
+
+function gardeDanse(item, filtre) {
+  if (filtre === "p-oui") return item.partenaireApprise && !item.partenaireNonApprise;
+  if (filtre === "p-non") return item.partenaireNonApprise;
+  if (filtre === "fr") return item.paroles === "fr";
+  if (filtre === "extraire") return item.extraire;
+  return item.maitrise === filtre;
+}
+
+function allerCatalogue(genre, lettre, filtre) {
+  const params = new URLSearchParams();
+  if (lettre) params.set("lettre", lettre);
+  if (filtre) params.set("filtre", filtre);
+  const query = params.toString();
+  const next = `#/${genre}${query ? `?${query}` : ""}`;
+  if (location.hash === next) route();
+  else location.hash = next;
+}
+
 async function pageCatalogue(genre) {
   const [titre, hint] = pagesCatalogue[genre];
   const entrees = [...await api(`/api/catalogue?genre=${genre}`)].sort((a, b) => a.label.localeCompare(b.label, "fr", { sensitivity: "base" }));
-  const index = entrees.length > 40;
-  const lettre = (new URLSearchParams(location.hash.split("?")[1] || "").get("lettre") || "A").toUpperCase();
-  const visibles = index ? entrees.filter((item) => lettreDe(item.label) === lettre) : entrees;
+  const query = new URLSearchParams(location.hash.split("?")[1] || "");
+  const filtre = genre === "danses" ? (query.get("filtre") || "") : "";
+  const retenues = filtre ? entrees.filter((item) => gardeDanse(item, filtre)) : entrees;
+  const index = retenues.length > 40;
+  const lettre = (query.get("lettre") || "A").toUpperCase();
+  const visibles = index ? retenues.filter((item) => lettreDe(item.label) === lettre) : retenues;
   const box = el("section", {}, [
     el("h1", { class: "section" }, [titre]),
     el("p", { class: "hint" }, [hint]),
   ]);
+  if (genre === "danses") {
+    const choix = el("div", { class: "lettres" });
+    for (const [id, label] of filtresDanse) {
+      choix.append(el("button", {
+        type: "button",
+        class: id === filtre ? "lettre on" : "lettre",
+        onclick: () => allerCatalogue(genre, index ? lettre : "", id),
+      }, [label]));
+    }
+    box.append(choix);
+  }
   if (index) {
     const lettres = el("div", { class: "lettres" });
     for (const signe of [..."ABCDEFGHIJKLMNOPQRSTUVWXYZ", "#"]) {
       lettres.append(el("button", {
         type: "button",
         class: signe === lettre ? "lettre on" : "lettre",
-        onclick: () => {
-          const next = `#/${genre}?lettre=${encodeURIComponent(signe)}`;
-          if (location.hash === next) route();
-          else location.hash = next;
-        },
+        onclick: () => allerCatalogue(genre, signe, filtre),
       }, [signe]));
     }
     box.append(lettres);
-    box.append(el("p", { class: "small" }, [`${nombre(visibles.length)} sur ${nombre(entrees.length)}`]));
+    box.append(el("p", { class: "small" }, [`${nombre(visibles.length)} sur ${nombre(retenues.length)}`]));
   }
   const list = el("div", { class: "panel list" });
   for (const item of visibles) {
@@ -724,6 +802,7 @@ async function pageCatalogue(genre) {
     ]));
   }
   if (visibles.length) box.append(list);
+  else box.append(el("p", { class: "hint" }, ["Rien dans ce choix."]));
   show(box);
 }
 

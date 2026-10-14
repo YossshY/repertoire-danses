@@ -43,12 +43,12 @@
   }
 
   function trouve(q) {
-    return data.danses.filter((danse) => contient(danse.search, q));
+    return data.danses.filter((danse) => contient(danse.search, q) || contient(danse.videoDe, q));
   }
 
   function brouillonsTrouves(q) {
     return [...brouillons.values()].filter((danse) => contient(
-      [danse.nom, danse.musique, danse.interprete, danse.choregraphe, danse.numero].filter(Boolean).join(" "),
+      [danse.nom, danse.musique, danse.interprete, danse.choregraphe, danse.numero, danse.videoDe].filter(Boolean).join(" "),
       q,
     ));
   }
@@ -146,13 +146,19 @@
       murs: murs && Number.isFinite(Number(murs)) ? Number(murs) : null,
       murs_original: murs || null,
       numero: texte(body.numero, 40),
-      tag: null,
-      restart: null,
+      tag: texte(body.tag, 80) || null,
+      restart: texte(body.restart, 80) || null,
       choregraphe: texte(body.choregraphe),
       choregraphe_semantic: texte(body.choregraphe) ? "renseigne" : null,
       musique: texte(body.musique),
       interprete: texte(body.interprete),
       maitrise: ["maitrise", "moyenne", "aucune", "laisser"].includes(body.maitrise) ? body.maitrise : "",
+      videoDe: texte(body.videoDe, 80),
+      partenaireApprise: body.partenaire === "apprise",
+      partenaireNonApprise: body.partenaire === "non",
+      extraire: Boolean(body.extraire),
+      paroles: body.pdf === "fr" ? "fr" : "",
+      pdf_fr: body.pdf === "fr" ? "Fr" : body.pdf === "autre" ? null : undefined,
       musiques: [],
       liens: [],
       repertoires,
@@ -176,7 +182,16 @@
     if (genre === "danses") {
       return data.danses
         .filter((danse) => danse.nom_semantic === "renseigne" && nomme(danse.nom))
-        .map((danse) => ({ id: danse.id, label: danse.nom, detail: danse.interprete || "", maitrise: danse.maitrise || "" }));
+        .map((danse) => ({
+          id: danse.id,
+          label: danse.nom,
+          detail: danse.interprete || "",
+          maitrise: danse.maitrise || "",
+          partenaireApprise: Boolean(danse.partenaireApprise),
+          partenaireNonApprise: Boolean(danse.partenaireNonApprise),
+          paroles: danse.paroles || "",
+          extraire: Boolean(danse.extraire),
+        }));
     }
     if (genre === "chansons") {
       const vus = new Set();

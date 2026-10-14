@@ -2,7 +2,7 @@ import fs from "fs";
 import path from "path";
 import { DatabaseSync } from "node:sqlite";
 import { fold } from "./lib/text.mjs";
-import { appliquerNotes, notesParLigne } from "./lib/notes-ligne.mjs";
+import { appliquerNotes, nomVideoDe, notesParLigne } from "./lib/notes-ligne.mjs";
 
 const root = process.cwd();
 const db = new DatabaseSync(path.join(root, "data", "repertoire.db"), { readOnly: true });
@@ -29,6 +29,7 @@ const danses = db.prepare(`
 const parId = new Map(danses.map((danse) => {
   danse.maitrise = maitrises[danse.source_row] || "";
   appliquerNotes(danse, notes);
+  if (danse.videoDe) danse.search = `${danse.search || ""} ${danse.videoDe} ${nomVideoDe(danse.videoDe)}`;
   delete danse.source_row;
   danse.musiques = [];
   danse.liens = [];
