@@ -475,6 +475,17 @@ h1.section { font-size: 32px; margin: 0 0 16px; }
 .coordonnees { margin: 0 0 14px; }
 .coordonnees p { margin: 0 0 4px; }
 .coordonnees a { color: var(--accent); }
+.questions { display: flex; flex-direction: column; gap: 12px; }
+.questions article {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 16px 18px;
+}
+.questions h2 { margin: 0 0 8px; font-size: 22px; }
+.questions p { margin: 0 0 8px; }
+.questions ul { margin: 0; padding-left: 18px; }
+.questions li { margin: 0 0 4px; }
 
 @media (max-width: 720px) {
   body { grid-template-columns: 1fr; }
