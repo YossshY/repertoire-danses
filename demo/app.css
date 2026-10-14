@@ -136,6 +136,12 @@ h1, h2.section, .brand, .figure strong {
   cursor: pointer;
 }
 .suggest button.on, .suggest button:hover { background: var(--accent-soft); }
+.suggest.haut {
+  top: auto;
+  bottom: calc(100% + 6px);
+  max-height: 260px;
+  overflow: auto;
+}
 .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
 .field { position: relative; display: flex; flex-direction: column; gap: 6px; }
 .field:focus-within { z-index: 5; }

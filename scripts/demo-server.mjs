@@ -430,6 +430,7 @@ const server = http.createServer(async (req, res) => {
     if (url.pathname === "/api/suggestions") {
       return json(res, suggestions(url.searchParams.get("champ") || "recherche", url.searchParams.get("q") || ""));
     }
+    if (url.pathname === "/api/niveaux") return json(res, niveaux);
     if (req.method === "POST" && url.pathname === "/api/danses") {
       const cree = creerBrouillon(await lireJson(req));
       if (cree.error) return send(res, 400, JSON.stringify({ message: cree.error }));

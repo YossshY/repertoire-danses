@@ -451,12 +451,16 @@ function brancherSuggestions(field, kind, onPick) {
   field._fermerSuggestions = hide;
 }
 
-function pageSaisie() {
+async function pageSaisie() {
   const nom = el("input", { type: "text", autocomplete: "off" });
   const musique = el("input", { type: "text", autocomplete: "off" });
   const interprete = el("input", { type: "text", autocomplete: "off" });
   const choregraphe = el("input", { type: "text", autocomplete: "off" });
-  const niveau = el("input", { type: "text", autocomplete: "off" });
+  const niveaux = await api("/api/niveaux").catch(() => []);
+  const niveau = el("select", {}, [
+    el("option", { value: "" }, ["Non précisé"]),
+    ...niveaux.map((item) => el("option", { value: item.label }, [item.label])),
+  ]);
   const maitrise = el("select", {}, [
     el("option", { value: "" }, ["Non précisé"]),
     ...Object.entries(libelleMaitrise).map(([value, label]) => el("option", { value }, [label])),
@@ -524,13 +528,30 @@ function pageSaisie() {
     if (item.detail && !musique.value.trim()) musique.value = item.detail;
   });
   brancherSuggestions(choregraphe, "choregraphe", (item) => { choregraphe.value = item.label; });
-  brancherSuggestions(niveau, "niveau", (item) => { niveau.value = item.label; });
   brancherSuggestions(type, "type", (item) => { type.value = item.label; });
-  brancherSuggestions(club, "repertoire", (item) => {
-    if (!choisis.includes(item) && !choisis.some((connu) => connu.id === item.id)) choisis.push(item);
+  const clubs = (await api("/api/repertoires")).filter((rep) => clubLisible(rep.nom))
+    .sort((a, b) => a.nom.localeCompare(b.nom, "fr", { sensitivity: "base" }));
+  const listeClubs = el("div", { class: "suggest haut", hidden: "hidden" });
+  club.after(listeClubs);
+  function choisirClub(rep) {
+    if (!choisis.some((item) => item.id === rep.id)) choisis.push({ id: rep.id, label: rep.nom });
     club.value = "";
+    listeClubs.hidden = true;
     dessinerClubs();
-  });
+  }
+  function montrerClubs() {
+    const q = foldClient(club.value);
+    const visibles = clubs.filter((rep) => !q || foldClient(rep.nom).includes(q));
+    listeClubs.replaceChildren();
+    if (!visibles.length) { listeClubs.hidden = true; return; }
+    listeClubs.hidden = false;
+    for (const rep of visibles) {
+      listeClubs.append(el("button", { type: "button", onmousedown: (event) => { event.preventDefault(); choisirClub(rep); } }, [rep.nom]));
+    }
+  }
+  club.addEventListener("focus", montrerClubs);
+  club.addEventListener("input", montrerClubs);
+  club.addEventListener("blur", () => window.setTimeout(() => { listeClubs.hidden = true; }, 150));
   const form = el("form", { class: "panel", style: "padding:18px" }, [
     erreur,
     grid,

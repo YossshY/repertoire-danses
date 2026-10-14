@@ -256,6 +256,7 @@
       return recherche(q);
     }
     if (url.pathname === "/api/suggestions") return suggestions(url.searchParams.get("champ") || "recherche", url.searchParams.get("q") || "");
+    if (url.pathname === "/api/niveaux") return data.niveaux;
     if (url.pathname === "/api/repertoires") return data.clubs;
     if (url.pathname === "/api/catalogue") return catalogue(url.searchParams.get("genre") || "");
     if (options && options.method === "POST" && url.pathname === "/api/danses") return creer(JSON.parse(options.body || "{}"));
