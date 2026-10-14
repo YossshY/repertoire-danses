@@ -394,7 +394,6 @@ const repertoire = (id, q) => {
     WHERE dr.repertoire_id = $id AND dr.deleted_at IS NULL AND d.deleted_at IS NULL
       AND ($q IS NULL OR d.search_text LIKE $q ESCAPE '\\')
     ORDER BY CASE WHEN d.nom_semantic = 'renseigne' THEN 0 ELSE 1 END, d.nom
-    LIMIT 80
   `).all({ id, q: term });
   const total = db.prepare(`
     SELECT COUNT(*) AS n
@@ -407,7 +406,7 @@ const repertoire = (id, q) => {
   return {
     ...info,
     total: total + ajouts.length,
-    danses: [...ajouts.map((danse) => ({ id: danse.id, nom: danse.nom, niveau: danse.niveau, valeur: "x", date: null })), ...danses].slice(0, 80),
+    danses: [...ajouts.map((danse) => ({ id: danse.id, nom: danse.nom, niveau: danse.niveau, valeur: "x", date: null })), ...danses],
   };
 };
 

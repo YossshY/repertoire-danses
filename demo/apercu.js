@@ -241,7 +241,7 @@
         const lien = danse.repertoires.find((rep) => rep.id === id);
         return { id: danse.id, nom: danse.nom, niveau: danse.niveau, valeur: lien.valeur, date: lien.date };
       }),
-    ].slice(0, 80);
+    ];
     return { id: info.id, nom: info.nom, total: correspond.length + ajouts.length, danses };
   }
 
