@@ -634,6 +634,212 @@ async function pageSaisie() {
   show(el("section", {}, [el("h1", { class: "section" }, ["Nouvelle danse"]), form]));
 }
 
+const colonnesTableau = [
+  { cle: "numero", label: "N°", pin: true, largeur: 72 },
+  { cle: "nom", label: "Nom", pin: true, largeur: 280, teinte: true },
+  { cle: "musique", label: "Musique", groupe: "infos", largeur: 220 },
+  { cle: "interprete", label: "Artiste", groupe: "infos", largeur: 180 },
+  { cle: "choregraphe", label: "Chorégraphe", groupe: "infos", largeur: 200 },
+  { cle: "niveau", label: "Niveau", groupe: "infos", largeur: 140 },
+  { cle: "maitrise", label: "Maîtrise", groupe: "infos", largeur: 150, teinte: true },
+  { cle: "type", label: "Type", groupe: "technique", largeur: 110 },
+  { cle: "pas", label: "Pas", groupe: "technique", largeur: 70 },
+  { cle: "murs", label: "Murs", groupe: "technique", largeur: 70 },
+  { cle: "tag", label: "Temps ajoutés", groupe: "technique", largeur: 150 },
+  { cle: "reprise", label: "Reprise", groupe: "technique", largeur: 130 },
+  { cle: "partenaire", label: "Partenaire", groupe: "technique", largeur: 150 },
+  { cle: "feuille", label: "Feuille des pas", groupe: "technique", largeur: 160 },
+  { cle: "extraire", label: "À extraire", groupe: "technique", largeur: 110 },
+  { cle: "premiere", label: "Première vue", groupe: "historique", largeur: 130 },
+  { cle: "choregraphie", label: "Chorégraphie", groupe: "historique", largeur: 140 },
+  { cle: "revision", label: "Dernière révision", groupe: "historique", largeur: 150 },
+];
+const nomsGroupes = { infos: "Infos principales", technique: "Technique", historique: "Historique" };
+const teintesMaitrise = new Set(["maitrise", "moyenne", "aucune", "laisser"]);
+
+function textePartenaire(ligne) {
+  if (ligne.partenaireApprise && ligne.partenaireNonApprise) return "Les deux marques";
+  if (ligne.partenaireNonApprise) return "Non apprise";
+  if (ligne.partenaireApprise) return "Apprise";
+  return "";
+}
+
+function texteFeuille(ligne) {
+  if (ligne.pdf_fr) return "Français";
+  if (ligne.pdf_fr === null) return "Autre langue";
+  return "";
+}
+
+function valeurTableau(ligne, cle) {
+  if (cle === "maitrise") return libelleMaitrise[ligne.maitrise] || "";
+  if (cle === "partenaire") return textePartenaire(ligne);
+  if (cle === "feuille") return texteFeuille(ligne);
+  if (cle === "extraire") return ligne.extraire ? "Oui" : "";
+  if (cle === "premiere" || cle === "choregraphie" || cle === "revision") return frDate(ligne[cle]);
+  return ligne[cle] || "";
+}
+
+async function pageTableau() {
+  const brut = await api("/api/tableau");
+  const lignes = [...brut];
+  const fermes = new Set();
+  const tri = { cle: "nom", sens: 1 };
+  const page = el("section", { class: "tableau-page" }, [
+    el("h1", { class: "section" }, ["Tableau"]),
+    el("p", { class: "small" }, [`${nombre(lignes.length)} danses. Le nom reste à gauche, les groupes se replient.`]),
+  ]);
+  const scroll = el("div", { class: "tableau-scroll" });
+  const entete = el("div", { class: "t-bloc-entete" });
+  const espace = el("div", { class: "t-espace" });
+  const fenetre = el("div", { class: "t-fenetre" });
+  espace.append(fenetre);
+  scroll.append(entete, espace);
+  page.append(scroll);
+
+  let vuDebut = -1;
+  let vuFin = -1;
+
+  function colonnesActives() {
+    const cols = [];
+    let repli = "";
+    for (const col of colonnesTableau) {
+      if (col.pin || !fermes.has(col.groupe)) {
+        repli = "";
+        cols.push(col);
+        continue;
+      }
+      if (repli !== col.groupe) {
+        cols.push({ repli: true, groupe: col.groupe, cle: `repli-${col.groupe}`, label: "", largeur: 190 });
+        repli = col.groupe;
+      }
+    }
+    let left = 0;
+    for (const col of cols) {
+      if (!col.pin) continue;
+      col.left = left;
+      left += col.largeur;
+    }
+    return cols;
+  }
+
+  function comparerLigne(a, b) {
+    const va = valeurTableau(a, tri.cle);
+    const vb = valeurTableau(b, tri.cle);
+    if (!va && vb) return 1;
+    if (va && !vb) return -1;
+    const ordre = String(va).localeCompare(String(vb), "fr", { sensitivity: "base", numeric: true });
+    return tri.sens * (ordre || comparerNom(a, b));
+  }
+
+  function cellule(col, texte, teinte) {
+    const pin = col.pin ? " t-pin" : "";
+    const nom = col.cle === "nom" ? " t-nom" : "";
+    const couleur = teinte && teintesMaitrise.has(teinte) ? ` teinte m-${teinte}` : "";
+    return el("div", {
+      class: `t-cell${pin}${nom}${couleur}`,
+      style: col.pin ? `left:${col.left}px` : "",
+      title: texte || "",
+    }, [texte || ""]);
+  }
+
+  function dessinerEntete(cols) {
+    const groupes = el("div", { class: "t-groupes" });
+    const titres = el("div", { class: "t-colonnes" });
+    let index = 0;
+    while (index < cols.length) {
+      const col = cols[index];
+      if (col.pin) {
+        groupes.append(cellule(col, ""));
+        titres.append(boutonTri(col));
+        index += 1;
+        continue;
+      }
+      const groupe = col.groupe;
+      let largeur = 0;
+      while (index + largeur < cols.length && cols[index + largeur].groupe === groupe) largeur += 1;
+      groupes.append(el("button", {
+        type: "button",
+        class: "t-groupe",
+        style: `grid-column: span ${largeur}`,
+        onclick: () => {
+          if (fermes.has(groupe)) fermes.delete(groupe);
+          else fermes.add(groupe);
+          vuDebut = -1;
+          preparer();
+        },
+      }, [`${fermes.has(groupe) ? "▸" : "▾"} ${nomsGroupes[groupe]}`]));
+      for (let curseur = 0; curseur < largeur; curseur += 1) {
+        const courante = cols[index + curseur];
+        titres.append(courante.repli ? cellule(courante, "") : boutonTri(courante));
+      }
+      index += largeur;
+    }
+    entete.replaceChildren(groupes, titres);
+  }
+
+  function boutonTri(col) {
+    const marque = tri.cle === col.cle ? (tri.sens === 1 ? " ↑" : " ↓") : "";
+    const bouton = cellule(col, `${col.label}${marque}`);
+    bouton.classList.add("t-tri");
+    bouton.setAttribute("role", "button");
+    bouton.tabIndex = 0;
+    bouton.addEventListener("click", () => {
+      tri.sens = tri.cle === col.cle ? -tri.sens : 1;
+      tri.cle = col.cle;
+      vuDebut = -1;
+      preparer();
+    });
+    return bouton;
+  }
+
+  function dessinerLignes(cols) {
+    const hauteur = 36;
+    const tete = entete.offsetHeight;
+    const debut = Math.max(0, Math.floor(scroll.scrollTop / hauteur) - 8);
+    const fin = Math.min(lignes.length, Math.ceil((scroll.scrollTop + Math.max(0, scroll.clientHeight - tete)) / hauteur) + 8);
+    if (debut === vuDebut && fin === vuFin) return;
+    vuDebut = debut;
+    vuFin = fin;
+    espace.style.height = `${lignes.length * hauteur}px`;
+    fenetre.style.top = `${debut * hauteur}px`;
+    const fragment = document.createDocumentFragment();
+    for (const ligne of lignes.slice(debut, fin)) {
+      const row = el("div", {
+        class: "t-ligne",
+        role: "link",
+        tabindex: "0",
+        onclick: () => { location.hash = `#/danse/${ligne.id}`; },
+        onkeydown: (event) => { if (event.key === "Enter") location.hash = `#/danse/${ligne.id}`; },
+      });
+      for (const col of cols) row.append(cellule(col, col.repli ? "" : valeurTableau(ligne, col.cle), col.teinte ? ligne.maitrise : ""));
+      fragment.append(row);
+    }
+    fenetre.replaceChildren(fragment);
+  }
+
+  function preparer() {
+    lignes.sort(comparerLigne);
+    const cols = colonnesActives();
+    scroll.style.setProperty("--t-cols", cols.map((col) => `${col.largeur}px`).join(" "));
+    dessinerEntete(cols);
+    vuDebut = -1;
+    dessinerLignes(cols);
+    scroll._colonnes = cols;
+  }
+
+  let cadre = 0;
+  scroll.addEventListener("scroll", () => {
+    if (cadre) return;
+    cadre = requestAnimationFrame(() => {
+      cadre = 0;
+      dessinerLignes(scroll._colonnes);
+    });
+  });
+  preparer();
+  show(page);
+  dessinerLignes(scroll._colonnes);
+}
+
 function marquerMenu() {
   const hash = location.hash || "#/danses";
   for (const bouton of document.querySelectorAll(".menu [data-route]")) {
@@ -659,6 +865,7 @@ async function route() {
       return resultats(await api(`/api/recherche?q=${encodeURIComponent(q)}`), q);
     }
     if (hash === "#/saisie") return pageSaisie();
+    if (hash === "#/tableau") return pageTableau();
     if (hash === "#/clubs" || hash.startsWith("#/clubs?")) return pageListes("club");
     if (hash === "#/groupes" || hash.startsWith("#/groupes?")) return pageListes("groupe");
     if (hash === "#/repertoires") return pageListes("club");

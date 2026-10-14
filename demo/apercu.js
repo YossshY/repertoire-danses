@@ -245,6 +245,42 @@
     return { id: info.id, nom: info.nom, total: correspond.length + ajouts.length, danses };
   }
 
+  function ligneTableau(danse) {
+    return {
+      id: danse.id,
+      nom: texte(danse.nom, 180),
+      numero: texte(danse.numero, 40),
+      musique: texte(danse.musique, 180),
+      interprete: texte(danse.interprete, 180),
+      choregraphe: texte(danse.choregraphe, 180),
+      niveau: texte(danse.niveau, 40),
+      maitrise: danse.maitrise || "",
+      type: texte(danse.type, 40),
+      pas: texte(danse.pas_original || (danse.pas == null ? "" : danse.pas), 12),
+      murs: texte(danse.murs_original || (danse.murs == null ? "" : danse.murs), 12),
+      tag: texte(danse.tag, 80),
+      reprise: texte(danse.restart, 80),
+      partenaireApprise: Boolean(danse.partenaireApprise),
+      partenaireNonApprise: Boolean(danse.partenaireNonApprise),
+      pdf_fr: danse.pdf_fr,
+      extraire: Boolean(danse.extraire),
+      premiere: danse.date_premiere_vue || "",
+      choregraphie: danse.date_choregraphie || "",
+      revision: danse.date_derniere_revision || "",
+    };
+  }
+
+  function tableau() {
+    const vus = new Set();
+    const rows = [];
+    for (const danse of [...brouillons.values(), ...data.danses]) {
+      if (vus.has(danse.id)) continue;
+      vus.add(danse.id);
+      rows.push(ligneTableau(danse));
+    }
+    return rows;
+  }
+
   window.apercuApi = (path, options) => {
     const url = new URL(path, "https://apercu.local");
     if (url.pathname === "/api/accueil") {
@@ -257,6 +293,7 @@
     }
     if (url.pathname === "/api/suggestions") return suggestions(url.searchParams.get("champ") || "recherche", url.searchParams.get("q") || "");
     if (url.pathname === "/api/niveaux") return data.niveaux;
+    if (url.pathname === "/api/tableau") return tableau();
     if (url.pathname === "/api/repertoires") return data.clubs;
     if (url.pathname === "/api/catalogue") return catalogue(url.searchParams.get("genre") || "");
     if (options && options.method === "POST" && url.pathname === "/api/danses") return creer(JSON.parse(options.body || "{}"));

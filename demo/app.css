@@ -412,6 +412,50 @@ h2.section { font-size: 18px; margin: 26px 0 8px; }
 }
 h1.section { font-size: 32px; margin: 0 0 16px; }
 
+#view:has(.tableau-page) { height: calc(100vh - 74px); padding: 0; overflow: hidden; }
+.tableau-page { display: flex; flex-direction: column; height: 100%; min-height: 0; }
+.tableau-page h1 { margin: 16px 28px 4px; }
+.tableau-page .small { margin: 0 28px 10px; }
+.tableau-scroll {
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+  background: var(--paper);
+  border-top: 1px solid var(--line);
+}
+.t-bloc-entete { position: sticky; top: 0; z-index: 3; width: max-content; background: #f3e6d4; }
+.t-groupes, .t-colonnes, .t-ligne { display: grid; grid-template-columns: var(--t-cols); width: max-content; }
+.t-espace { position: relative; width: max-content; }
+.t-fenetre { position: absolute; left: 0; top: 0; }
+.t-cell, .t-tri, .t-groupe {
+  height: 36px;
+  padding: 0 10px;
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  border-right: 1px solid #efe4d6;
+  background: #fffaf3;
+  color: var(--ink);
+  font: inherit;
+  font-size: 14px;
+  line-height: 34px;
+  text-align: left;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.t-tri, .t-groupe { background: #f3e6d4; cursor: pointer; }
+.t-groupe { font-family: Georgia, "Palatino Linotype", Palatino, serif; }
+.t-pin { position: sticky; z-index: 1; background: #fffaf3; }
+.t-bloc-entete .t-pin { z-index: 4; background: #f3e6d4; }
+.t-nom { font-weight: 650; box-shadow: 1px 0 0 #c6a15a; }
+.t-ligne { cursor: pointer; }
+.t-ligne:hover .t-cell:not(.teinte) { background: #faf7f3; }
+.t-ligne:focus-visible .t-nom { outline: 2px solid var(--accent); outline-offset: -2px; }
+.t-cell.teinte.m-maitrise { background: #e4f3d4; color: #1c4d16; }
+.t-cell.teinte.m-moyenne { background: #fff1d0; color: #6a3e00; }
+.t-cell.teinte.m-aucune { background: #fde2df; color: #8b1d16; }
+.t-cell.teinte.m-laisser { background: #eeeae6; color: #3c3732; }
+
 @media (max-width: 720px) {
   body { grid-template-columns: 1fr; }
   .nav { position: sticky; z-index: 3; height: auto; gap: 10px; padding: 12px; }
@@ -421,4 +465,6 @@ h1.section { font-size: 32px; margin: 0 0 16px; }
   .hit, .grid, .form-grid, .listes { grid-template-columns: 1fr; }
   .fiche h1 { font-size: 32px; }
   #view { padding: 16px 14px 48px; }
+  #view:has(.tableau-page) { height: auto; overflow: visible; }
+  .tableau-scroll { height: 70vh; flex: none; }
 }

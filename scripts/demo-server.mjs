@@ -410,6 +410,45 @@ const repertoire = (id, q) => {
   };
 };
 
+const ligneTableau = (danse) => ({
+  id: danse.id,
+  nom: texte(danse.nom, 180),
+  numero: texte(danse.numero, 40),
+  musique: texte(danse.musique, 180),
+  interprete: texte(danse.interprete, 180),
+  choregraphe: texte(danse.choregraphe, 180),
+  niveau: texte(danse.niveau, 40),
+  maitrise: danse.maitrise || "",
+  type: texte(danse.type, 40),
+  pas: texte(danse.pas_original || (danse.pas == null ? "" : danse.pas), 12),
+  murs: texte(danse.murs_original || (danse.murs == null ? "" : danse.murs), 12),
+  tag: texte(danse.tag, 80),
+  reprise: texte(danse.restart, 80),
+  partenaireApprise: Boolean(danse.partenaireApprise),
+  partenaireNonApprise: Boolean(danse.partenaireNonApprise),
+  pdf_fr: danse.pdf_fr,
+  extraire: Boolean(danse.extraire),
+  premiere: danse.date_premiere_vue || "",
+  choregraphie: danse.date_choregraphie || "",
+  revision: danse.date_derniere_revision || "",
+});
+
+const tableau = () => {
+  const rows = db.prepare(`
+    SELECT id, nom, numero, musique_originale AS musique, interprete_original AS interprete,
+           choregraphe_original AS choregraphe, niveau_original AS niveau, type_original AS type,
+           pas, pas_original, murs, murs_original, tag, restart, pdf_fr,
+           date_premiere_vue, date_choregraphie, date_derniere_revision, source_row
+    FROM dances WHERE deleted_at IS NULL
+  `).all().map((row) => {
+    row.maitrise = maitriseDe(row.source_row);
+    appliquerNotes(row, notes);
+    delete row.source_row;
+    return ligneTableau(row);
+  });
+  return [...[...brouillons.values()].map(ligneTableau), ...rows];
+};
+
 const idOk = (value) => /^[0-9a-f-]{36}$/i.test(value || "");
 
 const server = http.createServer(async (req, res) => {
@@ -430,6 +469,7 @@ const server = http.createServer(async (req, res) => {
       return json(res, suggestions(url.searchParams.get("champ") || "recherche", url.searchParams.get("q") || ""));
     }
     if (url.pathname === "/api/niveaux") return json(res, niveaux);
+    if (url.pathname === "/api/tableau") return json(res, tableau());
     if (req.method === "POST" && url.pathname === "/api/danses") {
       const cree = creerBrouillon(await lireJson(req));
       if (cree.error) return send(res, 400, JSON.stringify({ message: cree.error }));
