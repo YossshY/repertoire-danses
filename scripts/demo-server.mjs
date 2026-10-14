@@ -433,7 +433,36 @@ const ligneTableau = (danse) => ({
   revision: danse.date_derniere_revision || "",
 });
 
+function typePointage(valeur) {
+  const marque = String(valeur || "").trim();
+  if (/^x$/i.test(marque)) return "ligne";
+  if (/^pp?$/i.test(marque)) return "partenaire";
+  return "";
+}
+
+function lienClub(clubId, nom, valeur) {
+  const type = typePointage(valeur);
+  const lien = { clubId, nom, type };
+  if (!type) {
+    const marque = texte(valeur, 40);
+    if (marque) lien.marque = marque;
+  }
+  return lien;
+}
+
 const tableau = () => {
+  const liens = new Map();
+  for (const row of db.prepare(`
+    SELECT dr.danse_id AS danse, r.id AS clubId, r.nom AS nom, dr.valeur_originale AS valeur
+    FROM danse_repertoire dr
+    JOIN repertoires r ON r.id = dr.repertoire_id
+    WHERE dr.deleted_at IS NULL AND r.deleted_at IS NULL
+  `).all()) {
+    const lien = lienClub(row.clubId, row.nom, row.valeur);
+    const liste = liens.get(row.danse);
+    if (liste) liste.push(lien);
+    else liens.set(row.danse, [lien]);
+  }
   const rows = db.prepare(`
     SELECT id, nom, numero, musique_originale AS musique, interprete_original AS interprete,
            choregraphe_original AS choregraphe, niveau_original AS niveau, type_original AS type,
@@ -444,9 +473,18 @@ const tableau = () => {
     row.maitrise = maitriseDe(row.source_row);
     appliquerNotes(row, notes);
     delete row.source_row;
-    return ligneTableau(row);
+    const ligne = ligneTableau(row);
+    ligne.associations = liens.get(row.id) || [];
+    return ligne;
   });
-  return [...[...brouillons.values()].map(ligneTableau), ...rows];
+  return [
+    ...[...brouillons.values()].map((danse) => {
+      const ligne = ligneTableau(danse);
+      ligne.associations = (danse.repertoires || []).map((rep) => lienClub(rep.id, rep.nom, rep.valeur));
+      return ligne;
+    }),
+    ...rows,
+  ];
 };
 
 const idOk = (value) => /^[0-9a-f-]{36}$/i.test(value || "");

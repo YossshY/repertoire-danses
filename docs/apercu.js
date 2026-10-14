@@ -267,7 +267,23 @@
       premiere: danse.date_premiere_vue || "",
       choregraphie: danse.date_choregraphie || "",
       revision: danse.date_derniere_revision || "",
+      associations: (danse.repertoires || []).map((rep) => {
+        const type = typePointage(rep.valeur);
+        const lien = { clubId: rep.id, nom: rep.nom, type };
+        if (!type) {
+          const marque = texte(rep.valeur, 40);
+          if (marque) lien.marque = marque;
+        }
+        return lien;
+      }),
     };
+  }
+
+  function typePointage(valeur) {
+    const marque = String(valeur || "").trim();
+    if (/^x$/i.test(marque)) return "ligne";
+    if (/^pp?$/i.test(marque)) return "partenaire";
+    return "";
   }
 
   function tableau() {

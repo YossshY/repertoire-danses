@@ -311,6 +311,30 @@ const annuaire = [
   { alias: ["Tania & Marcel"], nom: "Tania Andre", liens: ["https://www.facebook.com/profile.php?id=1400160748", "https://www.facebook.com/groups/106003142775807"] },
 ];
 
+const coordonneesClubs = [
+  { nom: "Les Rebelle's", adresse: "18 Route de Soiron, 4860 Pepinster", contact: "Josiane D'Herdt", telephone: "+32 496 18 74 68" },
+  { nom: "Riverside Country Club", adresse: "Lundi à Maillen (Assesse) / Jeudi à Emptinne (Ciney)", contact: "Christine Lefebvre" },
+  { nom: "Simply Dancers", adresse: "Centre Sportif de Tenneville, Champlon", contact: "Laurent Chalon" },
+  { nom: "Addicted Country Dancers", adresse: "Rue des Chasseurs-Ardennais, 5377 Noiseux", telephone: "+32 498 70 44 49" },
+  { nom: "JUMPERKE Line Dancers", adresse: "Lindenweg 5, 2590 Berlaar", contact: "Godelieva De Rijck", email: "godelieva@jumperke-linedancers.be" },
+];
+
+function ficheClub(nom) {
+  const cle = foldClient(nom);
+  return coordonneesClubs.find((club) => foldClient(club.nom) === cle) || null;
+}
+
+function blocCoordonnees(nom) {
+  const club = ficheClub(nom);
+  if (!club) return null;
+  const bloc = el("div", { class: "coordonnees" });
+  if (club.adresse) bloc.append(el("p", {}, [club.adresse]));
+  if (club.contact) bloc.append(el("p", {}, [club.contact]));
+  if (club.telephone) bloc.append(el("p", {}, [el("a", { href: `tel:${club.telephone.replace(/\s/g, "")}` }, [club.telephone])]));
+  if (club.email) bloc.append(el("p", {}, [el("a", { href: `mailto:${club.email}` }, [club.email])]));
+  return bloc;
+}
+
 function cleAnnuaire(valeur) {
   return foldClient(String(valeur || "")).replace(/['’.]/g, "").replace(/\s+/g, "");
 }
@@ -385,9 +409,11 @@ async function pageListes(sorte) {
   for (const rep of data) {
     const groupe = groupeConnu(rep.nom);
     const detail = groupe && cleAnnuaire(groupe.nom) !== cleAnnuaire(rep.nom) ? `${groupe.nom} · ` : "";
+    const fiche = ficheClub(rep.nom);
+    const contact = fiche ? [fiche.contact, fiche.telephone, fiche.email].filter(Boolean).join(" · ") : "";
     list.append(el("button", { class: "rep-hit", type: "button", onclick: () => { location.hash = `#/repertoire/${rep.id}`; } }, [
       el("b", {}, [rep.nom]),
-      el("span", { class: "muted" }, [`${detail}${nombre(rep.danses)} danses`]),
+      el("span", { class: "muted" }, [`${detail}${nombre(rep.danses)} danses${contact ? ` · ${contact}` : ""}`]),
     ]));
   }
   if (data.length) box.append(list);
@@ -400,6 +426,7 @@ async function pageRepertoire(id) {
   const box = el("section", {}, [
     el("button", { class: "back", type: "button", onclick: () => { location.hash = retourListe(data.nom); } }, [libelleRetour(data.nom)]),
     el("h1", { class: "section" }, [data.nom]),
+    blocCoordonnees(data.nom) || "",
     liensGroupe(data.nom) || "",
     el("p", { class: "small" }, [`${nombre(data.total)} danses${data.danses.length < data.total ? ` · ${data.danses.length} affichées` : ""}`]),
   ]);
@@ -653,8 +680,9 @@ const colonnesTableau = [
   { cle: "premiere", label: "Première vue", groupe: "historique", largeur: 130 },
   { cle: "choregraphie", label: "Chorégraphie", groupe: "historique", largeur: 140 },
   { cle: "revision", label: "Dernière révision", groupe: "historique", largeur: 150 },
+  { cle: "pointage", label: "Clubs", groupe: "pointage", largeur: 360 },
 ];
-const nomsGroupes = { infos: "Infos principales", technique: "Technique", historique: "Historique" };
+const nomsGroupes = { infos: "Infos principales", technique: "Technique", historique: "Historique", pointage: "Pointage clubs" };
 const teintesMaitrise = new Set(["maitrise", "moyenne", "aucune", "laisser"]);
 
 function textePartenaire(ligne) {
@@ -676,17 +704,51 @@ function valeurTableau(ligne, cle) {
   if (cle === "feuille") return texteFeuille(ligne);
   if (cle === "extraire") return ligne.extraire ? "Oui" : "";
   if (cle === "premiere" || cle === "choregraphie" || cle === "revision") return frDate(ligne[cle]);
+  if (cle === "pointage") return (ligne.associations || []).filter((lien) => clubLisible(lien.nom)).map((lien) => lien.nom).join(" ");
   return ligne[cle] || "";
+}
+
+function libellePointage(lien) {
+  if (lien.type === "partenaire") return `${lien.nom} · Partenaire`;
+  if (lien.type === "ligne") return `${lien.nom} · Ligne`;
+  return lien.marque ? `${lien.nom} · ${lien.marque}` : lien.nom;
 }
 
 async function pageTableau() {
   const brut = await api("/api/tableau");
-  const lignes = [...brut];
+  const toutes = [...brut];
+  const lignes = [...toutes];
   const fermes = new Set();
   const tri = { cle: "nom", sens: 1 };
+  const filtre = { clubId: "", pratique: "" };
+  const clubs = new Map();
+  for (const ligne of toutes) {
+    for (const lien of ligne.associations || []) {
+      if (!lien.clubId || !clubLisible(lien.nom) || clubs.has(lien.clubId)) continue;
+      clubs.set(lien.clubId, lien.nom);
+    }
+  }
+  const compte = el("p", { class: "small" });
+  const choixClub = el("select", {
+    onchange: (event) => { filtre.clubId = event.target.value; restreindre(); },
+  }, [el("option", { value: "" }, ["Tous les clubs"])]);
+  for (const [id, nom] of [...clubs.entries()].sort((a, b) => a[1].localeCompare(b[1], "fr", { sensitivity: "base" }))) {
+    choixClub.append(el("option", { value: id }, [nom]));
+  }
+  const choixPratique = el("select", {
+    onchange: (event) => { filtre.pratique = event.target.value; restreindre(); },
+  }, [
+    el("option", { value: "" }, ["Toute pratique"]),
+    el("option", { value: "ligne" }, ["Ligne seulement"]),
+    el("option", { value: "partenaire" }, ["Partenaire seulement"]),
+  ]);
   const page = el("section", { class: "tableau-page" }, [
     el("h1", { class: "section" }, ["Tableau"]),
-    el("p", { class: "small" }, [`${nombre(lignes.length)} danses. Le nom reste à gauche, les groupes se replient.`]),
+    compte,
+    el("div", { class: "t-filtres" }, [
+      champ("Club", choixClub),
+      champ("Pratique", choixPratique),
+    ]),
   ]);
   const scroll = el("div", { class: "tableau-scroll" });
   const entete = el("div", { class: "t-bloc-entete" });
@@ -792,6 +854,19 @@ async function pageTableau() {
     return bouton;
   }
 
+  function cellulePointage(ligne) {
+    let liens = (ligne.associations || []).filter((lien) => clubLisible(lien.nom));
+    if (filtre.clubId) liens = liens.filter((lien) => lien.clubId === filtre.clubId && (!filtre.pratique || lien.type === filtre.pratique));
+    const node = el("div", { class: "t-cell t-pointage", title: liens.map(libellePointage).join(" · ") });
+    for (const lien of liens.slice(0, 2)) {
+      const sorte = lien.type === "partenaire" ? "partenaire" : lien.type === "ligne" ? "ligne" : "marque";
+      const texte = lien.type === "partenaire" ? `🤝 ${lien.nom}` : (lien.marque || lien.nom);
+      node.append(el("span", { class: `pastille ${sorte}` }, [texte]));
+    }
+    if (liens.length > 2) node.append(el("span", { class: "pastille suite" }, [`+${liens.length - 2}`]));
+    return node;
+  }
+
   function dessinerLignes(cols) {
     const hauteur = 36;
     const tete = entete.offsetHeight;
@@ -811,10 +886,36 @@ async function pageTableau() {
         onclick: () => { location.hash = `#/danse/${ligne.id}`; },
         onkeydown: (event) => { if (event.key === "Enter") location.hash = `#/danse/${ligne.id}`; },
       });
-      for (const col of cols) row.append(cellule(col, col.repli ? "" : valeurTableau(ligne, col.cle), col.teinte ? ligne.maitrise : ""));
+      for (const col of cols) {
+        row.append(col.cle === "pointage" ? cellulePointage(ligne) : cellule(col, col.repli ? "" : valeurTableau(ligne, col.cle), col.teinte ? ligne.maitrise : ""));
+      }
       fragment.append(row);
     }
     fenetre.replaceChildren(fragment);
+  }
+
+  function ecrireCompte() {
+    const texte = lignes.length === toutes.length
+      ? `${nombre(toutes.length)} danses. Le nom reste à gauche, les groupes se replient.`
+      : `${nombre(lignes.length)} danses sur ${nombre(toutes.length)}.`;
+    compte.textContent = texte;
+  }
+
+  function garde(ligne) {
+    if (!filtre.clubId && !filtre.pratique) return true;
+    return (ligne.associations || []).some((lien) => {
+      if (filtre.clubId && lien.clubId !== filtre.clubId) return false;
+      if (filtre.pratique && lien.type !== filtre.pratique) return false;
+      return true;
+    });
+  }
+
+  function restreindre() {
+    lignes.length = 0;
+    for (const ligne of toutes) if (garde(ligne)) lignes.push(ligne);
+    scroll.scrollTop = 0;
+    vuDebut = -1;
+    preparer();
   }
 
   function preparer() {
@@ -822,6 +923,7 @@ async function pageTableau() {
     const cols = colonnesActives();
     scroll.style.setProperty("--t-cols", cols.map((col) => `${col.largeur}px`).join(" "));
     dessinerEntete(cols);
+    ecrireCompte();
     vuDebut = -1;
     dessinerLignes(cols);
     scroll._colonnes = cols;
