@@ -136,51 +136,12 @@ function organiserListes(reps) {
   return { listes, passages };
 }
 
-async function accueil() {
-  const [data, reps] = await Promise.all([api("/api/accueil"), api("/api/repertoires")]);
-  const clubs = reps.filter((rep) => clubLisible(rep.nom)).length;
-  const box = el("section", { class: "hero" }, [
-    el("p", { class: "eyebrow" }, ["Danse country"]),
-    el("h1", {}, ["Le répertoire des danses country."]),
-    el("p", { class: "lede" }, ["Retrouvez une danse par son nom, sa musique, son artiste ou son chorégraphe, puis voyez dans quels clubs elle se danse."]),
-    el("div", { class: "figures" }, [
-      el("div", { class: "figure" }, [el("strong", {}, [nombre(data.danses)]), el("span", {}, ["danses"])]),
-      el("div", { class: "figure" }, [el("strong", {}, [nombre(clubs)]), el("span", {}, ["listes"])]),
-    ]),
-    el("div", { class: "row" }, [
-      el("button", { class: "choice", type: "button", onclick: () => location.hash = "#/saisie" }, [
-        el("strong", {}, ["Nouvelle danse"]),
-        el("span", {}, ["Saisie avec suggestions"]),
-      ]),
-      el("button", { class: "choice", type: "button", onclick: lancerRecherche }, [
-        el("strong", {}, ["Rechercher"]),
-        el("span", {}, ["Nom, musique, artiste"]),
-      ]),
-      el("button", { class: "choice", type: "button", onclick: () => location.hash = "#/repertoires" }, [
-        el("strong", {}, ["Listes"]),
-        el("span", {}, ["Clubs et listes de lecture"]),
-      ]),
-    ]),
-    el("div", { class: "row" }, [
-      el("button", { class: "choice", type: "button", onclick: () => location.hash = "#/danses" }, [el("strong", {}, ["Danses"]), el("span", {}, ["Ordre alphabétique"])]),
-      el("button", { class: "choice", type: "button", onclick: () => location.hash = "#/chansons" }, [el("strong", {}, ["Chansons"]), el("span", {}, ["Musiques"])]),
-      el("button", { class: "choice", type: "button", onclick: () => location.hash = "#/groupes" }, [el("strong", {}, ["Groupes"]), el("span", {}, ["Artistes"])]),
-      el("button", { class: "choice", type: "button", onclick: () => location.hash = "#/playlists" }, [el("strong", {}, ["Listes de lecture"]), el("span", {}, ["Séries à confirmer"])]),
-    ]),
-  ]);
-  if (data.exemples.length) {
-    box.append(el("p", { class: "small" }, ["Par exemple"]));
-    box.append(el("div", { class: "row" }, data.exemples.map((item) => el("button", {
-      class: "chip",
-      type: "button",
-      onclick: () => { location.hash = `#/danse/${item.id}`; },
-    }, [item.nom]))));
-  }
-  show(box);
+function comparerNom(a, b) {
+  return String(a.nom || a.label || "").localeCompare(String(b.nom || b.label || ""), "fr", { sensitivity: "base", numeric: true });
 }
 
 function resultats(data, q) {
-  const items = data.danses || [];
+  const items = [...(data.danses || [])].sort(comparerNom);
   const total = data.total ?? items.length;
   const compte = !items.length
     ? "Aucun résultat"
@@ -408,7 +369,7 @@ async function pageRepertoire(id) {
     el("p", { class: "small" }, [`${nombre(data.total)} danses${data.danses.length < data.total ? ` · ${data.danses.length} affichées` : ""}`]),
   ]);
   const list = el("div", { class: "panel list" });
-  for (const danse of data.danses) {
+  for (const danse of [...data.danses].sort(comparerNom)) {
     const detail = detailDanse(danse, data.nom);
     list.append(el("button", { class: "hit", type: "button", onclick: () => { location.hash = `#/danse/${danse.id}`; } }, [
       el("b", {}, [danse.nom || "Sans nom"]),
@@ -614,15 +575,29 @@ function pageSaisie() {
   show(el("section", {}, [el("h1", { class: "section" }, ["Nouvelle danse"]), form]));
 }
 
+function marquerMenu() {
+  const hash = location.hash || "#/danses";
+  for (const bouton of document.querySelectorAll(".menu [data-route]")) {
+    const route = bouton.dataset.route;
+    const liste = route === "#/repertoires" && hash.startsWith("#/repertoire/");
+    const danse = route === "#/danses" && hash.startsWith("#/danse/");
+    bouton.classList.toggle("on", hash === route || hash.startsWith(`${route}?`) || liste || danse);
+  }
+  document.querySelector("#nouvelle").classList.toggle("on", hash === "#/saisie");
+}
+
 async function route() {
   input._fermerSuggestions?.();
-  const hash = location.hash || "#/";
+  if (!location.hash || location.hash === "#" || location.hash === "#/") {
+    history.replaceState(null, "", `${location.pathname}${location.search}#/danses`);
+  }
+  marquerMenu();
+  const hash = location.hash;
   try {
-    if (hash === "#/" || hash === "#") return accueil();
     if (hash.startsWith("#/recherche")) {
       const q = new URLSearchParams(hash.slice(hash.indexOf("?"))).get("q") || input.value.trim();
       input.value = q;
-      if (foldClient(q).length < 2) return accueil();
+      if (foldClient(q).length < 2) return pageCatalogue("danses");
       return resultats(await api(`/api/recherche?q=${encodeURIComponent(q)}`), q);
     }
     if (hash === "#/saisie") return pageSaisie();
@@ -633,7 +608,7 @@ async function route() {
     if (danseMatch) return fiche(await api(`/api/danses/${danseMatch[1]}`));
     const repMatch = hash.match(/^#\/repertoire\/([0-9a-f-]{36})$/i);
     if (repMatch) return pageRepertoire(repMatch[1]);
-    return accueil();
+    return pageCatalogue("danses");
   } catch {
     show(el("p", {}, ["Ces données ne s'affichent pas. Relancez l'aperçu."]));
   }
@@ -757,7 +732,7 @@ function allerCatalogue(genre, lettre, filtre) {
 
 async function pageCatalogue(genre) {
   const [titre, hint] = pagesCatalogue[genre];
-  const entrees = [...await api(`/api/catalogue?genre=${genre}`)].sort((a, b) => a.label.localeCompare(b.label, "fr", { sensitivity: "base" }));
+  const entrees = [...await api(`/api/catalogue?genre=${genre}`)].sort(comparerNom);
   const query = new URLSearchParams(location.hash.split("?")[1] || "");
   const filtre = genre === "danses" ? (query.get("filtre") || "") : "";
   const retenues = filtre ? entrees.filter((item) => gardeDanse(item, filtre)) : entrees;
@@ -862,7 +837,19 @@ document.querySelector("#nouvelle").addEventListener("click", () => {
   if (location.hash === "#/saisie") route();
   else location.hash = "#/saisie";
 });
-brand.addEventListener("click", () => { input.value = ""; location.hash = "#/"; });
+for (const bouton of document.querySelectorAll(".menu [data-route]")) {
+  bouton.addEventListener("click", () => {
+    input.value = "";
+    const next = bouton.dataset.route;
+    if (location.hash === next) route();
+    else location.hash = next;
+  });
+}
+brand.addEventListener("click", () => {
+  input.value = "";
+  if (location.hash === "#/danses") route();
+  else location.hash = "#/danses";
+});
 window.addEventListener("hashchange", route);
 document.querySelector("#lecteur-play").addEventListener("click", () => commandeLecteur("playVideo"));
 document.querySelector("#lecteur-pause").addEventListener("click", () => commandeLecteur("pauseVideo"));

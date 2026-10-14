@@ -37,9 +37,7 @@
     const sa = a.nom_semantic === "renseigne" ? 0 : 1;
     const sb = b.nom_semantic === "renseigne" ? 0 : 1;
     if (sa !== sb) return sa - sb;
-    if (a.nom < b.nom) return -1;
-    if (a.nom > b.nom) return 1;
-    return 0;
+    return String(a.nom || "").localeCompare(String(b.nom || ""), "fr", { sensitivity: "base", numeric: true });
   }
 
   function trouve(q) {
